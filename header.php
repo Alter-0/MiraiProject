@@ -119,7 +119,7 @@ if (empty($_SESSION["user"])) {
     <div class="con">
         <section class="left">
             <!--logo-->
-            <a href="main.php">
+            <a href="main/main.html">
                 <img src="image/logo.png" alt="logo" height="50px" width="105px">
             </a>
             <!--新番-->
@@ -130,7 +130,7 @@ if (empty($_SESSION["user"])) {
 
         <section class="right">
             <!--头像-->
-            <a href="#">
+            <a href="auth/user.html">
                 <img src="
                     <?php
                 echo "$url";
@@ -156,7 +156,7 @@ if (empty($_SESSION["user"])) {
         </section>
 
         <section class="middle">
-            <form action="#">
+            <form action="index/index.html">
                 <label>
                     <input type="text" value="" placeholder="请输入要搜索的番剧">
                 </label>
