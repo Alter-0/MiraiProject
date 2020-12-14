@@ -15,7 +15,7 @@
         }
 
         a:hover {
-            color: #6ca3ff;
+            color: #6cc4ff;
             transition: all 0.3s;
         }
 
@@ -123,7 +123,7 @@ if (empty($_SESSION["user"])) {
                 <img src="image/logo.png" alt="logo" height="50px" width="105px">
             </a>
             <!--新番-->
-            <a href="//animate/new.html" class="text">
+            <a href="animate/new.php" class="text">
                 新番
             </a>
         </section>
