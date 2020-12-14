@@ -185,7 +185,7 @@
             left: 0;
             z-index: 20;
             box-sizing: border-box;
-            border-radius: 10px 0 0 0;
+            border-radius: 10px 0 10px 0;
             text-align: center;
             vertical-align: center;
             color: white;
