@@ -119,7 +119,7 @@ if (empty($_SESSION["user"])) {
     <div class="con">
         <section class="left">
             <!--logo-->
-            <a href="main/main.html">
+            <a href="main/main.html" target="_top">
                 <img src="image/logo.png" alt="logo" height="50px" width="105px">
             </a>
             <!--新番-->
