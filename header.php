@@ -12,6 +12,7 @@
         a {
             color: #ffffff;
             text-decoration: none;
+            transition: all 0.3s;
         }
 
         a:hover {
@@ -69,6 +70,7 @@
             display: inline-block;
             margin: 10px;
             opacity: 0.5;
+            transition: all .5s;
         }
 
         header .con .middle:hover {
@@ -123,14 +125,14 @@ if (empty($_SESSION["user"])) {
                 <img src="image/logo.png" alt="logo" height="50px" width="105px">
             </a>
             <!--新番-->
-            <a href="animate/new.php" class="text">
+            <a href="animate/new.php" target="_top" class="text">
                 新番
             </a>
         </section>
 
         <section class="right">
             <!--头像-->
-            <a href="auth/user.html">
+            <a href="auth/user.html" target="_top">
                 <img src="
                     <?php
                 echo "$url";
@@ -144,7 +146,7 @@ if (empty($_SESSION["user"])) {
             } else {
                 echo "auth/user.php";
             }
-            ?>" class="text">
+            ?>" target="_top" class="text">
                 <?php
                 if ($is_login == true) {
                     echo "追番";
@@ -156,7 +158,7 @@ if (empty($_SESSION["user"])) {
         </section>
 
         <section class="middle">
-            <form action="index/index.html">
+            <form action="index/index.html" target="_top">
                 <label>
                     <input type="text" value="" placeholder="请输入要搜索的番剧">
                 </label>
