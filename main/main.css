@@ -31,10 +31,11 @@
 /*feilei*/
 .index{
 	width:80%;
-	height: 330px;
+	height: 370px;
 	margin: 20px auto 0 auto ;
 	border-top: 1px solid #AFAFAF;
 	position: relative;
+	overflow: hidden;
 }
 .index .fenlei{
 	width: 100%;
@@ -81,6 +82,7 @@
 	width: 20%;
 	height: 330px;
 	float: left;
+	overflow: hidden;
 }
 .lunbotu ul li img{
 	width:100%;
@@ -145,15 +147,21 @@
 	height: 350px;
 	width: 80%;
 	margin: 20px auto 0 auto;
+	position: relative;
+/*	background: #1121B9*/
 }
+
 /*the left of the update*/
 .update .left{
-	height: 100%;
+	height: 350px;
 	width: 80%;
+	float: left;
+	background: #DE0205
 }
-.update .left .title{
+/*.update .left .title{
 	margin-bottom: 10px;
 	height: 24px;
+	width: 100%;
 }
 .update .left .title span:nth-child(0){
 	font-size: 24px;
@@ -161,11 +169,11 @@
 }
 .update .left .title span:nth-child(1){
 	float: right;
-}
-.update .left .content{
-	width: 100%;
-	height: 316px;
-	
-}
+}*/
 
-
+/*the right of the update*/
+.update .right{
+	height:350px;
+	width: 17%;
+	margin-left: 3%;background: #DE0205
+}
