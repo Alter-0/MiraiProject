@@ -85,6 +85,12 @@
             height: 165px;
         }
 
+        li{
+            line-height: 250px;
+            text-align: left;
+            margin-left: 5%;
+        }
+
 
     </style>
 </head>
@@ -99,7 +105,29 @@
         </div>
 
         <div class="content">
-
+            <ul>
+                <li>
+                    周一
+                </li>
+                <li>
+                    周二
+                </li>
+                <li>
+                    周三
+                </li>
+                <li>
+                    周四
+                </li>
+                <li>
+                    周五
+                </li>
+                <li>
+                    周六
+                </li>
+                <li>
+                    周日
+                </li>
+            </ul>
         </div>
 
     </div>
