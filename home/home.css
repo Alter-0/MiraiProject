@@ -1,0 +1,173 @@
+@charset "utf-8";
+/* CSS Document */
+* {margin: 0;padding: 0;border: 0;list-style: none;}
+
+.top{
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+.top iframe{
+	width: 100%;
+	height:50px;
+	position: relative;
+	z-index: 1000;
+	background: #E70003
+}
+
+.img1{
+	width: 100%;
+	height: 200px;
+	background: #3E10F2;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+.img1 img{
+	width: 100%;
+	height: auto;
+	
+}
+/*feilei*/
+.index{
+	width:80%;
+	height: 330px;
+	margin: 20px auto 0 auto ;
+	border-top: 1px solid #AFAFAF;
+	position: relative;
+}
+.index .fenlei{
+	width: 100%;
+	height: 20px;
+}
+.index .fenlei ul{
+	height: 20px;
+	width: auto;
+	float: left;
+}
+.index .fenlei ul li{
+	float: left;
+	margin-right: 10px;
+}
+.index .fenlei ul li a{
+	font-size: 20px;
+}
+.index .fenlei ul li a:hover{
+	color: #479BB8;
+}
+.index .fenlei .logo1{
+	float: right;
+	width: 80px;
+	height: 20px;
+}
+
+
+
+/*轮播效果*/
+.wrap{
+	width: 100%;
+	height: 330px;
+	margin-top: 20px ;
+	position: relative;
+	overflow: hidden;
+}
+.wrap ul {
+	position: absolute;
+    top: 0;
+    width:500%;
+    left: 0;
+}
+.wrap ul li{
+	width: 20%;
+	height: 330px;
+	float: left;
+}
+.lunbotu ul li img{
+	width:100%;
+	height: auto;
+	overflow: hidden;
+}
+
+/* 导航栏 */
+.left,.right {
+    position: absolute;
+    width: 20px;
+    height: 50px;
+    line-height: 50px;
+    top: 50%;
+    margin-top: -15px;
+    background: rgba(0, 0, 0, .2);
+    text-decoration: none;
+    color: white;
+    display: none;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+    text-align: right;
+}
+
+
+/* 圆点 */
+
+#list {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+#list li {
+    float: left;
+    background: #ccc;
+    color: #fff;
+    font-weight: bold;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+    margin-right: 1px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+#list .on {
+    background: #088bcf;
+    color: red;
+}
+
+
+/*update */
+.update{
+	height: 350px;
+	width: 80%;
+	margin: 20px auto 0 auto;
+	background: #C93638
+
+}
+/*the left of the update*/
+.update .left{
+	height: 100%;
+	width: 80%;
+}
+.update .left .title{
+	margin-bottom: 10px;
+	height: 24px;
+}
+.update .left .title span:nth-child(0){
+	font-size: 24px;
+	float: left;
+}
+.update .left .title span:nth-child(1){
+	float: right;
+}
+.update .left .content{
+	width: 100%;
+	height: 316px;
+	
+}
+
+
