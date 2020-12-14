@@ -87,10 +87,10 @@
 
         .box {
             height: auto;
-            margin: 20px 20px 20px 40px;
+            margin: 20px 20px 20px 20px;
             padding-top: 30px;
             box-sizing: content-box;
-            border-left: 2px solid #8c9299;
+            /*border-left: 2px solid #8c9299;*/
             overflow: hidden;
         }
 
@@ -99,9 +99,20 @@
             text-align: left;
             vertical-align: top;
             padding-top: 10px;
-            margin-left: 5%;
+            margin-left: 2%;
+            margin-right: 2%;
             font-size: 20px;
             /*list-style-type: disc;*/
+        }
+
+        li:after {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            left: -5.5px;
+            top: 10px;
+            box-sizing: border-box;
         }
 
         .week {
@@ -116,9 +127,10 @@
             height: 280px;
             margin-left: 1%;
             float: left;
+            position: relative;
         }
 
-        .out_right{
+        .out_right {
             height: auto;
             width: 100%;
             margin-left: 60px;
@@ -153,10 +165,31 @@
             text-decoration: none;
             transition: all 0.3s;
             display: block;
+            z-index: 10;
         }
 
         a:hover {
             color: #37afff;
+        }
+
+        .fan {
+            position: relative;
+        }
+
+        .over {
+            width: 40px;
+            height: 30px;
+            background: rgba(101, 101, 101, 0.6);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 20;
+            box-sizing: border-box;
+            border-radius: 10px 0 0 0;
+            text-align: center;
+            vertical-align: center;
+            color: white;
+            font-size: 20px;
         }
 
     </style>
@@ -168,15 +201,21 @@
 function animate($week)
 {
     include "../conn.php";
-    $sql = "select animate_id,name,cover,up_date,is_finish from animate where is_finish=0";
+    $sql = "select animate_id,name,cover,up_date,is_finish,index_show from animate where is_finish=0";
     $result = mysqli_query($conn, $sql) or die("数据查询失败");
 
     while ($row = mysqli_fetch_assoc($result)) {
         if ($row['is_finish'] == 0) {
             if (strcmp($row['up_date'], $week) == 0) {
+                $num = $row['index_show'];
+                preg_match_all('/\d+/', $num, $res);
+                $num = join('', $res[0]);
                 echo "
 <div class='right'>
 <div class='fan'>
+<div class='over'>
+$num
+</div>
 <a href='detail.php?$row[animate_id]'>
 <img src='$row[cover]' alt=''>
 </a>
@@ -188,10 +227,6 @@ function animate($week)
             }
         }
     }
-}
-
-function week(){
-    $weekarray=["周日",];
 }
 
 ?>
@@ -211,7 +246,11 @@ function week(){
                 <ul>
                     <li>
                         <div class="week">
-                            <span>周一</span>
+                            <span <?php
+                            if (date("w", time()) == 1) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>>周一</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周一'); ?>
@@ -219,7 +258,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周二</span>
+                            <span <?php
+                            if (date("w", time()) == 2) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周二</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周二'); ?>
@@ -227,7 +271,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周三</span>
+                            <span <?php
+                            if (date("w", time()) == 3) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周三</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周三'); ?>
@@ -235,7 +284,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周四</span>
+                            <span <?php
+                            if (date("w", time()) == 4) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周四</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周四'); ?>
@@ -243,7 +297,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周五</span>
+                            <span <?php
+                            if (date("w", time()) == 5) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周五</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周五'); ?>
@@ -251,7 +310,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周六</span>
+                            <span <?php
+                            if (date("w", time()) == 6) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周六</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周六'); ?>
@@ -259,7 +323,12 @@ function week(){
                     </li>
                     <li>
                         <div class="week">
-                            <span>周日</span>
+                            <span <?php
+                            if (date("w", time()) == 0) {
+                                echo "style='color: rgb(244, 115, 115)'";
+                            }
+                            ?>
+                            >周日</span>
                         </div>
                         <div class="out_right">
                             <?php animate('周日'); ?>
