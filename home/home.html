@@ -5,21 +5,54 @@
     <title>home</title>
 </head>
 <style>
-	.bg{
-		height: 1536px;
+	.content{
+		width: 100%;
+		height: 100vh;
+		background-size: cover;
+		background-image: url("https://api.btstu.cn/sjbz/?lx=dongman")
 	}
-	</style>
+	.content .bg{
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0,0,0,0.3);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: rgba(255,255,255,0.8);
+	}
+	#logo{
+		font-size: 56px;
+		margin: 0 auto 10 auto;
+	}
+	#slogan{
+		height: 21px;
+		width: 240px;
+		margin: 0 auto;
+	}
+	.more{
+		margin-top: 30px;
+		border: solid 1px rgba(255,255,255,0.8);
+		border-radius: 4px;
+		padding: 10px 30px;
+		cursor: pointer;
+		display: inline-block;
+	}
+	.more:hover{
+		background-color: rgba(0,0,0,0.2);
+	}
+	</style><br>
 <body>
+<div class="content" id="content">
 <div class="bg">
 	<div>
-		<div id="logo">logo</div>
-		<div id="slogan">二次元即使幻想，依旧很美好</div>
+		<div id="logo">ACGF</div>
+		<div id="slogan">二次元即使幻想，依旧很美好.</div>
 	</div>
 	<div>
 		<div class="more" onClick="goPath('/main')">进入网站</div>
 	</div>
-	
 </div>
-	
+</div>
 </body>
 </html>
