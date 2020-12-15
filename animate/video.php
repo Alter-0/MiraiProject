@@ -35,6 +35,13 @@
         echo $row_animate['name'] . "-第" . $row_video['no'] . "集";
         ?></title>
 
+    <!--引入dplayer-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/dplayer/1.25.0/DPlayer.min.css" />
+    <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.bootcss.com/dplayer/1.25.0/DPlayer.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../css/default.css">
     <style>
 
@@ -125,7 +132,7 @@
             max-height: 200px;
             box-sizing: border-box;
             border-radius: 10px;
-            box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.3);
+            box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.3);
             display: block;
             object-fit: cover;
             transition: all 0.5s;
@@ -421,7 +428,7 @@
 </body>
 
 <!--js部分-->
-<script src="../../node_modules/dplayer/dist/DPlayer.min.js"></script>
+<!--<script src="../../node_modules/dplayer/dist/DPlayer.min.js"></script>-->
 <script type="text/javascript">
     const dp = new DPlayer({
         container: document.getElementById('dplayer'),
@@ -458,5 +465,6 @@
     }
 
     episode_card.style.height = video_card.clientHeight - 46 + "px";
+
 </script>
 </html>

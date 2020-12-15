@@ -198,7 +198,7 @@ function animate($week)
                             <img src='$row[cover]' alt=''>
                         </a>
                         <div class='text'>
-                            <a href='detail.php?$row[animate_id]'>$row[name]</a>
+                            <a href='detail.php?animate_id=$row[animate_id]'>$row[name]</a>
                         </div>
                     </div>
                 </div>";
