@@ -22,7 +22,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
 
 ?>
 <head>
-    <script src="jquery.js"></script>
+    <script src="../js/jquery.js"></script>
     <meta charset="UTF-8" name="referrer" content="never">
     <title><?php
         echo $animateinfo["name"];
@@ -783,9 +783,9 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                                             preg_match_all('/\d+/', $num, $res);
                                             $num = join('', $res[0]);
                                             if($num<=12){
-                                                echo '<li class="sl_nav_list_item on" >第1话-第'.$num.'话</li>';
+                                                echo '<li class="sl_nav_list_item on" id="on">第1话-第'.$num.'话</li>';
                                             }else{
-                                                echo '<li class="sl_nav_list_item on" >第1话-第12话</li>';
+                                                echo '<li class="sl_nav_list_item on" id="on">第1话-第12话</li>';
                                                 $j=24;
                                                 while ($num>$j){
                                                     echo '<li class="sl_nav_list_item" >第'.($j-11).'话-第'.$j.'话</li>';
@@ -806,18 +806,56 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                             <div class="sl_list">
                                 <ul>
                                     <script>
-                                        var start_no=document.getElementsByClassName('sl_nav_list_item on')[0].val();
-                                        alert(start_no)
+                                        var start_no_end=$("#on").text();
+                                        function getnowSNE(){
+                                            var start_no_end=$("#on").text();
+
+                                        }
+                                        var SNE=start_no_end.match(/\d+(.\d+)?/g);
+                                        var startno=SNE[0];
+                                        var endno=SNE[1];
                                     </script>
                                     <?php
+                                    $startno ='<script>document.writeln(startno);</script>';
 
 
-                                    $videosql="select * from video where animate_id='$animate_id' order by no limit ";
-                                    $videoresult=mysqli_query($conn,$videosql) or die("失败".$tagssql);
-                                    $videoinfo=mysqli_fetch_array($videoresult);
+                                    $intstrartno=intval($startno);
+//                                    $intstrartno=$intstrartno-1;
 
 
-                                    echo '<li title="第'.$num.'话" class="misl_ep_item">';
+
+                                    $endno='<script>document.writeln(endno);</script>';
+                                    $aaa=$endno;
+//                                    $endno=trim($endno);
+//                                    preg_match_all('/\d+/', $endno, $aaaa);
+//                                    $intendno = join('', $aaaa[0]);
+                                    $intendno=intval($endno);
+
+
+                                    var_dump($intendno);
+                                    echo $intendno;
+
+                                    var_dump($aaa);
+                                    echo $aaa;
+                                    echo "aaaaaaaaa".$intendno;
+                                    $videosql="select * from video where animate_id='".$animate_id."' and no!=0 order by no limit ".$intstrartno.",".$intendno;
+                                    $videoresult=mysqli_query($conn,$videosql) or die("失败".$videosql);
+
+                                    while ($videoinfo=mysqli_fetch_array($videoresult)){
+                                        echo '<li title="第'.$videoinfo["no"].'话" class="misl_ep_item">';
+                                        echo '<div class="misl_ep_img">';
+                                        echo '<div class="common_lazy_img">';
+                                        echo '<img alt="'.$videoinfo["no"].'" src="'.$videoinfo["cover"].'" >';
+                                        echo '</div>';
+                                        echo '</div>';
+                                        echo '<div class="misl_ep_text">';
+                                        echo '<div class="misl_ep_index">第'.$videoinfo["no"].'话</div>';
+                                        echo '<div class="misl_ep_title">'.$videoinfo["name"].'</div>';
+                                        echo '</li>';
+                                    }
+
+
+
                                     ?>
                                     <li title="1111" class="misl_ep_item">
                                         <div class="misl_ep_img">
