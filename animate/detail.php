@@ -5,6 +5,18 @@
     <title>Mirai-番剧详情</title>
 
     <style>
+        .header{
+            width: 100%;
+            height: 50px;
+            position: relative;
+            z-index: 1000;
+
+        }
+
+        .footer {
+            width: 100%;
+            height: 165px;
+        }
         .circle_process{
 
             position: relative;
@@ -389,7 +401,7 @@
             margin-left:28px ;
         }
 
-        .tab_nav ul li.on, .tab_nav ul li :hover{
+        .tab_nav ul li.on , .tab_nav ul li:hover{
             color: #00a1d6;
             border-bottom-color:#00a1d6 ;
         }
@@ -406,6 +418,8 @@
 
 
         .content{
+            /*visibility: hidden;*/
+            /*display: none;*/
             position: relative;
             top: -40px;
             width: auto;
@@ -415,6 +429,7 @@
         }
 
         .detail_card{
+            padding: 25px;
             height: 100%;
             width: 70.7%;
             /*margin-right: 15px;*/
@@ -427,9 +442,9 @@
             box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
         }
         .actors_card{
-            font-family: 幼圆, serif;
             width:27.3%;
             /*min-width: 415px;*/
+            min-height: 500px;
             text-align: left;
             float: right;
             padding:25px 20px 25px 20px;
@@ -442,38 +457,212 @@
         }
         .actors_title{
             font-family: 幼圆, serif;
-            font-size:18px;
+            font-size:20px;
             font-weight: 700;
         }
         .staff_card{
             width:27.3%;
             /*min-width: 415px;*/
             text-align: left;
+            min-height: 500px;
+
             float: right;
             margin-top: 15px;
+            padding:25px 20px 25px 20px;
+            line-height: 30px;
+            font-size: 15px;
+            background: rgba(255,255,255,0.8);
+            box-sizing: border-box;
+            border-radius: 15px;
+            box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+        }
+        .staff_title{
+            font-family: 幼圆, serif;
+            font-size:20px;
+            font-weight: 700;
+        }
+
+        .more{
+            display: none;
+            visibility: visible;
+            position: relative;
+            top: -40px;
+            width: auto;
+            height: 2000px;
+            margin: 15px 10% 200px 10%;
+        }
+        .morecard{
+            height: 100%;
             background: rgba(255,255,255,0.8);
             box-sizing: border-box;
             border-radius: 15px;
             box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
         }
 
-        .header{
-            width: 100%;
-            height: 50px;
+        .ep_nav_title{
+            float: left;
+            font-weight: 700;
+            font-size: 19px;
+            color: #212121;
+            line-height: 25px;
+        }
+        .ep_nav{
             position: relative;
-            z-index: 1000;
+            height: 29px;
+            margin-left: 60px;
+            padding-right: 129px;
+        }
+        .slide_content{
+            overflow: hidden;
+        }
+        .sl_nav_list{
+            transition: transform 0.3s ease 0s;
+            transform: translateX(0px);
+        }
+        .sl_nav_list li{
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            margin: 2px 30px 0 0;
+            line-height: 20px;
+            height: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0);
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .sl_nav_list .sl_nav_list_item.on{
+            color: #00a1d6;
+            border-bottom-color: #00a1d6;
 
         }
+        .sl_nav_list .sl_nav_list_item.on:after{
+            content: "";
+            position: absolute;
+            top:17px;
+            left: 34px;
+            transform: translateX(-3px);
+            border-bottom: 3px solid #00a1d6;
+            border-top: 0;
+            border-left: 3px solid rgba(0,0,0,0);
+            border-right: 3px solid rgba(0,0,0,0);
+            box-sizing: border-box;
 
-        .footer {
+        }
+        .sl_nav_list li:hover{
+            color: #00a1d6;
+
+        }
+        .mode_select{
+            position: absolute;
+            right: 0;
+            top:4px;
+            padding-left: 10px;
+            border-left: 2px solid #e5e9ef;
+        }
+        .mode_select li{
+            width: 16px;
+            height: 16px;
+            float: left;
+            margin-right: 10px;
+            background-repeat: no-repeat;
+            background-image: url(http://s1.hdslb.com/bfs/static/review/media/asserts/icons.png);
+            cursor: pointer;
+        }
+        .mode_select li:last-child{
+            margin-right: 0;
+        }
+        .mode_select li.simple_mode{
+            background-position: -281px -1880px;
+        }
+        .mode_select li.simple_mode:hover,.mode_select li.simple_mode.selected{
+            background-position: -345px -1880px;
+        }
+
+        .mode_select li.detail_mode{
+            background-position: -279px -1815px;
+        }
+        .mode_select li.detail_mode:hover,.mode_select li.detail_mode.selected{
+            background-position: -343px -1815px;
+        }
+        .sl_list{
+            clear: both;
+        }
+        .sl_list ul{
+            padding-top:10px;
+            margin: 20px -20px 0 0;
+            height: auto;
+            overflow: hidden;
+        }
+        .misl_ep_item{
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 20px 20px 0;
+            width: 205px;
+            height: 60px;
+            cursor: pointer;
+            background-color: #f4f5f7;
+            border: 1px solid #f4f5f7;
+            border-radius:4px;
+            box-sizing: border-box;
+        }
+        .misl_ep_item .misl_ep_img{
+            position: relative;
+            float: left;
+            width: 96px;
+            height: 60px;
+            margin: -1px;
+            border-radius: 4px 0 0 4px;
+            overflow: hidden;
+        }
+        .common_lazy_img img{
+            display: block;
             width: 100%;
-            height: 165px;
+            height: 100%;
         }
+        .misl_ep_item .misl_ep_text{
+            margin-left: 100px;
+            padding-right: 9px;
+        }
+        .misl_ep_item .misl_ep_text .misl_ep_index,.misl_ep_item .misl_ep_text .misl_ep_title{
+            font-size: 12px;
+            line-height: 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .misl_ep_item:hover .misl_ep_text .misl_ep_index,.misl_ep_item:hover .misl_ep_text .misl_ep_title{
+            color: #00a1d6;
+        }
+        .misl_ep_item .misl_ep_text .misl_ep_index{
+            padding-top: 5px;
+            color: #2d2d2d;
+            height: 16px;
+            white-space: nowrap;
+        }
+        .misl_ep_item .misl_ep_text .misl_ep_title{
+            display: -webkit-box;
+            -webkit-line-clamp:2;
+            -webkit-box-orient:vertical;
+            white-space: normal;
+            margin-top: 1px;
+            color: #6d757a;
+            max-height: 32px;
+            word-break: break-word;
+
+        }
+
+
+
+
+
+
 
 
     </style>
 </head>
+
 <body>
+
 <div class="all">
     <div class="main">
         <iframe src="../header.php" class="header" scrolling="no"></iframe>
@@ -535,40 +724,293 @@
             </div>
             <img id="bg" src="http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png">
         </div>
-        <div class="tab_nav">
-            <ul  class="clearfix" >
-                <li class="on">番剧详情</li>
-                <li>相关视频</li>
-
-            </ul>
-
-        </div>
-        <div class="content">
-            <div class="detail_card">
-                简介：大正时期，日本。心地善良的卖炭少年·炭治郎，有一天他的家人被鬼杀死了。而唯一幸存下来的妹妹——祢豆子变成了鬼。被绝望的现实打垮的炭治郎，为了寻找让妹妹变回人类的方法，决心朝着“鬼杀队”的道路前进。人与鬼交织的悲哀的兄妹的故事，现在开始！
+        <div class="detail_tab">
+            <div class="tab_nav">
+                <ul  class="clearfix" >
+                    <li onclick="changeTab(this)" class="on">番剧详情</li>
+                    <li onclick="changeTab(this)" >相关视频</li>
+                </ul>
 
             </div>
-            <div class="actors_card">
-                <div class="actors_title">
-                    角色声优
+            <div class="tab_de">
+                <div class="content">
+                    <div class="detail_card">
+                        <div class="detail_ep">
+                            <div class="ep_nav_title">
+                                正片
+                            </div>
+                            <div class="ep_nav">
+                                <div class="slide_wrapper">
+                                    <div class="slide_content" >
+                                        <ul class="sl_nav_list" >
+                                            <li class="sl_nav_list_item on" >第1话-第12话</li>
+                                            <li class="sl_nav_list_item" >第13话-第24话</li>
+                                            <li class="sl_nav_list_item" >第25话-第26话</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <ul class="mode_select">
+                                    <li title="详细模式" class="detail_mode selected"></li>
+                                    <li title="精简模式" class="simple_mode"></li>
+                                </ul>
+                            </div>
+                            <div class="sl_list">
+                                <ul>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                    <li title="1111" class="misl_ep_item">
+                                        <div class="misl_ep_img">
+                                            <div class="common_lazy_img">
+                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
+                                            </div>
+                                        </div>
+                                        <div class="misl_ep_text">
+                                            <div class="misl_ep_index">第一话</div>
+                                            <div class="misl_ep_title">残酷</div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="actors_card">
+                        <div class="actors_title">
+                            角色声优
+                        </div>
+                        <div calss="actors_text">
+                            <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>
+                        </div>
+                    </div>
+                    <div class="staff_card">
+                        <div class="staff_title">
+                            STAFF
+                        </div>
+                        <div class="staff_text">
+                            <p>原作：吾峠呼世晴（集英社《周刊少年JUMP》连载）<br>监督：外崎春雄<br>角色设计：松岛晃<br>副角色设计：佐藤美幸、梶山庸子、菊池美花<br>脚本制作：ufotable<br>概念美术：卫藤功二、矢中胜、竹内香纯、桦泽侑里<br>摄影监督：寺尾优一<br>3D监督：西胁一树<br>色彩设计：大前祐子<br>剪辑：神野学<br>音乐：梶浦由记、椎名豪<br>制作人：近藤光<br>动画制作：ufotable</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div calss="actors_text">
-                    <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>
-                </div>
-            </div>
-            <div class="staff_card">
-                <div class="staff_title">
-                    STAFF
-                </div>
-                <div class="staff_text">
-                    <p>原作：吾峠呼世晴（集英社《周刊少年JUMP》连载）<br>监督：外崎春雄<br>角色设计：松岛晃<br>副角色设计：佐藤美幸、梶山庸子、菊池美花<br>脚本制作：ufotable<br>概念美术：卫藤功二、矢中胜、竹内香纯、桦泽侑里<br>摄影监督：寺尾优一<br>3D监督：西胁一树<br>色彩设计：大前祐子<br>剪辑：神野学<br>音乐：梶浦由记、椎名豪<br>制作人：近藤光<br>动画制作：ufotable</p>
+                <div class="more">
+                    <div class="morecard">
+                        <div class="more_title">
+                            相似推荐
+                        </div>
+                        <div class="more_an">
+                        </div>
+                    </div>
                 </div>
             </div>
 
-        </div>
+        </div >
+
+
 
     </div>
 </div>
+<script>
+    // detail_card height 自适应
+    const detail_card = document.getElementsByClassName('content')[0];
+    const actors_card = document.getElementsByClassName('actors_card')[0];
+    const staff_card = document.getElementsByClassName('staff_card')[0];
+
+    detail_card.style.height=actors_card.clientHeight +staff_card.clientHeight +15+"px";
+
+
+
+    const trueheight = detail_card.style.height;
+
+    // tab 切换
+
+    var tabs = document.getElementsByClassName('tab_nav')[0].getElementsByTagName('li');
+    var contents=document.querySelectorAll(".tab_de>div");
+
+
+    function changeTab(tab) {
+        for(var i = 0, len = tabs.length; i < len; i++) {
+            if(tabs[i] === tab) {
+                tabs[i].className = 'on';
+                contents[i].style.display = 'block';
+                contents[i].style.height=trueheight;
+            } else {
+
+                tabs[i].className = '';
+                contents[i].style.display = 'none';
+            }
+        }
+    }
+
+    function changeli(tab){
+
+    }
+</script>
 
 <iframe src="../footer.html" class="footer" scrolling="no"></iframe>
 </body>
