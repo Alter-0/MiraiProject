@@ -243,7 +243,7 @@
 		<div class="nr">
 			<div class="nr-t">
 				<span><h3>我的追番</h3></span>
-				<span>更多</span>				
+				<span><a>更多</a></span>				
 			</div>	
 			<div class="myfan">
 				<table>
@@ -260,7 +260,7 @@
 						echo "</div>";
 						echo "<div class='myfan-right'>";
 						echo "<p><a href='' target='_blank'><span>".$row['name']."</span></a></p>";
-						echo "<p>更新至</p>";
+						echo "<p>".$row['index_show']."</p>";
                         echo "</div></td></tr>";							
 					}}
 			?>						
