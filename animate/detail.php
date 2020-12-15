@@ -1,8 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+//$conn = mysqli_connect("localhost", "root", "", "web_design") or die("数据库连接失败");
+include "../conn.php";
+mysqli_query($conn,'set names utf8');
+if(empty($_GET["animate_id"])){
+    die("出错！！！！！！");
+}
+$animate_id=$_GET["animate_id"];
+//$animate_id="100001";
+$infosql="select * from animate where animate_id='$animate_id'";
+$result=mysqli_query($conn,$infosql) or die("失败".$infosql);
+$animateinfo=mysqli_fetch_array($result);
+$animatecover=$animateinfo["cover"];
+
+$tagssql="select * from tags where animate_id='$animate_id'";
+$tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
+
+
+
+
+?>
 <head>
+    <script src="jquery.js"></script>
     <meta charset="UTF-8" name="referrer" content="never">
-    <title>Mirai-番剧详情</title>
+    <title><?php
+        echo $animateinfo["name"];
+        ?>_番剧_MIRAI</title>
 
     <style>
         .header{
@@ -123,11 +147,12 @@
             height: 500px;
             display:block;
             overflow: hidden;
-            -webkit-filter: blur(20px);
+            -webkit-filter: blur(20px) brightness(50%);
             -moz-filter: blur(20px);
             -ms-filter: blur(20px);
             -o-filter: blur(20px);
-            filter: blur(20px);
+            filter: blur(20px) brightness(50%);
+
             object-fit: cover;
             text-align: center;
             vertical-align:middle;
@@ -163,7 +188,6 @@
             border:5px solid #ffffff;
             border-radius: 5px;
             float: left;
-
             z-index: 0;
         }
         .title {
@@ -301,7 +325,7 @@
             width: 950px;
             position: absolute;
             display: block;
-            top:235px;
+            top:225px;
             left: 300px;
             height: 17px;
             color: #ffffff;
@@ -511,6 +535,7 @@
             height: 29px;
             margin-left: 60px;
             padding-right: 129px;
+            overflow: hidden;
         }
         .slide_content{
             overflow: hidden;
@@ -648,7 +673,6 @@
             color: #6d757a;
             max-height: 32px;
             word-break: break-word;
-
         }
 
 
@@ -669,26 +693,31 @@
         <div class="top">
             <div class="nei">
                 <div class="fjimg">
-                    <img id="fj" src="http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png">
+                    <img id="fj" src="<?php echo $animatecover;?>">
                 </div>
                 <div class="title">
-                    <span class="title_name" >鬼灭之刃</span>
+                    <span class="title_name" ><?php echo $animateinfo["name"];?></span>
                     <span class="title_tags">
-                        <span class="title_tag">漫画改</span>
-                        <span class="title_tag">战斗</span>
-                        <span class="title_tag">热血</span>
-                        <span class="title_tag">声控</span>
+
+                        <?php
+                        while($arr = mysqli_fetch_row($tagsresult))
+                        {
+                            echo "<span class='title_tag'>".$arr[0]."</span>";
+                        }
+                        ?>
                     </span>
                 </div>
                 <div class="data">
                     <div class="count">
                         <span class="plays">
                             <span class="playslabel">总播放数</span>
-                            <em>5.7亿</em>
+                            <br/>
+                            <em><?php echo $animateinfo["views"];?></em>
                         </span>
                         <span class="likes">
                             <span class="likeslabel">追番人数</span>
-                            <em>954.2万</em>
+                            <br/>
+                            <em><?php echo $animateinfo["likes"];?></em>
                         </span>
                     </div>
 
@@ -704,15 +733,21 @@
                         </div>
                     </div>
                     <div class="scorenumber">
-                        <span class="scoretext">10.0</span>
+                        <span class="scoretext"><?php echo $animateinfo["score"];?></span>
                     </div>
                 </div>
                 <div class="time">
-                    <span>2019年4月7日开播</span>
-                    <span>已完结, 全26话</span>
+                    <?php
+                    $startdate=date("Y年m月d日",strtotime($animateinfo["start_date"]));
+                    echo "<span>".$startdate."开播</span>";
+                    if($animateinfo["is_finish"]){
+                        echo "<span>已完结,".$animateinfo["index_show"]."</span>";
+                    }
+                    ?>
+
                 </div>
                 <div class="intro">
-                    <span class="intro_text">简介：大正时期，日本。心地善良的卖炭少年·炭治郎，有一天他的家人被鬼杀死了。而唯一幸存下来的妹妹——祢豆子变成了鬼。被绝望的现实打垮的炭治郎，为了寻找让妹妹变回人类的方法，决心朝着“鬼杀队”的道路前进。人与鬼交织的悲哀的兄妹的故事，现在开始！</span>
+                    <span class="intro_text"><?php echo substr($animateinfo["introduction"],0,490);?>......</span>
                 </div>
 
                 <div class="btns">
@@ -722,7 +757,7 @@
                     </div>
                 </div>
             </div>
-            <img id="bg" src="http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png">
+            <img id="bg" src="<?php echo $animatecover;?>">
         </div>
         <div class="detail_tab">
             <div class="tab_nav">
@@ -743,9 +778,23 @@
                                 <div class="slide_wrapper">
                                     <div class="slide_content" >
                                         <ul class="sl_nav_list" >
-                                            <li class="sl_nav_list_item on" >第1话-第12话</li>
-                                            <li class="sl_nav_list_item" >第13话-第24话</li>
-                                            <li class="sl_nav_list_item" >第25话-第26话</li>
+                                            <?php
+                                            $num=$animateinfo["index_show"];
+                                            preg_match_all('/\d+/', $num, $res);
+                                            $num = join('', $res[0]);
+                                            if($num<=12){
+                                                echo '<li class="sl_nav_list_item on" >第1话-第'.$num.'话</li>';
+                                            }else{
+                                                echo '<li class="sl_nav_list_item on" >第1话-第12话</li>';
+                                                $j=24;
+                                                while ($num>$j){
+                                                    echo '<li class="sl_nav_list_item" >第'.($j-11).'话-第'.$j.'话</li>';
+                                                    $j+=12;
+                                                }
+                                                echo '<li class="sl_nav_list_item" >第'.($j-11).'话-第'.$num.'话</li>';
+                                            }
+
+                                            ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -756,171 +805,20 @@
                             </div>
                             <div class="sl_list">
                                 <ul>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
+                                    <script>
+                                        var start_no=document.getElementsByClassName('sl_nav_list_item on')[0].val();
+                                        alert(start_no)
+                                    </script>
+                                    <?php
+
+
+                                    $videosql="select * from video where animate_id='$animate_id' order by no limit ";
+                                    $videoresult=mysqli_query($conn,$videosql) or die("失败".$tagssql);
+                                    $videoinfo=mysqli_fetch_array($videoresult);
+
+
+                                    echo '<li title="第'.$num.'话" class="misl_ep_item">';
+                                    ?>
                                     <li title="1111" class="misl_ep_item">
                                         <div class="misl_ep_img">
                                             <div class="common_lazy_img">
@@ -944,8 +842,11 @@
                         <div class="actors_title">
                             角色声优
                         </div>
-                        <div calss="actors_text">
-                            <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>
+                        <div class="actors_text">
+<!--                            <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>-->
+                            <p>
+                                <?php echo nl2br($animateinfo["actors"]); ?>
+                            </p>
                         </div>
                     </div>
                     <div class="staff_card">
@@ -953,7 +854,10 @@
                             STAFF
                         </div>
                         <div class="staff_text">
-                            <p>原作：吾峠呼世晴（集英社《周刊少年JUMP》连载）<br>监督：外崎春雄<br>角色设计：松岛晃<br>副角色设计：佐藤美幸、梶山庸子、菊池美花<br>脚本制作：ufotable<br>概念美术：卫藤功二、矢中胜、竹内香纯、桦泽侑里<br>摄影监督：寺尾优一<br>3D监督：西胁一树<br>色彩设计：大前祐子<br>剪辑：神野学<br>音乐：梶浦由记、椎名豪<br>制作人：近藤光<br>动画制作：ufotable</p>
+                            <p>
+                                <?php echo nl2br($animateinfo["staff"])?>
+                            </p>
+<!--                            <p>原作：吾峠呼世晴（集英社《周刊少年JUMP》连载）<br>监督：外崎春雄<br>角色设计：松岛晃<br>副角色设计：佐藤美幸、梶山庸子、菊池美花<br>脚本制作：ufotable<br>概念美术：卫藤功二、矢中胜、竹内香纯、桦泽侑里<br>摄影监督：寺尾优一<br>3D监督：西胁一树<br>色彩设计：大前祐子<br>剪辑：神野学<br>音乐：梶浦由记、椎名豪<br>制作人：近藤光<br>动画制作：ufotable</p>-->
                         </div>
                     </div>
 
@@ -971,10 +875,9 @@
 
         </div >
 
-
-
     </div>
 </div>
+
 <script>
     // detail_card height 自适应
     const detail_card = document.getElementsByClassName('content')[0];
@@ -1000,7 +903,6 @@
                 contents[i].style.display = 'block';
                 contents[i].style.height=trueheight;
             } else {
-
                 tabs[i].className = '';
                 contents[i].style.display = 'none';
             }

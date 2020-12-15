@@ -104,7 +104,7 @@ include "conn.php";
 session_start();
 if (empty($_SESSION["user"])) {
     $is_login = false;
-    $url = "image/noface.jpg";
+    $url = "image/akari.jpg";
 } else {
     $is_login = true;
     $user_id = $_SESSION["user"];
@@ -121,7 +121,7 @@ if (empty($_SESSION["user"])) {
     <div class="con">
         <section class="left">
             <!--logo-->
-            <a href="main/main.html" target="_top">
+            <a href="main/main.php" target="_top">
                 <img src="image/logo.png" alt="logo" height="50px" width="105px">
             </a>
             <!--新番-->

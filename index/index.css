@@ -1,0 +1,283 @@
+/* CSS Document */
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+}
+body{
+	
+	background-size: cover;
+	background-attachment:fixed;
+    display: flex;
+    flex-direction: column;
+}
+.ONE{
+	width: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+	
+}
+.top{
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+.top iframe{
+	width: 100%;
+	height:50px;
+	position: relative;
+	z-index: 1000;
+}
+
+.img{
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+.img img{
+	width: 100%;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%
+}
+
+.index{
+	width:100%;
+	height: 1320px;
+}
+.left{
+	position: relative;
+    padding-top: 20px;
+    width: 900px;
+    float: left;
+}
+.banner{
+	height: 44px;
+    font-size: 20px;
+    line-height: 1;
+    position: relative;
+}
+.list1{
+	width: 120px;
+	float: left;
+    padding-top: 20px;
+    cursor: pointer;
+	margin-right: 20px;
+}
+
+.up,.down{
+	display: block;
+    position: absolute;
+    left: 80px;
+    margin: 0 2px;
+    width: 0;
+    height: 0;
+}
+
+.up{
+    border: 5px dashed rgba(0,0,0,0);
+    border-top: none;
+    border-bottom: 5px solid #ddd;
+}
+.down{
+	bottom: 0;
+    border: 5px dashed rgba(0,0,0,0);
+    border-top: 5px solid #ddd;
+    border-bottom: none;
+}
+
+.video{
+	position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.list2{
+	width: 160px;
+    height: 304px;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+.V1{
+	position: relative;
+    display: block;
+    width: 100%;
+    height: 214px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.V2{
+	color:#E63639;
+    max-height: 44px;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 22px;
+	display: block;
+}
+.V3{
+	height: 18px;
+    line-height: 18px;
+    overflow: hidden;
+    color: #99a2aa;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	display: block;
+}
+.page{
+	display: block;
+    height: 40px;
+    white-space: nowrap;
+    padding-right: 20px;	
+}
+.first{
+	float: left;
+    min-width: 17px;
+    font-size: 14px;
+    height: 38px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #222;
+    text-align: center;
+    line-height: 38px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    margin-right: 4px;
+}
+.next{
+	float: left;
+    min-width: 17px;
+    font-size: 14px;
+    height: 38px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #222;
+    text-align: center;
+    line-height: 38px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    margin-right: 4px;
+}
+.page strong {
+    float: left;
+    margin-right: 4px;
+    width: 35px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+}
+.Next{
+	float: left;
+    min-width: 20px;
+    font-size: 14px;
+    height: 38px;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #222;
+    text-align: center;
+    line-height: 38px;
+    padding: 0 8px;
+    border: 1px solid #ddd;
+    webkit-transition: all .2s ease;
+    transition: all .2s ease;
+	margin-right: 5px;
+}
+a {
+    text-decoration: none;
+    outline-width: 0;
+    outline-style: none;
+    outline-color: invert;
+}
+.page .first, .page .next:hover {
+    background-color: #00a1d6;
+	color: #B63E40;
+    border-color: #00a1d6;
+}
+
+
+.right{
+	float: right;
+    width: 260px;
+    padding-top: 20px;
+}
+.filter_title{
+	height: 44px;
+    line-height: 1;
+    font-size: 18px;
+    color: #222;
+}
+.filter_list{
+	
+}
+.filter_block{
+	position: relative;
+    overflow: hidden;
+	padding-top: 8px;
+}
+.filter_type{
+	display: block;
+    float: left;
+    width: 52px;
+    height: 30px;
+    line-height: 1;
+    font-size: 18px;
+    color: #2BC118;
+}
+.filter_content{
+	width: 208px;
+    float: right;
+    overflow: hidden;
+    transition: all .3s linear;
+    min-height: 30px;
+}
+
+.all{
+	color: #00a1d6;
+	display: inline-block;
+    vertical-align: top;
+    line-height: 1;
+    text-align: left;
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 2px;
+    cursor: pointer;
+    outline: 0;
+    
+}
+
+.one {
+	display: inline-block;
+    vertical-align: top;
+    line-height: 1;
+    text-align: left;
+    width: 50px;
+    height: 30px;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 4px;
+    cursor: pointer;
+    outline: 0;
+}
+
+.bottom{
+	width: 100%;
+	
+}
+
+

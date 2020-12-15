@@ -218,16 +218,18 @@ body{
 	width:100%;
 	height: 316px;
 	margin-top: 20px;
+	overflow: hidden;
 }
 .new .nl .content table{
 	width:95%;
 	height: 316px;
-	margin-left:20px;
+	margin-left:20px;	
 }
 .new .nl .content .fan{
 	height: 72px;
-	width: 180px;
+	width: 180px auto;
 	margin: 0;
+	overflow: hidden;
 }
 .new .nl .content .fan-left{
 	width:72px;
@@ -250,12 +252,13 @@ body{
 }
 
 .new .nl .content .fan-right p:nth-child(1){
-	width: 96px;
+	width: 96px auto;
 	height: 52px;
 	overflow: hidden;
 	word-wrap:break-word;
-	font-size:13px;
+	font-size:15px;		
 }
+
 .new .nl .content .fan-right p:nth-child(2){
 	width: 96px;
 	height: 18px;
@@ -286,26 +289,43 @@ body{
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
 }
 .new .nr .nr-t{
-	height: 24px;
+	height: 34px;
 	width: 100%;
+	overflow: hidden;
 }
 .new .nr .nr-t span:nth-child(1){
 	float: left;
 	margin-left: 10px;
 	margin-top: 5px;
+	text-overflow: ellipsis;
 }
 .new .nr .nr-t span:nth-child(2){
 	float:right;
 	margin-right: 10px;
-	margin-top: 5px;
+	margin-top: 7px;	
+	height:24px;
+	width:48px;
+	line-height: 24px;
+}
+.new .nr .nr-t span:nth-child(2) a{
+ 	color:#77E3A9;
+	font-weight: bold;
+	transition: all 0.5 ease;
+	line-height: 24px;
+}
+.new .nr .nr-t span:nth-child(2) a:hover{
+	color:#E784F5;
+	font-size: 20px;
 }
 .new .nr .myfan{
 	width: 100%;
-	height: 316px;
-	margin-top: 20px;
+	height: 306px;
+	margin-top: 10px;
 	margin-left: 10px;
+	overflow: hidden;
 }
 .new .nr .myfan table{
 	width:100%;
@@ -336,9 +356,16 @@ body{
 	overflow: hidden;
 	word-wrap:break-word
 }
+/*.new .nr .myfan .myfan-right p:nth-child(1) span{
+	height: 40px;
+	width: 100px;
+}*/
 .new .nr .myfan .myfan-right p:nth-child(2){
 	height: 10px;
 	width: 100px;
+	font-size: 5px;
+	line-height: 10px;
+	margin-top: 10px;
 }
 
 /*label*/
@@ -349,7 +376,8 @@ body{
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
-    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
 }
 
 
@@ -359,6 +387,7 @@ body{
 	margin-right: 19%;
 	margin-top: 5px;
 	float: left;
+	overflow: hidden;
 }
 .label1:nth-child(1){
 	margin-left: 5px;		
@@ -368,10 +397,12 @@ body{
 }
 .label2{
 	width: 100%;
+	overflow: hidden;
 }
 .label2 span{
 	font-size: 22px;
 	margin-right: 12px;
+	
 }
 .label2 a{
 	text-decoration: none;
@@ -387,7 +418,8 @@ body{
 .label3{
 	width: 100%;
 	word-wrap: break-word;
-	margin-top: 20px;
+	margin-top: 10px;
+	overflow: hidden;
 }
 .label3 a{
 	float: left;
@@ -439,10 +471,11 @@ body{
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
+	transition: all 0.5 ease;
 }
 .bfzg_t a:hover{
 	box-shadow:0 0 0 20px #ED4BFA inset; 
-	color:#FFF
+	color:#FFF;
 }
 .bfzg_v{
 	height: 450px;
@@ -518,6 +551,7 @@ body{
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
+	transition: all 0.5 ease;
 }
 .pfzg_t a:hover{
 	box-shadow:0 0 0 20px #ED4BFA inset; 
@@ -594,6 +628,7 @@ body{
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
+	transition: all 0.5 ease;
 }
 .tj_t a:hover{
 	box-shadow:0 0 0 20px #ED4BFA inset; 
@@ -640,4 +675,11 @@ body{
 .bottom{
 	height: 165px;
 	width: 100%;
+}
+img:hover {
+            filter: brightness(80%);
+            transition: all 0.3s ease;
+   }
+.img1{
+	filter:none;
 }
