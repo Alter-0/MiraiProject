@@ -3,39 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>user</title>
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
 </head>
 <style>
-	#all{
-		background-color: #f4f5f7;
-	}
 	#top1{
-		width: 100%;
+		width:auto;
 		height: 20px;
+		margin: 0 10%;
 	}
 	#top2{
-		width: 100%;
+		width: auto;
+		margin: 0 10%;
 		height: 250px;
 	}
 	#main{
-		width: 1240px;
-		margin: 0 auto;
-		height: 100%;
-	}
-	#img{
-		height: 250px;;
-		width: 1240px;
-	}
-	.main_tu{
-		width: 1240px;
+		width: auto;
+		margin: 0 10%;
 		height: 250px;
-		border-radius: 5px;
+		background-image: url("../image/new_banner1.png");
+		background-size: cover;
+	
 	}
 	#main_xinxi{
 		width: 249px;
 		height: 64px;
-		margin-top: 0px;
-		margin-left: 0px;
-		z-index: 100px;
+		padding-top: 170px;
+		margin-left: 30px;
+		position: relative;
 	}
 	#touxiang{
 		background-image: url("../image/001.jpg");
@@ -71,24 +65,51 @@
 	#dengchu{
 		background-color: rgb(255,85,0);
 		font-size: 12px;
-		margin-left: 8px;padding: 0 7px;
+		margin-left: 8px;
+		padding: 0 7px;
 		border: 1px solid #d9d9d9;
 		border-radius: 4px;
 	}
 	#mid{
 		height: 47px;
-		width: 100%;
+		width: auto;
+		margin: 0 10%;
 	}
 	#mid_main{
-		width: 1240px;
+		width: auto;
 		height: 100%;
-		background-color: blueviolet;
-		margin: 0 auto;
+		margin: 0 10%;
 		border-radius: 5px;
-		color: rgba(0,0,0,.65);
-		font-size: 14px;
-		line-height: 1.5;
 		background-color: #fff;
+		margin-bottom: 10px;
+	}
+	#mid_mainer{
+		width: auto;
+		height: auto;
+		margin: 0 10%;
+		background-color: #fff;
+		border-radius: 5px;
+	}
+	#mid_main ul{
+		margin-left: 40px;
+		position: relative;
+		top: 20px;
+		font-size: 15px;
+	}
+	#mid_main ul li{
+		float: left;
+		color: #222;
+		border-bottom: 1px solid rgba(0,0,0,0);
+		line-height: 5px;
+		width: 92px;
+		height: 48px;
+	}
+	#mid_main ul li+li{
+		margin-left: 28px;
+	}
+	#mid_main ul li.on ,#mid_main ul li:hover{
+		color:#0835EB;
+		border-bottom-color: #0835EB;
 	}
 	</style>
 <body>
@@ -96,8 +117,6 @@
 	<div id="top1"></div>
 	<div id="top2">
 		<div id="main">
-			<div id="img">
-			<img  class="main_tu" src="../image/new_banner1.png">
 			<div id="main_xinxi">
 				<div id="touxiang" ></div>
 				<div id="name">
@@ -107,19 +126,48 @@
 					</span>
 				</div>
 				</div>
-			</div>
+			
 		</div>
 	</div>
 	<div id="mid">
 		<div id="mid_main">
-		<ul>
+		<ul class="ul">
+			<li class="on">订阅</li>
 			<li>账号</li>
-			<li>订阅</li>
 			<li>设置</li>
 			</ul>
+		</div>
+		<div id="mid_mainer">
+			<div id="dingyue">订阅</div>
+			<div id="zhanghao">账号</div>
+			<div id="shezhi">设置</div>
 		</div>
 	</div>
 	<div id="bottom"></div>
 </div>
+<script>
+	//tab切换
+	var tabs = document.getElementsByClassName('mid_main')[0].getElementsByTagName('li');
+    var contents=document.querySelectorAll("#mid_mainer>div");
+
+
+    function changeTab(tab) {
+        for(var i = 0, len = tabs.length; i < len; i++) {
+            if(tabs[i] === tab) {
+                tabs[i].className = 'on';
+                contents[i].style.display = 'block';
+                contents[i].style.height=true height ;
+            } else {
+
+                tabs[i].className = '';
+                contents[i].style.display = 'none';
+            }
+        }
+    }
+
+    function changeli(tab){
+
+    }
+	</script>
 </body>
 </html>
