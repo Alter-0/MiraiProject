@@ -1,122 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>index</title>
+<meta charset="utf-8">
+<title>index</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
 </head>
-<style type="text/css">
-	body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, img {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style: none;
-}
-	.head{height: 200px;
-	mwidth:auto;
-	background: #AA0D10;
-	margin-left: 50px;
-	margin-right: 50px;
-	text-align: center;}
-	
-	.Text{
-		font-size: 40px;
-	color:#6B3D3E;}
-	
-	
-	.text{
-		font-size: 15px;
-	}
-	.middle{margin-left: 50px;}
-	.left{
-		height: 1000px;
-	    width:50%;
-		display: inline-block;}
-	.list1{
-		float: left;
-	    display: flex;
-        webkit-box-pack: center;
-        justify-content: center;
-        webkit-box-align: center;
-        align-items: center;
-        height: 30px;
-        margin-right: 20px;
-        cursor: pointer;}
-   
-	.list2{
-		height: 600px;
-		width: 900px;
-		margin-top: 20px;
-		display: flex;
-	}
-	.image{
-		float：left;
-		height: 300px;
-		width: 200px;
-	}
- 
-    .content{height: 300px;
-	width: 200px;
-	float: left;
-	padding: 15px;
-	}
-	.score{
-		float:left;
-		height: 300px;
-		width:200px;
-	}
-	div.list1:hover{
-		color: #C10E11;
-	}
-</style>
-<body>
-	<div class="head">
-	<span class="Text">所有番剧</span>
-</div>
-<div class="middle">
-    <div class="left">
-	   <div class="list1">
-	    <span class="text">标题排序</span>
-	</div>
-	<div class="list1">
-		<span class="text">时间排序</span>
-	</div>
-	<div class="list1">
-		<span class="text">播放排序</span>
-	</div>
-	<div class="list1">
-		<span class="text">追番排序</span>
-	</div>
-	<div class="list1">
-		<span class="text">评分排序</span>
-	</div>
 
-	    <div class="list2">
-	        <div class="image"><img src="images/1.png"></div>
-		    <div class="content">
-		    <div class="title">
-			标题</div>
-		    <div class="info">
-			信息</div>
-		    <div class="tags">
-			标签</div>
-		    <div class="impress">
-			评价</div>
-		    <div class="introduce">
-			简介</div>
-		    </div>
-			<div class="score">
-			    <div class="title">
-					<span>评分：</span>
-				</div>
-				<div class="star">
-					<span>0</span>
-				</div>	
+<body>
+	<div class="top"></div>
+	<div class="index">
+		<div class="left">
+			<ul class="banner">
+				<li class="list1">
+					<i class="up"></i>
+					<span>追番人数</span>
+					<i class="down"></i>
+				</li>
+				<li class="list1">
+					<i class="up"></i>
+					<span>更新时间</span>
+					<i class="down"></i>
+				</li>
+				<li class="list1">
+					<i class="up"></i>
+					<span>最高评分</span>
+					<i class="down"></i>
+				</li>
+				<li class="list1">
+					<i class="up"></i>
+					<span>播放数量</span>
+					<i class="down"></i>
+				</li>
+				<li class="list1">
+					<i class="up"></i>
+					<span>开播时间</span>
+					<i class="down"></i>
+				</li>
+			</ul>
+			<ul class="video">
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<a class="V3">多少集</a>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<a class="V3">多少集</a>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<a class="V3">多少集</a>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<a class="V3">多少集</a>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<a class="V3">多少集</a>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<p class="V3">多少集</p>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<p class="V3">多少集</p>
+				</li>
+				<li class="list2">
+					<a class="V1"><img src="images/1.png"></a>
+					<a class="V2">活动开始</a>
+					<p class="V3">多少集</p>
+				</li>
+			</ul>
+			<div class="page">
+				<a class="Next">上一页</a>
+				<a class="first">1</a>
+				<a class="next">2</a>
+				<a class="next">3</a>
+				<a class="next">4</a>
+				<a class="next">5</a>
+				<strong>...</strong>
+				<a class="next">200</a>
+				<a class="Next">下一页</a>
 			</div>
+		</div>
+		<div class="right">
+			<div class="filter_title">筛选</div>
+			<div class="filter_list">
+				<div class="filter_block">
+					<div class="filter_type">类型</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">正片</li>
+						<li class="one">电影</li>
+						<li class="one">其他</li>
+					</ul>
+				</div>
+				<div class="filter_block">
+					<div class="filter_type">状态</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">连载</li>
+						<li class="one">完结</li>
+					</ul>
+				</div>
+				<div class="filter_block">
+					<div class="filter_type">版权</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">独家</li>
+						<li class="one">其他</li>
+					</ul>
+				</div>
+				<div class="filter_block">
+					<div class="filter_type">付费</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">免费</li>
+						<li class="one">付费</li>
+					</ul>
+				</div>
+				<div class="filter_block">
+					<div class="filter_type">时间</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">2021</li>
+						<li class="one">2020</li>
+						<li class="one">2019</li>
+						<li class="one">2018</li>
+						<li class="one">2017</li>
+						<li class="one">2016</li>
+						<li class="one">2015</li>
+						<li class="one">2014</li>
+						<li class="one">2013</li>
+						<li class="one">2012</li>
+						<li class="one">2011</li>
+						<li class="one">2010</li>
+						<li class="one">更早</li>
+					</ul>
+				</div>
+				<div class="filter_block">
+					<div class="filter_type">风格</div>
+					<ul class="filter_content">
+						<li class="all">全部</li>
+						<li class="one">奇幻</li>
+						<li class="one">战斗</li>
+						<li class="one">搞笑</li>
+						<li class="one">后宫</li>
+						<li class="one">穿越</li>
+						<li class="one">漫画改</li>
+						<li class="one">小说改</li>
+						<li class="one">游戏改</li>
+						<li class="one">其他</li>
+					</ul>
+				</div>
+			</div>
+			
 	</div>
-</div>
-	
-	<div class="right"></div>
-</div>
-	<div class="buttom"></div>
+	</div>
+	<div class="bottom"></div>
 </body>
 </html>
