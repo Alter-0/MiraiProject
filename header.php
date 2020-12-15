@@ -96,6 +96,10 @@
         input::-webkit-input-placeholder {
             color: #fff;
         }
+
+        * {
+            cursor: url(image/mouse/arrow.cur), default;
+        }
     </style>
 </head>
 

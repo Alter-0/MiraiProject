@@ -4,7 +4,7 @@
     padding: 0;
     border: 0;
     list-style: none;
-    user-select: none
+    /*user-select: none;*/
 }
 
 body {
@@ -39,13 +39,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255, 0, 0, 0.4);
+    background: rgba(72, 99, 245, 0.8);
 }
 
+/*设置鼠标样式*/
 * {
-    cursor: url(https://www.jishusongshu.com/wp-content/uploads/2020/01/normal1.png), default;
+    cursor: url(../image/mouse/arrow.cur), default;
 }
 
-a {
-    cursor: url(https://www.jishusongshu.com/wp-content/uploads/2020/01/link1.png), pointer;
-}
+/**{*/
+/*    cursor: url(../image/mouse/beam.cur), text;*/
+/*}*/
+
+/*a {*/
+/*    cursor: url(../image/mouse/link.cur), pointer;*/
+/*}*/
