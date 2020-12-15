@@ -1,8 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+//$conn = mysqli_connect("localhost", "root", "", "web_design") or die("数据库连接失败");
+include "../conn.php";
+mysqli_query($conn,'set names utf8');
+$animate_id=$_GET["animate_id"];
+//$animate_id="100001";
+$infosql="select * from animate where animate_id='$animate_id'";
+$result=mysqli_query($conn,$infosql) or die("失败".$infosql);
+$animateinfo=mysqli_fetch_array($result);
+$animatecover=$animateinfo["cover"];
+?>
 <head>
     <meta charset="UTF-8" name="referrer" content="never">
-    <title>Mirai-番剧详情</title>
+    <title><?php
+        echo $animateinfo["name"];
+        ?>_番剧_MIRAI</title>
 
     <style>
         .header{
@@ -163,7 +176,6 @@
             border:5px solid #ffffff;
             border-radius: 5px;
             float: left;
-
             z-index: 0;
         }
         .title {
@@ -648,7 +660,6 @@
             color: #6d757a;
             max-height: 32px;
             word-break: break-word;
-
         }
 
 
@@ -669,11 +680,12 @@
         <div class="top">
             <div class="nei">
                 <div class="fjimg">
-                    <img id="fj" src="http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png">
+                    <img id="fj" src="<?php echo $animatecover;?>">
                 </div>
                 <div class="title">
-                    <span class="title_name" >鬼灭之刃</span>
+                    <span class="title_name" ><?php echo $animateinfo["name"];?></span>
                     <span class="title_tags">
+
                         <span class="title_tag">漫画改</span>
                         <span class="title_tag">战斗</span>
                         <span class="title_tag">热血</span>
@@ -684,11 +696,13 @@
                     <div class="count">
                         <span class="plays">
                             <span class="playslabel">总播放数</span>
-                            <em>5.7亿</em>
+                            <br/>
+                            <em><?php echo $animateinfo["views"];?></em>
                         </span>
                         <span class="likes">
                             <span class="likeslabel">追番人数</span>
-                            <em>954.2万</em>
+                            <br/>
+                            <em><?php echo $animateinfo["likes"];?></em>
                         </span>
                     </div>
 
@@ -704,15 +718,21 @@
                         </div>
                     </div>
                     <div class="scorenumber">
-                        <span class="scoretext">10.0</span>
+                        <span class="scoretext"><?php echo $animateinfo["score"];?></span>
                     </div>
                 </div>
                 <div class="time">
-                    <span>2019年4月7日开播</span>
-                    <span>已完结, 全26话</span>
+                    <?php
+                    $startdate=date("Y年m月d日",strtotime($animateinfo["start_date"]));
+                    echo "<span>".$startdate."开播</span>";
+                    if($animateinfo["is_finish"]){
+                        echo "<span>已完结,".$animateinfo["index_show"]."</span>";
+                    }
+                    ?>
+
                 </div>
                 <div class="intro">
-                    <span class="intro_text">简介：大正时期，日本。心地善良的卖炭少年·炭治郎，有一天他的家人被鬼杀死了。而唯一幸存下来的妹妹——祢豆子变成了鬼。被绝望的现实打垮的炭治郎，为了寻找让妹妹变回人类的方法，决心朝着“鬼杀队”的道路前进。人与鬼交织的悲哀的兄妹的故事，现在开始！</span>
+                    <span class="intro_text"><?php echo $animateinfo["introduction"];?></span>
                 </div>
 
                 <div class="btns">
@@ -722,7 +742,7 @@
                     </div>
                 </div>
             </div>
-            <img id="bg" src="http://i0.hdslb.com/bfs/bangumi/image/4179b4398bad6f92e876e352cae21be7b8ceb8bf.png">
+            <img id="bg" src="<?php echo $animatecover;?>">
         </div>
         <div class="detail_tab">
             <div class="tab_nav">
@@ -944,8 +964,13 @@
                         <div class="actors_title">
                             角色声优
                         </div>
-                        <div calss="actors_text">
-                            <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>
+                        <div class="actors_text">
+<!--                            <p>灶门炭治郎：花江夏树<br>灶门祢豆子：鬼头明里<br>我妻善逸：下野纮<br>嘴平伊之助：松冈祯丞<br>富冈义勇：樱井孝宏<br>鳞泷左近次：大冢芳忠<br>锖兔：梶裕贵<br>真菰：加隈亚衣<br>不死川玄弥：冈本信彦<br>产屋敷耀哉：森川智之<br>产屋敷辉利哉：悠木碧<br>产屋敷雏衣：井泽诗织<br>钢铁冢萤：浪川大辅<br>鎹鸦：山崎巧<br>佛堂鬼：绿川光<br>手鬼：子安武人</p>-->
+                            <p>
+                                <?php ?>
+                            </p>
+
+
                         </div>
                     </div>
                     <div class="staff_card">
@@ -971,10 +996,9 @@
 
         </div >
 
-
-
     </div>
 </div>
+
 <script>
     // detail_card height 自适应
     const detail_card = document.getElementsByClassName('content')[0];
