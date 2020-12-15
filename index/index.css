@@ -1,10 +1,49 @@
 /* CSS Document */
-body, ul, li, ol, dl, dd, dt, p, form, img {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style: none;
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
 }
+body{
+	
+	background-size: cover;
+	background-attachment:fixed;
+    display: flex;
+    flex-direction: column;
+}
+.ONE{
+	width: auto;
+	margin-left: 10%;
+	margin-right: 10%;
+	
+}
+.top{
+	width: 100%;
+	height: 200px;
+	position: relative;
+}
+.top iframe{
+	width: 100%;
+	height:50px;
+	position: relative;
+	z-index: 1000;
+}
+
+.img{
+	width: 100%;
+	height: 200px;
+	position: absolute;
+	top: 0;
+	overflow: hidden;
+}
+.img img{
+	width: 100%;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%
+}
+
 .index{
 	width:100%;
 	height: 1320px;
@@ -17,20 +56,37 @@ body, ul, li, ol, dl, dd, dt, p, form, img {
 }
 .banner{
 	height: 44px;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 1;
     position: relative;
 }
 .list1{
-	width: 80px;
+	width: 120px;
 	float: left;
     padding-top: 20px;
     cursor: pointer;
 	margin-right: 20px;
 }
-.up .down{
-	width:10px;
-	height: 5px;
+
+.up,.down{
+	display: block;
+    position: absolute;
+    left: 80px;
+    margin: 0 2px;
+    width: 0;
+    height: 0;
+}
+
+.up{
+    border: 5px dashed rgba(0,0,0,0);
+    border-top: none;
+    border-bottom: 5px solid #ddd;
+}
+.down{
+	bottom: 0;
+    border: 5px dashed rgba(0,0,0,0);
+    border-top: 5px solid #ddd;
+    border-bottom: none;
 }
 
 .video{
@@ -61,6 +117,7 @@ body, ul, li, ol, dl, dd, dt, p, form, img {
     font-size: 14px;
     margin-top: 10px;
     line-height: 22px;
+	display: block;
 }
 .V3{
 	height: 18px;
@@ -70,6 +127,7 @@ body, ul, li, ol, dl, dd, dt, p, form, img {
     font-size: 12px;
     white-space: nowrap;
     text-overflow: ellipsis;
+	display: block;
 }
 .page{
 	display: block;
@@ -165,6 +223,7 @@ a {
 .filter_block{
 	position: relative;
     overflow: hidden;
+	padding-top: 8px;
 }
 .filter_type{
 	display: block;
@@ -172,8 +231,8 @@ a {
     width: 52px;
     height: 30px;
     line-height: 1;
-    font-size: 12px;
-    color: #99a2aa;
+    font-size: 18px;
+    color: #2BC118;
 }
 .filter_content{
 	width: 208px;
@@ -191,7 +250,7 @@ a {
     text-align: left;
     width: 50px;
     height: 30px;
-    font-size: 12px;
+    font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -208,14 +267,17 @@ a {
     text-align: left;
     width: 50px;
     height: 30px;
-    font-size: 12px;
+    font-size: 18px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    padding-right: 2px;
+    padding-right: 4px;
     cursor: pointer;
     outline: 0;
 }
 
+.bottom{
+	width: 100%;
+	
+}
 
 
