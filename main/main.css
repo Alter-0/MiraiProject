@@ -2,6 +2,13 @@
 /* CSS Document */
 * {margin: 0;padding: 0;border: 0;list-style: none;}
 
+body{
+	background-image: url(../image/background.jpg);
+	background-size: cover;
+	background-attachment:fixed;
+    display: flex;
+    flex-direction: column;
+}
 .top{
 	width: 100%;
 	height: 200px;
@@ -12,13 +19,11 @@
 	height:50px;
 	position: relative;
 	z-index: 1000;
-	background: #E70003
 }
 
 .img1{
 	width: 100%;
 	height: 200px;
-	background: #3E10F2;
 	position: absolute;
 	top: 0;
 	overflow: hidden;
@@ -32,7 +37,7 @@
 /*fenlei*/
 .index{
 	width:80%;
-	height: 380px;
+	height: 390px;
 	margin: 20px auto 0 auto ;
 	border-top: 1px solid #AFAFAF;
 	position: relative;
@@ -40,20 +45,26 @@
 }
 .index .fenlei{
 	width: 100%;
-	height: 20px;
+	height: 30px;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
 }
 .index .fenlei ul{
 	height: 20px;
 	width: auto;
 	float: left;
+	margin-left:70px;
 }
 .index .fenlei ul li{
 	float: left;
-	margin-right: 10px;
+	margin-right: 40px;
 }
 .index .fenlei ul li a{
 	font-size: 20px;
 	transition: all 0.5 ease;
+	cursor: pointer;
 }
 .index .fenlei ul li a:hover{
 	color: #479BB8;
@@ -157,39 +168,61 @@
 }
 .new a{
 	text-decoration: none;
+	color: #000000;
 }
 .new a:hover{
 	color:#0BC5F7;
 }
-.new a:visited{
-	
+.new a:visited{	
 }
 /* left of the new*/
 .new .nl{
 	width: 77%;
 	height: 360px;
 	float: left;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
 }
 .new .nl .title{
 	height: 24;
 	width: 100%;
+	
 }
 .new .nl .title span:nth-child(1){
 	font-size: 24px;
 	float: left;
+	margin-left: 10px;
 }
 .new .nl .title span:nth-child(2){
+	width: 106px;
+	height: 24px;
 	float:right;
+	margin-top:5px; 
+	margin-right: 10px;
+	border:1px solid #27DC6D;
+	background: #FFFFFF;
+	border-radius: 15px;
+	color: #27DC6D;
+	transition: all 0.5s ease;
+	text-align: center;
+	line-height: 24px;
+	font-weight: bold;
 }
-
+.new .nl .title span:nth-child(2):hover{
+	box-shadow:0 0 0 20px #27DC6D inset; 
+	color:#FFF
+}
 .new .nl .content{
 	width:100%;
 	height: 316px;
 	margin-top: 20px;
 }
 .new .nl .content table{
-	width:100%;
+	width:95%;
 	height: 316px;
+	margin-left:20px;
 }
 .new .nl .content .fan{
 	height: 72px;
@@ -215,23 +248,44 @@
 	width: 96px;
 	float: left;
 }
+
 .new .nl .content .fan-right p:nth-child(1){
 	width: 96px;
 	height: 52px;
 	overflow: hidden;
-	word-wrap:break-word
+	word-wrap:break-word;
+	font-size:13px;
 }
 .new .nl .content .fan-right p:nth-child(2){
 	width: 96px;
 	height: 18px;
-	margin-top: 2px;	
+	margin-top: 2px;
+	font-size: 5px;
 }
+/*.new .nl .content .fan-right p:nth-child(2) a{
+	width: 40px;
+	height: 17px; 
+	margin-left: 5px;
+	border:1px solid #DC7577;
+	background: #FFFFFF;
+	border-radius: 5px;
+	color: #DC7577;
+	transition: all 0.3s ease;	
+}*/
+/*.new .nl .content .fan-right p:nth-child(2) a:hover{
+	box-shadow:0 0 0 20px #DC7577 inset; 
+	color:#FFF
+}*/
 /* right of the new*/
 .new .nr{
 	width: 20%;
 	margin-left:3%; 
 	height: 360px;
 	float: left;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
 .new .nr .nr-t{
 	height: 24px;
@@ -239,14 +293,19 @@
 }
 .new .nr .nr-t span:nth-child(1){
 	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
 }
 .new .nr .nr-t span:nth-child(2){
 	float:right;
+	margin-right: 10px;
+	margin-top: 5px;
 }
 .new .nr .myfan{
 	width: 100%;
 	height: 316px;
 	margin-top: 20px;
+	margin-left: 10px;
 }
 .new .nr .myfan table{
 	width:100%;
@@ -285,17 +344,24 @@
 /*label*/
 .label{
 	width: 80%;
-	height: 80px;
+	height: 100px;
 	margin: 20px auto 0 auto;
-	border-top: 1px solid #404040;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
 }
 
 
 .label1{
 	width: 20%;
 	height: 80px;
-	margin-right: 20%;
+	margin-right: 19%;
+	margin-top: 5px;
 	float: left;
+}
+.label1:nth-child(1){
+	margin-left: 5px;		
 }
 .label1:nth-child(3){
 	margin-right: 0;
@@ -343,41 +409,50 @@
 
 .bfzg{
 	width:1200px;
-	height: 500px;
-	margin: 80px auto 0px auto;	
+	height: 530px;
+	margin: 80px auto 0px auto;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
 .bfzg_t{
-	width: 100%;
+	width: 90%;
 	height: 32px;
+	margin: 5px auto 0 auto;
 }
 .bfzg_t span{
 	font-size:24px;
 	float: left;
 }
 .bfzg_t a{
-	width: 70px;
+	width: 80px;
 	margin-top:2px; 
-	height: 30px;
+	height: 35px;
 	font-size:16px;
 	text-decoration: none;
-	line-height: 30px;
+	line-height: 35px;
 	text-align: center;
 	border: 1px solid #ED4BFA;
 	background:#FFFFFF;
 	color: #ED4BFA;
 	float: right;
-	border-radius:15px;	
+	border-radius:20px;	
+	font-weight: bold;
 }
-
+.bfzg_t a:hover{
+	box-shadow:0 0 0 20px #ED4BFA inset; 
+	color:#FFF
+}
 .bfzg_v{
 	height: 450px;
-	width:100%;
-	margin-top: 18px;
+	width:90%;
+	margin: 18px auto 0 auto;
 }
 .bfzg_v li{
 	height: 230px;
 	width: 150px;
-	margin-right:60px;
+	margin-right:36px;
 	float: left;
 	overflow: hidden;
 }
@@ -413,48 +488,57 @@
 
 .pfzg{
 	width:1200px;
-	height: 500px;
-	margin: 80px auto 0px auto;	
+	height: 530px;
+	margin: 80px auto 0px auto;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
 .pfzg_t{
-	width: 100%;
+	width: 90%;
 	height: 32px;
+	margin: 5px auto 0 auto;
 }
 .pfzg_t span{
 	font-size:24px;
 	float: left;
 }
 .pfzg_t a{
-	width: 70px;
+	width: 80px;
 	margin-top:2px; 
-	height: 30px;
+	height: 35px;
 	font-size:16px;
 	text-decoration: none;
-	line-height: 30px;
+	line-height: 35px;
 	text-align: center;
 	border: 1px solid #ED4BFA;
 	background:#FFFFFF;
 	color: #ED4BFA;
 	float: right;
-	border-radius:15px;	
+	border-radius:20px;	
+	font-weight: bold;
 }
-
+.pfzg_t a:hover{
+	box-shadow:0 0 0 20px #ED4BFA inset; 
+	color:#FFF
+}
 .pfzg_v{
 	height: 450px;
-	width:100%;
-	margin-top: 18px;
+	width:90%;
+	margin: 18px auto 0 auto;
 }
 .pfzg_v li{
 	height: 230px;
 	width: 150px;
-	margin-right:60px;
+	margin-right:36px;
 	float: left;
 	overflow: hidden;
 }
 .pfzg_v li:nth-child(6),.pfzg_v li:nth-child(12){
 	margin-right: 0px;
 }
-.pfzg_v li:nth-child(1),.pfzg_v li:nth-child(2),.pfzg_v li:nth-child(3),.pfzg_v li:nth-child(4),.pfzg_v li:nth-child(5),.pfzg_v li:nth-child(6){
+.pfzg_v li:nth-child(1),.pfzg_v li:nth-child(2),.pfzg_v li:nth-child(3),.pfzg_v li:nth-child(4),.pfzg_v li:nth-child(5),.bfzg_v li:nth-child(6){
 	margin-bottom: 10px;
 }
 .pfzg_v li div{
@@ -478,44 +562,52 @@
 	color:aqua;
 }
 /*tj*/
-
 .tj{
 	width:1200px;
-	height: 500px;
-	margin: 80px auto 80px auto;	
+	height: 530px;
+	margin: 80px auto 40px auto;
+	box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
 .tj_t{
-	width: 100%;
+	width: 90%;
 	height: 32px;
+	margin: 5px auto 0 auto;
 }
 .tj_t span{
 	font-size:24px;
 	float: left;
 }
 .tj_t a{
-	width: 70px;
+	width: 80px;
 	margin-top:2px; 
-	height: 30px;
+	height: 35px;
 	font-size:16px;
 	text-decoration: none;
-	line-height: 30px;
+	line-height: 35px;
 	text-align: center;
 	border: 1px solid #ED4BFA;
 	background:#FFFFFF;
 	color: #ED4BFA;
 	float: right;
-	border-radius:15px;	
+	border-radius:20px;	
+	font-weight: bold;
 }
-
+.tj_t a:hover{
+	box-shadow:0 0 0 20px #ED4BFA inset; 
+	color:#FFF
+}
 .tj_v{
 	height: 450px;
-	width:100%;
-	margin-top: 18px;
+	width:90%;
+	margin: 18px auto 0 auto;
 }
 .tj_v li{
 	height: 230px;
 	width: 150px;
-	margin-right:60px;
+	margin-right:36px;
 	float: left;
 	overflow: hidden;
 }

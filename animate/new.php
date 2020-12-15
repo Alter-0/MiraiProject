@@ -3,35 +3,13 @@
 <head>
     <meta charset="UTF-8" name="referrer" content="never">
     <title>Mirai-新番时间表</title>
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            list-style: none;
-            user-select: none
-        }
-
-        body {
-            background: url(../image/background.jpg) no-repeat center center fixed;
-            /*background: #fff;*/
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-        }
-
         .all {
             min-height: 100%;
             flex: 1;
-            /*position: relative;*/
             margin-bottom: -165px;
         }
-
-        /*.main {*/
-        /*    width: 100%;*/
-        /*    height: 200px;*/
-        /*    position: relative;*/
-        /*}*/
 
         .top {
             width: auto;
@@ -211,19 +189,19 @@ function animate($week)
                 preg_match_all('/\d+/', $num, $res);
                 $num = join('', $res[0]);
                 echo "
-<div class='right'>
-<div class='fan'>
-<div class='over'>
-$num
-</div>
-<a href='detail.php?$row[animate_id]'>
-<img src='$row[cover]' alt=''>
-</a>
-<div class='text'>
-<a href='detail.php?$row[animate_id]'>$row[name]</a>
-</div>
-</div>
-</div>";
+                <div class='right'>
+                    <div class='fan'>
+                        <div class='over'>
+                        $num
+                        </div>
+                        <a href='detail.php?animate_id=$row[animate_id]'>
+                            <img src='$row[cover]' alt=''>
+                        </a>
+                        <div class='text'>
+                            <a href='detail.php?$row[animate_id]'>$row[name]</a>
+                        </div>
+                    </div>
+                </div>";
             }
         }
     }

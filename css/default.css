@@ -1,0 +1,15 @@
+/*通用css样式*/
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    user-select: none
+}
+
+body {
+    background: url("../image/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
+<meta charset="utf-8" name="referrer" content="never">
+<title>无标题文档</title>
     <meta charset="UTF-8">
     <title>main</title>
 	<link href="main.css" type="text/css" rel="stylesheet"/>
 	
 	<script src="js/animate.js"></script>
     <!-- 引入index.js -->
-    <script src="js/index.js"></script>
+    <script src="js/index.js"></script>	
 </head>
-	
+
 <body>
+	<?php 
+	include "../conn.php"
+	?>
 	<!-- top begin-->
 	<div class="top">
       <iframe  scrolling="no" src="../header.php"></iframe>
@@ -57,17 +62,30 @@
 			</div>
 			<div class="content">
 				<table>
+			<?php
+                $sql="select * from animate order by start_date DESC limit 12;";
+				$result=mysqli_query($conn,$sql) or die("数据库查询失败");
+				$cover=array();
+				$name=array();
+				$index_show=array();
+				if(mysqli_num_rows($result)){
+					while($row=mysqli_fetch_assoc($result)){
+							$cover[]=$row['cover'];
+							$name[]=$row['name'];
+							$index_show[]=$row['index_show'];
+					}}
+				?>					
 					<tr>
 						<td>
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[0]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至10话</p>
+									<p><a href="" target="_blank"><span><?php echo $name[0]; ?></span></a></p>
+									<p><?php echo $index_show[0]; ?></p>
 								</div>								
 							</div>
 						</td>
@@ -75,12 +93,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[1]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[1]; ?></span></a></p>
+									<p><?php echo $index_show[1]; ?></p>
 								</div>								
 							</div>							
 						</td>
@@ -88,12 +106,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[2]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[2]; ?></span></a></p>
+									<p><?php echo $index_show[2]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -101,12 +119,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[3]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[3]; ?></span></a></p>
+									<p><?php echo $index_show[3]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -116,12 +134,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[4]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[4]; ?></span></a></p>
+									<p><?php echo $index_show[4]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -129,12 +147,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[5]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[5]; ?></span></a></p>
+									<p><?php echo $index_show[5]; ?></p>
 								</div>								
 							</div>							
 						</td>
@@ -142,12 +160,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[6]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[6]; ?></span></a></p>
+									<p><?php echo $index_show[6]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -155,12 +173,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[7]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[7]; ?></span></a></p>
+									<p><?php echo $index_show[7]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -170,12 +188,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[8]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[8]; ?></span></a></p>
+									<p><?php echo $index_show[8]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -183,12 +201,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[9]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[9]; ?></span></a></p>
+									<p><?php echo $index_show[9]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -196,12 +214,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[10]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[10]; ?></span></a></p>
+									<p><?php echo $index_show[10]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -209,12 +227,12 @@
 							<div class="fan">
 								<div class="fan-left">
 									<a href="" target="_blank">
-										<img src="image/banner.png" alt="" />
+										<img src="<?php echo $cover[11]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span>title</span></a></p>
-									<p>更新至<a href="" target="_blank">10话</a></p>
+									<p><a href="" target="_blank"><span><?php echo $name[11]; ?></span></a></p>
+									<p><?php echo $index_show[11]; ?></p>
 								</div>								
 							</div>						
 						</td>
@@ -226,10 +244,27 @@
 			<div class="nr-t">
 				<span><h3>我的追番</h3></span>
 				<span>更多</span>				
-			</div>
+			</div>	
 			<div class="myfan">
 				<table>
-				 <tr>
+			<?php
+/*				$_SESSION['username']*/
+/*                $sql="select * from animate,likes,user where likes.animate_id=animate.animate_id and likes.user_id=".$username." limit 4;";*/
+				$sql="select * from animate order by start_date DESC limit 4;";
+				$result=mysqli_query($conn,$sql) or die("数据库查询失败");
+				if(mysqli_num_rows($result)){
+					while($row=mysqli_fetch_assoc($result)){
+						echo "<tr>";
+						echo "<td><div class='myfan-left'>";
+						echo " <a href='' target='_blank'><img src='".$row['cover']."' alt=''/></a>";
+						echo "</div>";
+						echo "<div class='myfan-right'>";
+						echo "<p><a href='' target='_blank'><span>".$row['name']."</span></a></p>";
+						echo "<p>更新至</p>";
+                        echo "</div></td></tr>";							
+					}}
+			?>						
+<!--		     <tr>
 					 <td>
                       <div class="myfan-left">
                           <a href="" target="_blank">
@@ -238,7 +273,7 @@
                       </div>
                       <div class="myfan-right">
                           <p><a href="" target="_blank"><span>title</span></a></p>
-                          <p>更新至<a href="" target="_blank">10话</a></p>
+                          <p>更新至</p>
                       </div>						 
 					 </td>
 				</tr>
@@ -251,7 +286,7 @@
                       </div>
                       <div class="myfan-right">
                           <p><a href="" target="_blank"><span>title</span></a></p>
-                          <p>更新至<a href="" target="_blank">10话</a></p>
+                          <p>更新至10话</p>
                       </div>						 
 					 </td>
 				</tr>	
@@ -263,7 +298,7 @@
                       </div>
                       <div class="myfan-right">
                           <p><a href="" target="_blank"><span>akjbdjkzbfusbafbadjfbijadbfojasdbuo</span></a></p>
-                          <p>更新至<a href="" target="_blank">10话</a></p>
+                          <p>更新至10话</p>
                       </div>						 
 					 </td>
 				<tr>
@@ -275,11 +310,10 @@
                       </div>
                       <div class="myfan-right">
                           <p><a href="" target="_blank"><span>title</span></a></p>
-                          <p>更新至<a href="" target="_blank">10话</a></p>
+                          <p>更新至</p>
                       </div>						 
 					 </td>
-				 </tr>
-
+				 </tr>-->
 				</table>
 			</div>
 		</div>
@@ -335,6 +369,18 @@
 	</div>
 	<!-- label end-->
 	<!-- bfzg begin -->
+    <?php
+        $sql="select * from animate order by views DESC limit 12;";
+        $result=mysqli_query($conn,$sql) or die("数据库查询失败");
+        $cover=array();
+        $name=array();
+        $index_show=array();
+        if(mysqli_num_rows($result)){
+            while($row=mysqli_fetch_assoc($result)){
+                    $cover[]=$row['cover'];
+                    $name[]=$row['name'];
+            }}
+        ?>
 	<div class="bfzg">
 		<div class="bfzg_t">
 			<span>播放最高</span>
@@ -343,52 +389,52 @@
 		<div class="bfzg_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>
@@ -396,6 +442,18 @@
 	<!-- bfzg end-->
 	
 	<!-- pfzg begin-->
+    <?php
+    $sql="select * from animate order by score DESC limit 12;";
+    $result=mysqli_query($conn,$sql) or die("数据库查询失败");
+    $cover=array();
+    $name=array();
+    $index_show=array();
+    if(mysqli_num_rows($result)){
+        while($row=mysqli_fetch_assoc($result)){
+                $cover[]=$row['cover'];
+                $name[]=$row['name'];
+        }}
+    ?>
 	<div class="pfzg">
 		<div class="pfzg_t">
 			<span>评分最高</span>
@@ -404,58 +462,70 @@
 		<div class="pfzg_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>
 	</div>
 	<!-- pfzg end-->
 	<!-- tj begin-->
+    <?php
+      $sql="select * from animate order by likes limit 12;";
+      $result=mysqli_query($conn,$sql) or die("数据库查询失败");
+      $cover=array();
+      $name=array();
+      $index_show=array();
+      if(mysqli_num_rows($result)){
+          while($row=mysqli_fetch_assoc($result)){
+                  $cover[]=$row['cover'];
+                  $name[]=$row['name'];
+          }}
+    ?>	
 	<div class="tj">
 		<div class="tj_t">
 			<span>好番推荐</span>
@@ -464,52 +534,52 @@
 		<div class="tj_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="../image/banner.png" alt=""/></a></div>
-				  <p><a href="" target="_blank">名字</a></p>
+				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>
