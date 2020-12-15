@@ -10,7 +10,7 @@
 	}
 	#top{
 		width: 100%;
-		height: 40px;
+		height: 60px;
 		position: relative;
 	}
 	#mid{
@@ -36,6 +36,19 @@
 		float: left;
 		background-color: #ffffff;
 	}
+	#table{
+		width: 100%;
+		padding: 20px 40px;
+		margin-top: 60px;
+	}
+	#logo{
+		text-align: center;
+		font-size: 5em;
+		margin-bottom: 60px;
+	}
+	.img{
+		height: 40px;
+	}
 	</style>
 <body>
 <div id="main" >
@@ -43,7 +56,10 @@
 		<div id="mid">
 			<img alt=""  class="left" src="../002.jpg" id="">
 			<div id="right">
-				<div id="logo"></div>
+				<div id="table">
+				<div id="logo">
+					<img class="img" alt="" src="../003.jpg">
+					</div>
 				<div id="form">
 				<form>
 					<span class="name">
@@ -53,11 +69,11 @@
 					<span class="password">
 					<span></span>
 					密码：<input type="text" id="pass" value="">
-					</span>
+					</span><br>
 					<span class="password">
 					<span></span>
-					再输入一次密码：<input type="text" id="repass" value="">
-					</span>
+					重置密码：<input type="text" id="repass" value="">
+					</span><br>
 					<span class="password">
 					<span></span>
 					邮箱：<input type="text" id="email" value="">
@@ -68,6 +84,7 @@
 				<div id="btm">
 				<a href="">登录</a>
 				<a href="">重置密码</a>
+				</div>
 				</div>
 			</div>
 	</div>
