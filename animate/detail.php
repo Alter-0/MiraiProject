@@ -19,6 +19,9 @@ $tagssql="select * from tags where animate_id='$animate_id'";
 $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
 
 
+$user_id="100001";
+$usersql="select * from likes where user_id='".$user_id."' and animate_id='$animate_id'";
+$userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
 
 
 ?>
@@ -393,7 +396,8 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             background-repeat: no-repeat;
         }
         .btn_liked{
-
+            width:120px;
+            height: 40px;
             line-height: 42px;
             background-color: hsla(0,0%,100%,0.12);
             border: 4px solid hsla(0,0%,100%,0.5);
@@ -403,6 +407,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             background-color: hsla(0,0%,100%,0.12);
         }
         .btn_liked i{
+
             vertical-align: -6px;
             background-image: url(http://s1.hdslb.com/bfs/static/review/media/asserts/icons.png);
             background-position: -660px -1938px;
@@ -905,10 +910,23 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                     <span class="intro_text"><?php echo substr($animateinfo["introduction"],0,490);?>......</span>
                 </div>
 
-                <div class="btns">
-                    <div class="btn_like btn_liked">
-                            <i></i>
-                                已追番
+                <div onclick="changelike()" id="like_btn" class="btns">
+                    <?php
+                    if(mysqli_fetch_array($userresult)) {
+                        $islike=1;
+                        echo '<div class="btn_like btn_liked">';
+                        echo '<i></i>';
+                        echo '已追番';
+
+                    }else{
+                        $islike=0;
+                        echo '<div class="btn_like">';
+                        echo '<i></i>';
+                        echo '追番';
+                    }
+
+                    ?>
+
                     </div>
                 </div>
             </div>
@@ -1114,10 +1132,6 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
         var startno=SNE[0]-1;
         var endno=12
 
-        console.log('偏移');
-        console.log(startno);
-        console.log('个数');
-        console.log(endno);
 
 
         $.ajax({
@@ -1137,7 +1151,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
     }
     getvideolist("");
     function getmorean(con){
-        console.log("wwwwwwwwwww")
+
         if(con==="detail"){
             $.ajax({
                 url : "getmore.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
@@ -1154,7 +1168,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             });
         }else{
             $.ajax({
-                url : "getmore.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                url : "islike.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
                 data : {
                     mode:'more'
                 }, //参数Json格式
@@ -1172,6 +1186,23 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
     }
     getmorean("detail");
     getmorean("more");
+
+
+    function changelike(){
+        $.ajax({
+            url : "userlike.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+            data : {
+                user_id:<?php echo $user_id ?>,
+            }, //参数Json格式
+
+            dataType : "html", //请求的返回类型
+            type : "post",  //提交方式
+            cache : false,  //是否异步提交true
+            success : function(v){
+                $("#like_btn").html(v);
+            }
+        });
+    }
 
 
 </script>
