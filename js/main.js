@@ -11,6 +11,8 @@ document.write('<script src="../js/loading.js"></script>');
 document.write('<script src="../js/sakura.js"></script>');
 //鼠标点击动画
 document.write('<script src="../js/mouse_click.js"></script>');
+//页面激活状态改变时更换标题
+document.write('<script src="../js/change_title.js"></script>');
 
 //waifu-tips.js 依赖 JQuery 库
 document.write('<script src="../live2d/assets/jquery.min.js?v=3.3.1"></script>');

@@ -47,26 +47,28 @@ a{
 }
 .index .fenlei{
 	width: 89%;
-	height: 30px;
+	height: 60px;
 	box-sizing: border-box; 
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
-	margin: 20px auto;
+	margin: 10px auto;
+	line-height: 60px;
 }
 .index .fenlei ul{
-	height: 20px;
+	height: 46px;
 	width: auto;
 	float: left;
 	margin-left:70px;
 }
 .index .fenlei ul li{
+	height: 46px;
 	float: left;
 	margin-right: 40px;
 }
 
 .index .fenlei ul li a{
-	font-size: 20px;
+	font-size: 18px;
 	transition: all 0.5 ease;
 	cursor: pointer;
 	color:#000000;
@@ -74,17 +76,14 @@ a{
 .index .fenlei ul li:nth-child(1) a{
 	color:#479BB8;
 }
-.index .fenlei ul li a:hover{
-	color: #479BB8;
+.index .fenlei ul li:hover a{
+	color: #479BB8;	
 }
 .index .fenlei .logo1{
 	float: right;
 	width: 80px;
 	height: 20px;
 }
-
-
-
 /*轮播效果*/
 .wrap{
 	width: 85%;
@@ -96,6 +95,9 @@ a{
 	border-radius: 15px;
 	box-sizing: border-box;
 	box-shadow:5px 5px 20px 5px rgba(0,0,0,0.3);
+}
+.wrap a{
+	cursor: pointer;
 }
 .wrap ul {
 	position: absolute;
@@ -189,7 +191,7 @@ a{
 /* left of the new*/
 .new .nl{
 	width: 77%;
-	height: 370px;
+	height: 360px;
 	float: left;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
@@ -204,7 +206,7 @@ a{
 .new .nl .title span:nth-child(1){
 	font-size: 24px;
 	float: left;
-	margin-left: 13px;
+	margin-left: 23px;
 	
 }
 .new .nl .title span:nth-child(2){
@@ -213,20 +215,20 @@ a{
 	float:right;
 	margin-top:5px; 
 	margin-right: 10px;
-	border:1px solid #27DC6D;
+	border:1px solid #F4A6D7;
 	background: #FFFFFF;
 	border-radius: 15px;
-	color: #27DC6D;
+	color: #F4A6D7;
 	transition: all 0.5s ease;
 	text-align: center;
 	line-height: 24px;
 	font-weight: bold;
 }
 .new .nl .title span:nth-child(2) a{
-	color: #27DC6D;
+	color: #F4A6D7;
 }
 .new .nl .title span:nth-child(2):hover{
-	box-shadow:0 0 0 20px #27DC6D inset; 
+	box-shadow:0 0 0 20px #F4A6D7 inset; 
 	color:#FFF
 }
 .new .nl .title span:nth-child(2):hover a{
@@ -332,18 +334,26 @@ a{
 	margin-right: 10px;
 	margin-top: 7px;	
 	height:24px;
-	width:48px;
+	width:60px;
 	line-height: 24px;
+	display: inline-block;
+	text-align: center;	
+	border:1px solid #F4A6D7;
+	background: #FFFFFF;
+	border-radius: 15px;	
+	transition: all 0.5s ease;
+	font-weight: bold;
+	
+}
+.new .nr .nr-t span:nth-child(2):hover{
+	box-shadow:0 0 0 20px #F4A6D7 inset; 
 }
 .new .nr .nr-t span:nth-child(2) a{
- 	color:#77E3A9;
-	font-weight: bold;
-	transition: all 0.5 ease;
-	line-height: 24px;
+	color: #F4A6D7;
+
 }
-.new .nr .nr-t span:nth-child(2) a:hover{
-	color:#E784F5;
-	font-size: 20px;
+.new .nr .nr-t span:nth-child(2):hover a{
+	color:#FFF
 }
 .new .nr .myfan{
 	width: 100%;
@@ -422,7 +432,7 @@ a{
 	overflow: hidden;
 }
 .label1:nth-child(1){
-	margin-left: 20px;		
+	margin-left: 23px;		
 }
 .label1:nth-child(3){
 	margin-right: 0;
@@ -474,7 +484,7 @@ a{
 .bfzg{
 	width: 80%;
 	height: 530px;
-	margin: 80px auto 0px auto;
+	margin: 40px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
@@ -482,7 +492,7 @@ a{
 	overflow: hidden;
 }
 .bfzg_t{
-	width: 90%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
@@ -498,21 +508,21 @@ a{
 	text-decoration: none;
 	line-height: 35px;
 	text-align: center;
-	border: 1px solid #FE9DE8;
+	border: 1px solid #F4A6D7;
 	background:#FFFFFF;
-	color: #FE9DE8;
+	color: #F4A6D7;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in;
 }
 .bfzg_t a:hover{
-	box-shadow:0 0 0 20px #FE9DE8 inset; 
+	box-shadow:0 0 0 20px #F4A6D7 inset; 
 	color:#FFF;
 }
 .bfzg_v{
 	height: 450px;
-	width:90%;
+	width:95%;
 	margin: 18px auto 0 auto;
 }
 .bfzg_v li{
@@ -530,8 +540,8 @@ a{
 }
 .bfzg_v li div{
 	height:200px;
-	width: 100%;
-	margin-bottom: 10px;
+	width: 150px;
+	margin: 0px auto 10px auto;
 }
 .bfzg_v li div img{
 	width: 100%;
@@ -559,7 +569,7 @@ a{
 .pfzg{
 	width: 80%;
 	height: 530px;
-	margin: 80px auto 0px auto;
+	margin: 40px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
@@ -567,7 +577,7 @@ a{
 	overflow: hidden;
 }
 .pfzg_t{
-	width: 90%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
@@ -583,21 +593,21 @@ a{
 	text-decoration: none;
 	line-height: 35px;
 	text-align: center;
-	border: 1px solid #FE9DE8;
+	border: 1px solid #F4A6D7;
 	background:#FFFFFF;
-	color: #FE9DE8;
+	color: #F4A6D7;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in;
 }
 .pfzg_t a:hover{
-	box-shadow:0 0 0 20px #FE9DE8 inset; 
+	box-shadow:0 0 0 20px #F4A6D7 inset; 
 	color:#FFF;
 }
 .pfzg_v{
 	height: 450px;
-	width:90%;
+	width:95%;
 	margin: 18px auto 0 auto;
 }
 .pfzg_v li{
@@ -614,9 +624,10 @@ a{
 	margin-bottom: 10px;
 }
 .pfzg_v li div{
+
 	height:200px;
-	width: 100%;
-	margin-bottom: 10px;
+	width: 150px;
+	margin: 0px auto 10px auto;
 }
 .pfzg_v li div img{
 	width: 100%;
@@ -641,15 +652,16 @@ a{
 .tj{
 	width: 80%;
 	height: 530px;
-	margin: 80px auto 0px auto;
+	margin: 40px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
+	margin-bottom: 80px;
 }
 .tj_t{
-	width: 90%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
@@ -657,7 +669,7 @@ a{
 	font-size:24px;
 	float: left;
 }
-.pfzg_t a{
+.tj_t a{
 	width: 80px;
 	margin-top:2px; 
 	height: 35px;
@@ -665,21 +677,21 @@ a{
 	text-decoration: none;
 	line-height: 35px;
 	text-align: center;
-	border: 1px solid #FE9DE8;
+	border: 1px solid #F4A6D7;
 	background:#FFFFFF;
-	color: #FE9DE8;
+	color: #F4A6D7;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
-	transition: all 0.5s ease-in;
+	transition: all 0.3s ease-in;
 }
 .tj_t a:hover{
-	box-shadow:0 0 0 20px #FE9DE8 inset; 
+	box-shadow:0 0 0 20px #F4A6D7 inset; 
 	color:#FFF;
 }
 .tj_v{
 	height: 450px;
-	width:90%;
+	width:95%;
 	margin: 18px auto 0 auto;
 }
 .tj_v li{
@@ -688,6 +700,7 @@ a{
 	margin-right:2%;
 	float: left;
 	overflow: hidden;
+	text-align: center;
 }
 .tj_v li:nth-child(6),.tj_v li:nth-child(12){
 	margin-right: 0px;
@@ -697,8 +710,9 @@ a{
 }
 .tj_v li div{
 	height:200px;
-	width: 100%;
-	margin-bottom: 10px;
+	width: 150px;
+	margin: 0px auto 10px auto;
+/*	margin-bottom: 10px;*/
 }
 .tj_v li div img{
 	width: 100%;

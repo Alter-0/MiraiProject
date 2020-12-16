@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8" name="referrer" content="never">
-<title>main</title>
+<title>Mirai (゜-゜)つロ 干杯~</title>
 	<link href="main.css" type="text/css" rel="stylesheet"/>
 
-    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
 </head>
 
@@ -380,7 +380,7 @@
                     $name[]=$row['name'];
 					$animate_id[]=$row['animate_id'];
             }}
-        ?>
+    ?>
 	<div class="bfzg">
 		<div class="bfzg_t">
 			<span>播放最高</span>
@@ -675,6 +675,8 @@ window.addEventListener('load', function() {
     });
     // 左侧按钮
     left.addEventListener('click', function() {
+			 wrap = document.querySelector('.wrap');
+			 wrapWidth = wrap.offsetWidth;
         if (flag) {
             flag = false;
             // 无缝滚动
