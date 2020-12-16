@@ -39,7 +39,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(72, 99, 245, 0.8);
+    background: rgba(48, 127, 226, 0.8);
 }
 
 /*设置鼠标样式*/
@@ -55,5 +55,4 @@ body {
 /*    cursor: url(../image/mouse/link.cur), pointer;*/
 /*}*/
 
-/*加载动画*/
 

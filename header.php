@@ -100,6 +100,15 @@
         * {
             cursor: url(image/mouse/arrow.cur), default;
         }
+
+        img {
+            transition: all 0.5s;
+        }
+
+        img:hover {
+            filter: brightness(80%);
+            transition: all 0.5s;
+        }
     </style>
 </head>
 

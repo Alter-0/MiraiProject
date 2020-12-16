@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8" name="referrer" content="never">
     <title>Mirai-新番时间表</title>
-    <link rel="stylesheet" type="text/css" href="../css/default.css">
+
+    <!-- 引用部分@blueberry -->
+    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <!-- 引用部分@blueberry -->
+
     <style>
         .all {
             min-height: 100%;
@@ -174,8 +178,6 @@
 </head>
 
 <?php
-
-
 function animate($week)
 {
     include "../conn.php";
@@ -210,7 +212,6 @@ function animate($week)
 ?>
 
 <body>
-<!--<script src="../js/mouse.js"></script>-->
 
 <div class="all">
     <div class="main">
@@ -322,23 +323,6 @@ function animate($week)
 </div>
 
 <iframe src="../footer.html" class="footer" scrolling="no"></iframe>
-<!--插入js部分-->
-
-<script src="../js/sakura.js"></script>
-
-<!--<script src="http://localhost/MiraiProject/js/jquery.js"></script>-->
-<!--<script src="../js/mouse_click.js"></script>-->
-
-<!--<script src="https://amayaliu.cn/PersonalHabits/AmayaBlossoms.js"></script>-->
-
-<!-- waifu-tips.js 依赖 JQuery 库 -->
-<script src="http://localhost/MiraiProject/live2d/assets/jquery.min.js?v=3.3.1"></script>
-
-<!-- 实现拖动效果，需引入 JQuery UI -->
-<script src="http://localhost/MiraiProject/live2d/assets/jquery-ui.min.js?v=1.12.1"></script>
-
-<!-- 使用 aotuload.js 引入看板娘 -->
-<script src="http://localhost/MiraiProject/live2d/assets/autoload.js?v=1.4.2"></script>
 
 </body>
 </html>

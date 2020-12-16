@@ -2,32 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" name="referrer" content="never">
+
+
     <?php
     include "../conn.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $video_id = $_GET["video_id"];
+        //更新数据部分
+        $sql = "update video set views=views+1 where video_id=$video_id";
+        $result_update = mysqli_query($conn, $sql) or die("数据查询失败");
+
+        //查询部分
+        $sql = "select * from video where video_id=$video_id";
+        $result_video = mysqli_query($conn, $sql) or die("数据查询失败");
+        $row_video = mysqli_fetch_assoc($result_video);
+        $animate_id = $row_video['animate_id'];
+
+        $sql = "select * from animate where animate_id=$animate_id";
+        $result_animate = mysqli_query($conn, $sql) or die("数据查询失败");
+        $row_animate = mysqli_fetch_assoc($result_animate);
+
+        $sql = "select * from video where animate_id=$animate_id";
+        $result_video_list = mysqli_query($conn, $sql) or die("数据查询失败");
+        //$row_video_list=mysqli_fetch_assoc($result_video_list);
     } else {
         $video_id = 100001;
     }
-
-    //更新数据部分
-    $sql = "update video set views=views+1 where video_id=$video_id";
-    $result_update = mysqli_query($conn, $sql) or die("数据查询失败");
-
-    //查询部分
-    $sql = "select * from video where video_id=$video_id";
-    $result_video = mysqli_query($conn, $sql) or die("数据查询失败");
-    $row_video = mysqli_fetch_assoc($result_video);
-    $animate_id = $row_video['animate_id'];
-
-    $sql = "select * from animate where animate_id=$animate_id";
-    $result_animate = mysqli_query($conn, $sql) or die("数据查询失败");
-    $row_animate = mysqli_fetch_assoc($result_animate);
-
-    $sql = "select * from video where animate_id=$animate_id";
-    $result_video_list = mysqli_query($conn, $sql) or die("数据查询失败");
-    //$row_video_list=mysqli_fetch_assoc($result_video_list);
 
     ?>
     <title>Mirai-
@@ -36,11 +37,11 @@
         ?></title>
 
     <!--引入dplayer-->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/dplayer/1.25.0/DPlayer.min.css" />
-    <script src="https://cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
-    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    <script src="https://cdn.bootcss.com/dplayer/1.25.0/DPlayer.min.js"></script>
+    <link rel="stylesheet" href="../res/DPlayer.min.css" />
+    <script src="../res/md5.js"></script>
+    <script src="../res/flv.js"></script>
+    <script src="../res/hls.js@latest.js"></script>
+    <script src="../res/DPlayer.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../css/default.css">
     <style>
