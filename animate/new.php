@@ -5,7 +5,7 @@
     <title>Mirai-新番时间表</title>
 
     <!-- 引用部分@blueberry -->
-    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
 
     <style>
