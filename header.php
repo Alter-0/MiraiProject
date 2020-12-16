@@ -135,7 +135,7 @@ if (empty($_SESSION["user"])) {
         <section class="left">
             <!--logo-->
             <a href="main/main.php" target="_top">
-                <img src="image/logo.png" alt="logo" height="50px" width="122px">
+                <img src="image/logo.png" alt="logo" height="50px" width="141px">
             </a>
             <!--新番-->
             <a href="animate/new.php" target="_top" class="text">
