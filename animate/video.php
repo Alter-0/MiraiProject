@@ -43,7 +43,9 @@
     <script src="../res/hls.js@latest.js"></script>
     <script src="../res/DPlayer.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <!-- 引用部分@blueberry -->
+    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <!-- 引用部分@blueberry -->
     <style>
 
         .all {

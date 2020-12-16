@@ -7,7 +7,11 @@
 	
 	<script src="js/animate.js"></script>
     <!-- 引入index.js -->
-    <script src="js/index.js"></script>	
+    <script src="js/index.js"></script>
+
+    <!-- 引用部分@blueberry -->
+    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <!-- 引用部分@blueberry -->
 </head>
 
 <body>
