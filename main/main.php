@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="utf-8" name="referrer" content="never">
-<title>main</title>
+<title>Mirai (゜-゜)つロ 干杯~</title>
 	<link href="main.css" type="text/css" rel="stylesheet"/>
 
-    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
 </head>
 
