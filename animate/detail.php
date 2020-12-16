@@ -467,7 +467,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             top: -40px;
             width: auto;
             height: 2000px;
-            margin: 15px 10% 200px 10%;
+            margin: 15px 10% 100px 10%;
 
         }
 
