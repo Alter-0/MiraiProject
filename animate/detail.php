@@ -1168,7 +1168,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             });
         }else{
             $.ajax({
-                url : "islike.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                url : "getmore.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
                 data : {
                     mode:'more'
                 }, //参数Json格式
