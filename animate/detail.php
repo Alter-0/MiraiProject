@@ -28,6 +28,10 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
 <head>
     <script src="../js/jquery.js"></script>
 
+    <!-- 引用部分@blueberry -->
+    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <!-- 引用部分@blueberry -->
+
     <meta charset="UTF-8" name="referrer" content="never">
     <title><?php
         echo $animateinfo["name"];
@@ -130,21 +134,6 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
                  ?>deg);
             }
         }
-        * {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            list-style: none;
-            font-family:Microsoft Yahei,Tahoma,Helvetica,Arial,"\5B8B\4F53",sans-serif
-        }
-
-        body {
-            background: url(../image/background.jpg) no-repeat center center fixed;
-            /*background: #fff;*/
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-        }
 
         .all {
             min-height: 100%;
@@ -184,6 +173,9 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             position:absolute;
             top: 0px;
         }
+        .top{
+            z-index: 1;
+        }
         .top .text{
             z-index: 1;
             vertical-align: center;
@@ -212,7 +204,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             border:5px solid #ffffff;
             border-radius: 5px;
             float: left;
-            z-index: 0;
+            z-index: 1;
         }
         .title {
             text-align: left;

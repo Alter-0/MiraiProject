@@ -236,6 +236,7 @@
             padding: 0;
             display: grid;
             gap: 10px;
+            height: auto;
             /*min-height: 480px;*/
             /*max-height: 600px;*/
             overflow: auto;
@@ -458,6 +459,11 @@
 
     var normalWidth = window.innerWidth;
     var normalHeight = window.innerHeight;
+
+    $(window).on('load',function(){
+        episode_card.style.height = video_card.clientHeight - 46 + "px";
+    });
+
     window.onresize = function () {
         if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
             episode_card.style.height = video_card.clientHeight - 46 + "px";
@@ -467,7 +473,7 @@
         }
     }
 
-    episode_card.style.height = video_card.clientHeight - 46 + "px";
+
 
 </script>
 </html>
