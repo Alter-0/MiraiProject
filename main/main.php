@@ -27,9 +27,9 @@
           <div class="fenlei">
               <ul>
                <li><a>全部</a></li>
-               <li><a>连载动画</a></li>
-               <li><a>完结动画</a></li>
-               <li><a>番剧索引</a></li>
+               <li><a >连载动画</a></li>
+               <li><a >完结动画</a></li>
+               <li><a href="../index/index.html" target="_blank">番剧索引</a></li>
               </ul>		
               <div class="logo1"><img src="#" alt=""/></div>	
           </div>
@@ -58,7 +58,7 @@
 		<div class="nl">
 			<div class="title">
 				<span>最近更新</span>
-				<span>新番时间表</span>
+				<span><a href="../animate/new.php" target="_blank">新番时间表</a></span>
 			</div>
 			<div class="content">
 				<table>
@@ -68,23 +68,25 @@
 				$cover=array();
 				$name=array();
 				$index_show=array();
+				$animate_id=array();
 				if(mysqli_num_rows($result)){
 					while($row=mysqli_fetch_assoc($result)){
 							$cover[]=$row['cover'];
 							$name[]=$row['name'];
 							$index_show[]=$row['index_show'];
+							$animate_id[]=$row['animate_id'];
 					}}
 				?>					
 					<tr>
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank">
 										<img src="<?php echo $cover[0]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[0]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><span><?php echo $name[0]; ?></span></a></p>
 									<p><?php echo $index_show[0]; ?></p>
 								</div>								
 							</div>
@@ -92,12 +94,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank">
 										<img src="<?php echo $cover[1]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[1]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><span><?php echo $name[1]; ?></span></a></p>
 									<p><?php echo $index_show[1]; ?></p>
 								</div>								
 							</div>							
@@ -105,12 +107,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank">
 										<img src="<?php echo $cover[2]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[2]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><span><?php echo $name[2]; ?></span></a></p>
 									<p><?php echo $index_show[2]; ?></p>
 								</div>								
 							</div>						
@@ -118,12 +120,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank">
 										<img src="<?php echo $cover[3]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[3]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><span><?php echo $name[3]; ?></span></a></p>
 									<p><?php echo $index_show[3]; ?></p>
 								</div>								
 							</div>						
@@ -133,12 +135,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank">
 										<img src="<?php echo $cover[4]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[4]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><span><?php echo $name[4]; ?></span></a></p>
 									<p><?php echo $index_show[4]; ?></p>
 								</div>								
 							</div>						
@@ -146,12 +148,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank">
 										<img src="<?php echo $cover[5]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[5]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><span><?php echo $name[5]; ?></span></a></p>
 									<p><?php echo $index_show[5]; ?></p>
 								</div>								
 							</div>							
@@ -159,12 +161,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank">
 										<img src="<?php echo $cover[6]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[6]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><span><?php echo $name[6]; ?></span></a></p>
 									<p><?php echo $index_show[6]; ?></p>
 								</div>								
 							</div>						
@@ -172,12 +174,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank">
 										<img src="<?php echo $cover[7]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[7]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><span><?php echo $name[7]; ?></span></a></p>
 									<p><?php echo $index_show[7]; ?></p>
 								</div>								
 							</div>						
@@ -187,12 +189,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank">
 										<img src="<?php echo $cover[8]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[8]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><span><?php echo $name[8]; ?></span></a></p>
 									<p><?php echo $index_show[8]; ?></p>
 								</div>								
 							</div>						
@@ -200,12 +202,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank">
 										<img src="<?php echo $cover[9]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[9]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><span><?php echo $name[9]; ?></span></a></p>
 									<p><?php echo $index_show[9]; ?></p>
 								</div>								
 							</div>						
@@ -213,12 +215,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank">
 										<img src="<?php echo $cover[10]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[10]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><span><?php echo $name[10]; ?></span></a></p>
 									<p><?php echo $index_show[10]; ?></p>
 								</div>								
 							</div>						
@@ -226,12 +228,12 @@
 						<td>
 							<div class="fan">
 								<div class="fan-left">
-									<a href="" target="_blank">
+									<a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank">
 										<img src="<?php echo $cover[11]; ?>" alt="" />
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="" target="_blank"><span><?php echo $name[11]; ?></span></a></p>
+									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><span><?php echo $name[11]; ?></span></a></p>
 									<p><?php echo $index_show[11]; ?></p>
 								</div>								
 							</div>						
@@ -256,10 +258,10 @@
 					while($row=mysqli_fetch_assoc($result)){
 						echo "<tr>";
 						echo "<td><div class='myfan-left'>";
-						echo " <a href='' target='_blank'><img src='".$row['cover']."' alt=''/></a>";
+						echo " <a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><img src='".$row['cover']."' alt=''/></a>";
 						echo "</div>";
 						echo "<div class='myfan-right'>";
-						echo "<p><a href='' target='_blank'><span>".$row['name']."</span></a></p>";
+						echo "<p><a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><span>".$row['name']."</span></a></p>";
 						echo "<p>".$row['index_show']."</p>";
                         echo "</div></td></tr>";							
 					}}
@@ -374,11 +376,12 @@
         $result=mysqli_query($conn,$sql) or die("数据库查询失败");
         $cover=array();
         $name=array();
-        $index_show=array();
+        $animate_id=array();	
         if(mysqli_num_rows($result)){
             while($row=mysqli_fetch_assoc($result)){
                     $cover[]=$row['cover'];
                     $name[]=$row['name'];
+					$animate_id[]=$row['animate_id'];
             }}
         ?>
 	<div class="bfzg">
@@ -389,52 +392,52 @@
 		<div class="bfzg_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>"  target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>"  target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>"  target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>"  target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>"  target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>"  target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>"  target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>"  target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>"  target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>"  target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>
@@ -447,11 +450,12 @@
     $result=mysqli_query($conn,$sql) or die("数据库查询失败");
     $cover=array();
     $name=array();
-    $index_show=array();
+    $animate_id=array();
     if(mysqli_num_rows($result)){
         while($row=mysqli_fetch_assoc($result)){
                 $cover[]=$row['cover'];
                 $name[]=$row['name'];
+				$animate_id[]=$row['animate_id'];
         }}
     ?>
 	<div class="pfzg">
@@ -462,52 +466,52 @@
 		<div class="pfzg_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>
@@ -519,11 +523,12 @@
       $result=mysqli_query($conn,$sql) or die("数据库查询失败");
       $cover=array();
       $name=array();
-      $index_show=array();
+      $animate_id=array();
       if(mysqli_num_rows($result)){
           while($row=mysqli_fetch_assoc($result)){
                   $cover[]=$row['cover'];
                   $name[]=$row['name'];
+			  	  $animate_id[]=$row['animate_id'];
           }}
     ?>	
 	<div class="tj">
@@ -534,52 +539,52 @@
 		<div class="tj_v">
 			<ul>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[0]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><img src="<?php echo $cover[0]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><?php echo $name[0]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[1]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><img src="<?php echo $cover[1]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><?php echo $name[1]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[2]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><img src="<?php echo $cover[2]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><?php echo $name[2]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[3]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><img src="<?php echo $cover[3]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><?php echo $name[3]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[4]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><img src="<?php echo $cover[4]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><?php echo $name[4]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[5]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><img src="<?php echo $cover[5]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><?php echo $name[5]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[6]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><img src="<?php echo $cover[6]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><?php echo $name[6]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[7]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><img src="<?php echo $cover[7]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><?php echo $name[7]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[8]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><img src="<?php echo $cover[8]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><?php echo $name[8]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[9]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><img src="<?php echo $cover[9]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><?php echo $name[9]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[10]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><img src="<?php echo $cover[10]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><?php echo $name[10]; ?></a></p>
 				</li>
 				<li>
-				  <div><a href="" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
-				  <p><a href="" target="_blank"><?php echo $name[11]; ?></a></p>
+				  <div><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><img src="<?php echo $cover[11]; ?>" alt=""/></a></div>
+				  <p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><?php echo $name[11]; ?></a></p>
 				</li>				
 			</ul>
 		</div>

@@ -9,6 +9,9 @@ body{
     display: flex;
     flex-direction: column;
 }
+a{
+	text-decoration: none;
+}
 .top{
 	width: 100%;
 	height: 200px;
@@ -39,7 +42,6 @@ body{
 	width:80%;
 	height: 390px;
 	margin: 20px auto 0 auto ;
-	border-top: 1px solid #AFAFAF;
 	position: relative;
 	overflow: hidden;
 }
@@ -61,10 +63,15 @@ body{
 	float: left;
 	margin-right: 40px;
 }
+
 .index .fenlei ul li a{
 	font-size: 20px;
 	transition: all 0.5 ease;
 	cursor: pointer;
+	color:#000000;
+}
+.index .fenlei ul li:nth-child(1) a{
+	color:#479BB8;
 }
 .index .fenlei ul li a:hover{
 	color: #479BB8;
@@ -210,9 +217,15 @@ body{
 	line-height: 24px;
 	font-weight: bold;
 }
+.new .nl .title span:nth-child(2) a{
+	color: #27DC6D;
+}
 .new .nl .title span:nth-child(2):hover{
 	box-shadow:0 0 0 20px #27DC6D inset; 
 	color:#FFF
+}
+.new .nl .title span:nth-child(2) a:hover{
+	color: #FFF;
 }
 .new .nl .content{
 	width:100%;
@@ -679,7 +692,7 @@ body{
 img:hover {
             filter: brightness(80%);
             transition: all 0.3s ease;
-   }
+ }
 .img1{
 	filter:none;
 }
