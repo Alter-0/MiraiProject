@@ -68,7 +68,7 @@
 
         header .con .middle {
             display: inline-block;
-            margin: 10px;
+            margin: 10px 10px 10px 0;
             opacity: 0.5;
             transition: all .5s;
         }
