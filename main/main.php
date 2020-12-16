@@ -380,7 +380,7 @@
                     $name[]=$row['name'];
 					$animate_id[]=$row['animate_id'];
             }}
-        ?>
+    ?>
 	<div class="bfzg">
 		<div class="bfzg_t">
 			<span>播放最高</span>
