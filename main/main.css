@@ -39,14 +39,14 @@ a{
 }
 /*fenlei*/
 .index{
-	width:1265px;
+	width: 90%;
 	height: 420px;
 	margin: 10px auto 0 auto ;
 	position: relative;
 	overflow: hidden;
 }
 .index .fenlei{
-	width: 1215px;
+	width: 89%;
 	height: 30px;
 	box-sizing: border-box; 
     background: rgba(255, 255, 255, 0.8);
@@ -87,7 +87,8 @@ a{
 
 /*轮播效果*/
 .wrap{
-	width: 1160px;
+	width: 85%;
+	max-width: 1160px;
 	height:330px;
 	margin:20px auto 20px auto;
 	position: relative;
@@ -103,14 +104,15 @@ a{
     left: 0;
 }
 .wrap ul li{
-	width: 1160px;
+	width: 20%;
+	max-width: 1160px;
 	height: 330px;
 	float: left;
 	overflow: hidden;
 }
-.lunbotu ul li img{
+.wrap ul li img{
 	width:100%;
-	height: auto;
+	height: 100%;
 	overflow: hidden;
 	border-radius: 15px;
 	object-fit: cover;
@@ -470,13 +472,14 @@ a{
 /*bfzg*/
 
 .bfzg{
-	width:1200px;
+	width: 80%;
 	height: 530px;
 	margin: 80px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
 }
 .bfzg_t{
 	width: 90%;
@@ -487,25 +490,24 @@ a{
 	font-size:24px;
 	float: left;
 }
-
-.bfzg_t  a{	
-	float: right;
-	width: 80px;	
+.bfzg_t a{
+	width: 80px;
 	margin-top:2px; 
-	height: 35px;	
-	text-align: center;
-	border: 1px solid  #FE9DE8;
-	background:#FFFFFF;
-	border-radius:20px;
-	font-weight: bold;
-	transition: all 0.5s ease-in;	
-	text-decoration: none;
-	line-height: 35px;	
-	color: #FE9DE8;
+	height: 35px;
 	font-size:16px;
+	text-decoration: none;
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #FE9DE8;
+	background:#FFFFFF;
+	color: #FE9DE8;
+	float: right;
+	border-radius:20px;	
+	font-weight: bold;
+	transition: all 0.5s ease-in;
 }
-.bfzg_t  a:hover{
-	box-shadow:0 0 0 20px  #FE9DE8 inset; 
+.bfzg_t a:hover{
+	box-shadow:0 0 0 20px #FE9DE8 inset; 
 	color:#FFF;
 }
 .bfzg_v{
@@ -515,8 +517,8 @@ a{
 }
 .bfzg_v li{
 	height: 230px;
-	width: 150px;
-	margin-right:36px;
+	width: 15%;
+	margin-right:2%;
 	float: left;
 	overflow: hidden;
 }
@@ -528,12 +530,13 @@ a{
 }
 .bfzg_v li div{
 	height:200px;
-	width: 150px;
+	width: 100%;
 	margin-bottom: 10px;
 }
 .bfzg_v li div img{
+	width: 100%;
 	height: 200px;
-	width: 150px;	
+	max-width: 150px;	
 	border-radius: 15px;
 }
 .bfzg_v li p{
@@ -554,13 +557,14 @@ a{
 /*pfzg*/
 
 .pfzg{
-	width:1200px;
+	width: 80%;
 	height: 530px;
 	margin: 80px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
 }
 .pfzg_t{
 	width: 90%;
@@ -598,25 +602,26 @@ a{
 }
 .pfzg_v li{
 	height: 230px;
-	width: 150px;
-	margin-right:36px;
+	width: 15%;
+	margin-right:2%;
 	float: left;
 	overflow: hidden;
 }
 .pfzg_v li:nth-child(6),.pfzg_v li:nth-child(12){
 	margin-right: 0px;
 }
-.pfzg_v li:nth-child(1),.pfzg_v li:nth-child(2),.pfzg_v li:nth-child(3),.pfzg_v li:nth-child(4),.pfzg_v li:nth-child(5),.bfzg_v li:nth-child(6){
+.pfzg_v li:nth-child(1),.pfzg_v li:nth-child(2),.pfzg_v li:nth-child(3),.pfzg_v li:nth-child(4),.pfzg_v li:nth-child(5),.pfzg_v li:nth-child(6){
 	margin-bottom: 10px;
 }
 .pfzg_v li div{
 	height:200px;
-	width: 150px;
+	width: 100%;
 	margin-bottom: 10px;
 }
 .pfzg_v li div img{
+	width: 100%;
 	height: 200px;
-	width: 150px;	
+	max-width: 150px;	
 	border-radius: 15px;
 }
 .pfzg_v li p{
@@ -634,13 +639,14 @@ a{
 }
 /*tj*/
 .tj{
-	width:1200px;
+	width: 80%;
 	height: 530px;
-	margin: 80px auto 40px auto;
+	margin: 80px auto 0px auto;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
 }
 .tj_t{
 	width: 90%;
@@ -651,7 +657,7 @@ a{
 	font-size:24px;
 	float: left;
 }
-.tj_t a{
+.pfzg_t a{
 	width: 80px;
 	margin-top:2px; 
 	height: 35px;
@@ -661,7 +667,7 @@ a{
 	text-align: center;
 	border: 1px solid #FE9DE8;
 	background:#FFFFFF;
-	color:#FE9DE8;
+	color: #FE9DE8;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
@@ -669,7 +675,7 @@ a{
 }
 .tj_t a:hover{
 	box-shadow:0 0 0 20px #FE9DE8 inset; 
-	color:#FFF
+	color:#FFF;
 }
 .tj_v{
 	height: 450px;
@@ -678,8 +684,8 @@ a{
 }
 .tj_v li{
 	height: 230px;
-	width: 150px;
-	margin-right:36px;
+	width: 15%;
+	margin-right:2%;
 	float: left;
 	overflow: hidden;
 }
@@ -691,12 +697,13 @@ a{
 }
 .tj_v li div{
 	height:200px;
-	width: 150px;
+	width: 100%;
 	margin-bottom: 10px;
 }
 .tj_v li div img{
+	width: 100%;
 	height: 200px;
-	width: 150px;	
+	max-width: 150px;	
 	border-radius: 15px;
 }
 .tj_v li p{

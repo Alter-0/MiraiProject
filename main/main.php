@@ -4,12 +4,7 @@
 <meta charset="utf-8" name="referrer" content="never">
 <title>main</title>
 	<link href="main.css" type="text/css" rel="stylesheet"/>
-	
-	<script src="js/animate.js"></script>
-    <!-- 引入index.js -->
-    <script src="js/index.js"></script>
 
-    <!-- 引用部分@blueberry -->
     <script src="http://localhost/MiraiProject/js/main.js"></script>
     <!-- 引用部分@blueberry -->
 </head>
@@ -36,7 +31,7 @@
               <div class="logo1"><img src="#" alt=""/></div>	
           </div>
 		  
-          <div class="wrap">
+          <div class="wrap" id="wrap">
 			<ul>
 				<li><img src="image/1.png" alt=""></li>
 				<li><img src="image/2.jpg" alt=""></li>
@@ -616,7 +611,9 @@ window.addEventListener('load', function() {
     // 动态生成圆点
     var ul = wrap.querySelector('.wrap ul');
     var ol = wrap.querySelector('.wrap ol');
-    var wrapWidth = wrap.offsetWidth;
+	var wrapWidth = wrap.offsetWidth;
+	/*	alert(wrapWidth);*/
+	
     for (var i = 0; i < ul.children.length; i++) {
         // 创建节点
         var li = document.createElement('li');
@@ -635,7 +632,7 @@ window.addEventListener('load', function() {
             //animate(obj,target,callback)
             // 获取轮播区域宽度
             var index = this.getAttribute('index');
-            num = index;
+            var num = index;
             circle = index;
             // console.log(index);
             // 拿到索引号
@@ -653,6 +650,8 @@ window.addEventListener('load', function() {
     var circle = 0;
     var flag = true;
     right.addEventListener('click', function() {
+			 wrap = document.querySelector('.wrap');
+			 wrapWidth = wrap.offsetWidth;
         if (flag) {
             flag = false;
             // 无缝滚动
@@ -671,6 +670,7 @@ window.addEventListener('load', function() {
                 circle = 0;
             }
             circleChange();
+		
         }
     });
     // 左侧按钮
@@ -682,6 +682,7 @@ window.addEventListener('load', function() {
                 num = ul.children.length - 1;
                 ul.style.left = -num * wrapWidth + 'px';
             }
+			
             num--;
             animate(ul, -num * wrapWidth, function() {
                 flag = true;
@@ -734,7 +735,6 @@ window.addEventListener('load', function() {
         }
         // 把每次加1 这个步长值改为一个慢慢变小的值  步长公式：(目标值 - 现在的位置) / 10
         obj.style.left = obj.offsetLeft + step + 'px';
-
     }, 15);
 }		
 </script>	
