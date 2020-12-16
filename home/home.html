@@ -47,8 +47,15 @@
 	.more:hover{
 		background-color: rgba(0,0,0,0.2);
 	}
-	</style><br>
+    .header {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            z-index: 1000;
+        }
+	</style>
 <body>
+<iframe src="../header.php" class="header" scrolling="no"></iframe>
 <div class="content" id="content">
 <div class="bg">
 	<div>
@@ -56,7 +63,7 @@
 		<div id="slogan">二次元即使幻想，依旧很美好.</div>
 	</div>
 	<div>
-		<div class="more" onClick="goPath('/main')">进入网站</div>
+		<div class="more"  onClick="windows.location.href="main.php"">进入网站</div>
 	</div>
 </div>
 </div>

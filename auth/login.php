@@ -99,9 +99,16 @@
 		text-decoration: none;
 		background-color: transparent;
 	}
+    .header {
+            width: 100%;
+            height: 50px;
+            position: relative;
+            z-index: 1000;
+        }
 	</style>
 <body>
 <div id="main" >
+	<iframe src="../header.php" class="header" scrolling="no"></iframe>
 	<div id="top" align="center"></div>
 		<div id="mid">
 			<img alt=""  class="left" src="../image/background.jpg" id="">
@@ -111,7 +118,7 @@
 					<img  class="img" src="../image/003.jpg" alt="">
 					</div>
 				<div id="form">
-				<form id="login-form" method="post" action="check.php">
+				<form id="login-form" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 					<span >
 					<input type="text" id="name" name="user_name"  value="" placeholder="用户名" >
 					</span><br>
@@ -119,8 +126,8 @@
 					<span></span>
 					<input type="password" id="pass" value=""  name="user_pass" placeholder="密码">
 					</span>
-					</form>
 					<input type="submit" id="submit" value="登录">
+					</form>
 				</div>
 				<div id="btm">
 				<a href="reg.php">注册</a>
@@ -132,15 +139,18 @@
 	<div id="bottom"></div>
 </div>
 <?php 
-	$user_name=$_POST['user_name'];
-	$user_pass=$_POST['user_pass'];
+	$user_name=$_POST["user_name"];
+	$user_pass=$_POST["user_pass"];
 	include "../conn.php";
 	$sql="Select * from user where account='$user_name' and password='$user_pass'";
 	$result=mysqli_query($conn,$sql)or die("查询失败，请检查sql语句");
-	if(mysqli_num_rows($result)>0)
-			header("../main.php");
-		else 
-			header("location:login.php");
+	if(mysqli_num_rows($result)>0){
+			header("location:http://localhost/main/main.php");
+	}else{
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('用户名或密码错误');";
+			echo "</script>";
+	}
 	?>
 </body>
 </html>
