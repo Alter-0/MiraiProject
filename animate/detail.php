@@ -310,8 +310,8 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
         }
         .score .scorenumber{
             position:absolute ;
-            top:105px;
-            right: 87px;
+            top:100px;
+            right: 70px;
 
         }
         .score .scorenumber .scoretext{
