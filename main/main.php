@@ -675,6 +675,8 @@ window.addEventListener('load', function() {
     });
     // 左侧按钮
     left.addEventListener('click', function() {
+			 wrap = document.querySelector('.wrap');
+			 wrapWidth = wrap.offsetWidth;
         if (flag) {
             flag = false;
             // 无缝滚动

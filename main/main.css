@@ -47,26 +47,28 @@ a{
 }
 .index .fenlei{
 	width: 89%;
-	height: 30px;
+	height: 50px;
 	box-sizing: border-box; 
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
 	margin: 20px auto;
+	line-height: 46px;
 }
 .index .fenlei ul{
-	height: 20px;
+	height: 46px;
 	width: auto;
 	float: left;
 	margin-left:70px;
 }
 .index .fenlei ul li{
+	height: 46px;
 	float: left;
 	margin-right: 40px;
 }
 
 .index .fenlei ul li a{
-	font-size: 20px;
+	font-size: 24px;
 	transition: all 0.5 ease;
 	cursor: pointer;
 	color:#000000;
@@ -74,8 +76,14 @@ a{
 .index .fenlei ul li:nth-child(1) a{
 	color:#479BB8;
 }
-.index .fenlei ul li a:hover{
-	color: #479BB8;
+.index .fenlei ul li:hover a{
+	color: #479BB8;	
+}
+.index .fenlei ul li:hover{
+	border-bottom: 4px solid #479BB8;
+}
+.index .fenlei ul li:nth-child(1):hover{
+	border-bottom: none;
 }
 .index .fenlei .logo1{
 	float: right;
@@ -96,6 +104,9 @@ a{
 	border-radius: 15px;
 	box-sizing: border-box;
 	box-shadow:5px 5px 20px 5px rgba(0,0,0,0.3);
+}
+.wrap a{
+	cursor: pointer;
 }
 .wrap ul {
 	position: absolute;
@@ -189,7 +200,7 @@ a{
 /* left of the new*/
 .new .nl{
 	width: 77%;
-	height: 370px;
+	height: 360px;
 	float: left;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
@@ -647,6 +658,7 @@ a{
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 	overflow: hidden;
+	margin-bottom: 80px;
 }
 .tj_t{
 	width: 90%;
@@ -657,7 +669,7 @@ a{
 	font-size:24px;
 	float: left;
 }
-.pfzg_t a{
+.tj_t a{
 	width: 80px;
 	margin-top:2px; 
 	height: 35px;
