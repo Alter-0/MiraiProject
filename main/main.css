@@ -39,19 +39,20 @@ a{
 }
 /*fenlei*/
 .index{
-	width:80%;
-	height: 390px;
-	margin: 20px auto 0 auto ;
+	width:1265px;
+	height: 420px;
+	margin: 10px auto 0 auto ;
 	position: relative;
 	overflow: hidden;
 }
 .index .fenlei{
-	width: 100%;
+	width: 1215px;
 	height: 30px;
-	box-sizing: border-box;
+	box-sizing: border-box; 
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
     box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);	
+	margin: 20px auto;
 }
 .index .fenlei ul{
 	height: 20px;
@@ -86,8 +87,8 @@ a{
 
 /*轮播效果*/
 .wrap{
-	width: 1095px;
-	height:310px;
+	width: 1160px;
+	height:330px;
 	margin:20px auto 20px auto;
 	position: relative;
 	overflow: hidden;
@@ -102,7 +103,7 @@ a{
     left: 0;
 }
 .wrap ul li{
-	width: 1095px;
+	width: 1160px;
 	height: 330px;
 	float: left;
 	overflow: hidden;
@@ -112,6 +113,7 @@ a{
 	height: auto;
 	overflow: hidden;
 	border-radius: 15px;
+	object-fit: cover;
 }
 
 /* 导航栏 */
@@ -170,7 +172,7 @@ a{
 .new{
 	width: 80%;
 	height: 360px;
-	margin: 20px auto 0 auto;
+	margin: 30px auto 0 auto;
 	position: relative;
 }
 .new a{
@@ -185,7 +187,7 @@ a{
 /* left of the new*/
 .new .nl{
 	width: 77%;
-	height: 360px;
+	height: 370px;
 	float: left;
 	box-sizing: border-box;
     background: rgba(255, 255, 255, 0.8);
@@ -195,12 +197,13 @@ a{
 .new .nl .title{
 	height: 24;
 	width: 100%;
-	
+	margin-top: 7px;
 }
 .new .nl .title span:nth-child(1){
 	font-size: 24px;
 	float: left;
-	margin-left: 10px;
+	margin-left: 13px;
+	
 }
 .new .nl .title span:nth-child(2){
 	width: 106px;
@@ -224,7 +227,7 @@ a{
 	box-shadow:0 0 0 20px #27DC6D inset; 
 	color:#FFF
 }
-.new .nl .title span:nth-child(2) a:hover{
+.new .nl .title span:nth-child(2):hover a{
 	color: #FFF;
 }
 .new .nl .content{
@@ -236,7 +239,7 @@ a{
 .new .nl .content table{
 	width:95%;
 	height: 316px;
-	margin-left:20px;	
+	margin-left:20px;
 }
 .new .nl .content .fan{
 	height: 72px;
@@ -257,21 +260,27 @@ a{
 	box-sizing: border-box;
 	box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.3);
 	margin-left: 1px;
+	object-fit: cover;
 }
 .new .nl .content .fan-right{
 	height:72px;
 	width: 96px;
 	float: left;
 }
-
-.new .nl .content .fan-right p:nth-child(1){
-	width: 96px auto;
+.new .nl .content .fan-right div{
+	width: 96px;
 	height: 52px;
 	overflow: hidden;
-	word-wrap:break-word;
-	font-size:15px;		
 }
-
+.new .nl .content .fan-right p:nth-child(1){
+	width: 96px;
+	overflow: hidden;
+	font-size:15px;		
+	word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* 指定行数*/
+    -webkit-box-orient: vertical;
+}
 .new .nl .content .fan-right p:nth-child(2){
 	width: 96px;
 	height: 18px;
@@ -314,6 +323,7 @@ a{
 	margin-left: 10px;
 	margin-top: 5px;
 	text-overflow: ellipsis;
+	font-size: 24px;
 }
 .new .nr .nr-t span:nth-child(2){
 	float:right;
@@ -336,7 +346,7 @@ a{
 .new .nr .myfan{
 	width: 100%;
 	height: 306px;
-	margin-top: 10px;
+	margin-top: 6px;
 	margin-left: 10px;
 	overflow: hidden;
 }
@@ -357,17 +367,24 @@ a{
 	box-sizing: border-box;
 	box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.3);
 	margin-left: 1px;
+	object-fit: cover;
 }
 .new .nr .myfan .myfan-right{
 	height:60px;
 	width: 100px;
 	float: left;
 }
-.new .nr .myfan .myfan-right p:nth-child(1){
+.new .nr .myfan .myfan-right div{
 	height: 40px;
 	width: 100px;
 	overflow: hidden;
-	word-wrap:break-word
+}
+.new .nr .myfan .myfan-right p:nth-child(1){
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;    /* 指定行数*/
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
 }
 /*.new .nr .myfan .myfan-right p:nth-child(1) span{
 	height: 40px;
@@ -397,13 +414,13 @@ a{
 .label1{
 	width: 20%;
 	height: 80px;
-	margin-right: 19%;
+	margin-right: 18%;
 	margin-top: 5px;
 	float: left;
 	overflow: hidden;
 }
 .label1:nth-child(1){
-	margin-left: 5px;		
+	margin-left: 20px;		
 }
 .label1:nth-child(3){
 	margin-right: 0;
@@ -470,24 +487,25 @@ a{
 	font-size:24px;
 	float: left;
 }
-.bfzg_t a{
-	width: 80px;
-	margin-top:2px; 
-	height: 35px;
-	font-size:16px;
-	text-decoration: none;
-	line-height: 35px;
-	text-align: center;
-	border: 1px solid #ED4BFA;
-	background:#FFFFFF;
-	color: #ED4BFA;
+
+.bfzg_t  a{	
 	float: right;
-	border-radius:20px;	
+	width: 80px;	
+	margin-top:2px; 
+	height: 35px;	
+	text-align: center;
+	border: 1px solid  #FE9DE8;
+	background:#FFFFFF;
+	border-radius:20px;
 	font-weight: bold;
-	transition: all 0.5 ease;
+	transition: all 0.5s ease-in;	
+	text-decoration: none;
+	line-height: 35px;	
+	color: #FE9DE8;
+	font-size:16px;
 }
-.bfzg_t a:hover{
-	box-shadow:0 0 0 20px #ED4BFA inset; 
+.bfzg_t  a:hover{
+	box-shadow:0 0 0 20px  #FE9DE8 inset; 
 	color:#FFF;
 }
 .bfzg_v{
@@ -520,13 +538,16 @@ a{
 }
 .bfzg_v li p{
 	text-align: center;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .bfzg_v li p a{
 	text-decoration: none;
 	color: #000000;
 }
 .bfzg_v li p a:hover{
-	color:aqua;
+	color: #37afff;
 }
 
 
@@ -558,17 +579,17 @@ a{
 	text-decoration: none;
 	line-height: 35px;
 	text-align: center;
-	border: 1px solid #ED4BFA;
+	border: 1px solid #FE9DE8;
 	background:#FFFFFF;
-	color: #ED4BFA;
+	color: #FE9DE8;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
-	transition: all 0.5 ease;
+	transition: all 0.5s ease-in;
 }
 .pfzg_t a:hover{
-	box-shadow:0 0 0 20px #ED4BFA inset; 
-	color:#FFF
+	box-shadow:0 0 0 20px #FE9DE8 inset; 
+	color:#FFF;
 }
 .pfzg_v{
 	height: 450px;
@@ -600,13 +621,16 @@ a{
 }
 .pfzg_v li p{
 	text-align: center;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .pfzg_v li p a{
 	text-decoration: none;
 	color: #000000;
 }
 .pfzg_v li p a:hover{
-	color:aqua;
+	color: #37afff;
 }
 /*tj*/
 .tj{
@@ -635,16 +659,16 @@ a{
 	text-decoration: none;
 	line-height: 35px;
 	text-align: center;
-	border: 1px solid #ED4BFA;
+	border: 1px solid #FE9DE8;
 	background:#FFFFFF;
-	color: #ED4BFA;
+	color:#FE9DE8;
 	float: right;
 	border-radius:20px;	
 	font-weight: bold;
-	transition: all 0.5 ease;
+	transition: all 0.5s ease-in;
 }
 .tj_t a:hover{
-	box-shadow:0 0 0 20px #ED4BFA inset; 
+	box-shadow:0 0 0 20px #FE9DE8 inset; 
 	color:#FFF
 }
 .tj_v{
@@ -677,22 +701,31 @@ a{
 }
 .tj_v li p{
 	text-align: center;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 .tj_v li p a{
 	text-decoration: none;
 	color: #000000;
 }
 .tj_v li p a:hover{
-	color:aqua;
+	color: #37afff;
 }
 .bottom{
 	height: 165px;
 	width: 100%;
 }
-img:hover {
+img:hover{
             filter: brightness(80%);
             transition: all 0.3s ease;
  }
-.img1{
+img{
+	transition: all 0.3s ease;
+}
+.img1 img:hover{
 	filter:none;
+}
+a:hover{
+	transition:all 0.3s ease;
 }

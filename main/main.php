@@ -2,9 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" name="referrer" content="never">
-<title>无标题文档</title>
-    <meta charset="UTF-8">
-    <title>main</title>
+<title>main</title>
 	<link href="main.css" type="text/css" rel="stylesheet"/>
 	
 	<script src="js/animate.js"></script>
@@ -86,7 +84,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><span><?php echo $name[0]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[0];?>" target="_blank"><span><?php echo $name[0]; ?></span></a></p></div>
 									<p><?php echo $index_show[0]; ?></p>
 								</div>								
 							</div>
@@ -99,7 +97,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><span><?php echo $name[1]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[1];?>" target="_blank"><span><?php echo $name[1]; ?></span></a></p></div>
 									<p><?php echo $index_show[1]; ?></p>
 								</div>								
 							</div>							
@@ -112,7 +110,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><span><?php echo $name[2]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[2];?>" target="_blank"><span><?php echo $name[2]; ?></span></a></p></div>
 									<p><?php echo $index_show[2]; ?></p>
 								</div>								
 							</div>						
@@ -125,7 +123,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><span><?php echo $name[3]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[3];?>" target="_blank"><span><?php echo $name[3]; ?></span></a></p></div>
 									<p><?php echo $index_show[3]; ?></p>
 								</div>								
 							</div>						
@@ -140,7 +138,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><span><?php echo $name[4]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[4];?>" target="_blank"><span><?php echo $name[4]; ?></span></a></p></div>
 									<p><?php echo $index_show[4]; ?></p>
 								</div>								
 							</div>						
@@ -153,7 +151,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><span><?php echo $name[5]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[5];?>" target="_blank"><span><?php echo $name[5]; ?></span></a></p></div>
 									<p><?php echo $index_show[5]; ?></p>
 								</div>								
 							</div>							
@@ -166,7 +164,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><span><?php echo $name[6]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[6];?>" target="_blank"><span><?php echo $name[6]; ?></span></a></p></div>
 									<p><?php echo $index_show[6]; ?></p>
 								</div>								
 							</div>						
@@ -179,7 +177,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><span><?php echo $name[7]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[7];?>" target="_blank"><span><?php echo $name[7]; ?></span></a></p></div>
 									<p><?php echo $index_show[7]; ?></p>
 								</div>								
 							</div>						
@@ -194,7 +192,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><span><?php echo $name[8]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[8];?>" target="_blank"><span><?php echo $name[8]; ?></span></a></p></div>
 									<p><?php echo $index_show[8]; ?></p>
 								</div>								
 							</div>						
@@ -207,7 +205,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><span><?php echo $name[9]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[9];?>" target="_blank"><span><?php echo $name[9]; ?></span></a></p></div>
 									<p><?php echo $index_show[9]; ?></p>
 								</div>								
 							</div>						
@@ -220,7 +218,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><span><?php echo $name[10]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[10];?>" target="_blank"><span><?php echo $name[10]; ?></span></a></p></div>
 									<p><?php echo $index_show[10]; ?></p>
 								</div>								
 							</div>						
@@ -233,7 +231,7 @@
 									</a>
 								</div>
 								<div class="fan-right">
-									<p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><span><?php echo $name[11]; ?></span></a></p>
+									<div><p><a href="../animate/detail.php?animate_id=<?php echo $animate_id[11];?>" target="_blank"><span><?php echo $name[11]; ?></span></a></p></div>
 									<p><?php echo $index_show[11]; ?></p>
 								</div>								
 							</div>						
@@ -244,7 +242,7 @@
 		</div>
 		<div class="nr">
 			<div class="nr-t">
-				<span><h3>我的追番</h3></span>
+				<span>我的追番</span>
 				<span><a>更多</a></span>				
 			</div>	
 			<div class="myfan">
@@ -261,7 +259,7 @@
 						echo " <a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><img src='".$row['cover']."' alt=''/></a>";
 						echo "</div>";
 						echo "<div class='myfan-right'>";
-						echo "<p><a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><span>".$row['name']."</span></a></p>";
+						echo "<div><p><a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><span>".$row['name']."</span></a></p></div>";
 						echo "<p>".$row['index_show']."</p>";
                         echo "</div></td></tr>";							
 					}}
@@ -598,8 +596,6 @@ window.addEventListener('load', function() {
     var left = document.querySelector('.left');
     var right = document.querySelector('.right');
     var wrap = document.querySelector('.wrap');
-
-
     wrap.addEventListener('mouseenter', function() {
         left.style.display = 'block';
         right.style.display = 'block';
@@ -613,7 +609,6 @@ window.addEventListener('load', function() {
             right.click();
         }, 2000);
     })
-
     // 动态生成圆点
     var ul = wrap.querySelector('.wrap ul');
     var ol = wrap.querySelector('.wrap ol');
@@ -635,7 +630,6 @@ window.addEventListener('load', function() {
             // 点击圆圈移动图片，ul
             //animate(obj,target,callback)
             // 获取轮播区域宽度
-
             var index = this.getAttribute('index');
             num = index;
             circle = index;
@@ -644,7 +638,6 @@ window.addEventListener('load', function() {
             // console.log(wrapWidth);
             animate(ul, -index * wrapWidth);
         })
-
     }
     // 设置当前类名
     ol.children[0].className = 'on';
@@ -675,9 +668,7 @@ window.addEventListener('load', function() {
             }
             circleChange();
         }
-
     });
-
     // 左侧按钮
     left.addEventListener('click', function() {
         if (flag) {
@@ -700,9 +691,7 @@ window.addEventListener('load', function() {
             circle = circle < 0 ? ol.children.length - 1 : circle;
             circleChange();
         }
-
     })
-
     function circleChange() {
         for (var i = 0; i < ol.children.length; i++) {
             ol.children[i].className = '';
@@ -743,9 +732,6 @@ window.addEventListener('load', function() {
         obj.style.left = obj.offsetLeft + step + 'px';
 
     }, 15);
-}
-	
-	
-	
+}		
 </script>	
 </html>
