@@ -11,13 +11,9 @@ body{
 	background-attachment:fixed;
     display: flex;
     flex-direction: column;
+	background-image: url(../image/background.jpg);
 }
-.ONE{
-	width: auto;
-	margin-left: 10%;
-	margin-right: 10%;
-	
-}
+
 .top{
 	width: 100%;
 	height: 200px;
@@ -45,8 +41,10 @@ body{
 }
 
 .index{
-	width:100%;
+	width:auto;
 	height: 1320px;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 .left{
 	position: relative;
@@ -111,6 +109,8 @@ body{
     border-radius: 4px;
     overflow: hidden;
 }
+
+
 .V2{
 	color:#E63639;
     max-height: 44px;
@@ -129,13 +129,23 @@ body{
     text-overflow: ellipsis;
 	display: block;
 }
+
+.left ul li a img{
+	height: 200px;
+	width: 150px;	
+	border-radius: 15px;
+}
+
+
+
 .page{
 	display: block;
     height: 40px;
     white-space: nowrap;
-    padding-right: 20px;	
+    padding-right: 20px;
+	position: absolute;
 }
-.first{
+.page .first{
 	float: left;
     min-width: 17px;
     font-size: 14px;
@@ -151,7 +161,7 @@ body{
     transition: all .2s ease;
     margin-right: 4px;
 }
-.next{
+.page .next{
 	float: left;
     min-width: 17px;
     font-size: 14px;
@@ -177,7 +187,7 @@ body{
     font-weight: 400;
     font-size: 14px;
 }
-.Next{
+.page .Next{
 	float: left;
     min-width: 20px;
     font-size: 14px;
@@ -279,5 +289,9 @@ a {
 	width: 100%;
 	
 }
+a{
+	color:#0D0505;
+}
+
 
 
