@@ -459,7 +459,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
         }
 
 
-
+        a { text-decoration: none}
 
         .content{
             /*visibility: hidden;*/
@@ -642,7 +642,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             position: relative;
             display: inline-block;
             vertical-align: top;
-            margin: 0 20px 20px 0;
+            margin: 10px 20px 20px 20px;
             width: 205px;
             height: 60px;
             cursor: pointer;
@@ -650,7 +650,9 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             border: 1px solid #f4f5f7;
             border-radius:4px;
             box-sizing: border-box;
+            box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.3);
         }
+
         .misl_ep_item .misl_ep_img{
             position: relative;
             float: left;
@@ -659,6 +661,10 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             margin: -1px;
             border-radius: 4px 0 0 4px;
             overflow: hidden;
+        }
+        .misl_ep_item:hover img {
+            filter: brightness(80%);
+            transition: all 0.5s;
         }
         .common_lazy_img img{
             display: block;
@@ -694,11 +700,134 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             max-height: 32px;
             word-break: break-word;
         }
+        .detail_more{
+            vertical-align: top;
+            border-top: 1px solid #e5e9ef;
+            padding-top: 20px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .detail_more_title{
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            height: 24px;
+            line-height: 24px;
+        }
+        .detail_more_more{
+            float: right;
+            line-height: 22px;
+            border: 1px solid #b7c0cc;
+            border-radius: 4px;
+            height: 22px;
+            padding: 0 10px;
+            font-size: 12px;
+            color: #6e7579;
+            cursor: pointer;
+            margin: 0 0 0 10px;
+        }
+        .detail_more_more:hover{
+            color: #00a1d6;
+            border-color: #00a1d6;
+        }
+        .detail_more_wrapper{
+            position: relative;
+        }
+        .detail_more_slider_content{
+            width: 100%;
+            /*overflow: auto;*/
+        }
+        .detail_more_slider_content li{
+            margin-bottom: 0 !important;
+        }
+
+        .detail_more_lists{
+            list-style: none;
+            -webkit-transition: -webkit-transform .3s ease;
+            transition: -webkit-transform .3s ease;
+            -o-transition: transform .3s ease;
+
+            transition: transform .3s ease,-webkit-transform .3s ease;
+
+        }
+
+        .more_more_lists{
+            list-style: none;
+            -webkit-transition: -webkit-transform .3s ease;
+            transition: -webkit-transform .3s ease;
+            -o-transition: transform .3s ease;
+
+            transition: transform .3s ease,-webkit-transform .3s ease;
+
+        }
 
 
+        .detail_more_item{
+            width: 160px;
 
 
+            display: inline-block;
 
+            margin: 20px 20px 20px 20px;
+            border-radius: 4px;
+        }
+        .detail_more_item_slide_img{
+            position: relative;
+            width: 100%;
+            height: 214px;
+            margin-top: 20px;
+            border-radius: 4px;
+            background-color: #fff;
+            cursor: pointer;
+            box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.3);
+        }
+        .detail_more_item_slide_img:hover{
+            filter: brightness(80%);
+            transition: all 0.5s;
+
+        }
+
+        .detail_more_item_img{
+            background: 50% no-repeat;
+            background-size: 50px;
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .detail_more_item_img img{
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+        }
+        .detail_more_item_title{
+            text-align: center;
+            font-size: 15px;
+            line-height: 15px;
+            height: 16px;
+            color: #222222;
+            padding-top: 8px;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+
+        }
+        .more_more{
+            /*margin: 50px auto;*/
+            padding-top: 25px;
+            vertical-align: top;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .more_title{
+            margin-left: 25px;
+        }
+        .more_more_lists{
+            /*vertical-align: top;*/
+            margin: 0 30px;
+        }
 
 
 
@@ -833,6 +962,236 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                             </div>
 
 
+
+                        </div>
+                        <div class="detail_more" >
+                            <div class="detail_more_title">
+                                更多推荐
+                            </div>
+                            <div class="detail_more_more">
+                                更多
+                            </div>
+                            <div class="detail_mode_content">
+                                <div class="detail_more_wrapper">
+                                    <div class="detail_more_slider_content">
+                                        <ul id="detail_list" class="detail_more_lists">
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+                                            <li  class="detail_more_item">
+                                                <div class="detail_more_item_slide_img">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_img">
+                                                            <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="detail_more_item_slide_info">
+                                                    <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                        <div class="detail_more_item_title">
+                                                            鬼灭之刃
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
@@ -859,14 +1218,443 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                         </div>
                     </div>
 
+
+
                 </div>
                 <div class="more">
                     <div class="morecard">
-                        <div class="more_title">
-                            相似推荐
+                        <div class="more_more">
+                            <div class="more_title">
+                                <div class="detail_more_title">
+                                    相似推荐
+                                </div>
+                            </div>
+                            <div class="more_an">
+                                <div class="detail_mode_content">
+                                    <div class="detail_more_wrapper">
+                                        <div class="detail_more_slider_content">
+                                            <ul id="more_list" class="more_more_lists">
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li  class="detail_more_item">
+                                                    <div class="detail_more_item_slide_img">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_img">
+                                                                <img alt src="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="detail_more_item_slide_info">
+                                                        <a href="http://i0.hdslb.com/bfs/bangumi/f5d5f51b941c01f8b90b361b412dc75ecc2608d3.png">
+                                                            <div class="detail_more_item_title">
+                                                                鬼灭之刃
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
                         </div>
-                        <div class="more_an">
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -906,6 +1694,16 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             }
         }
     }
+    // function imgover(hoverli){
+    //     console.log("凄凄切切")
+    //     var img=hoverli.getElementsByTagName('img');
+    //     img.style.filter='brightness(80%)';
+        // img.style.cssText="filter: brightness(80%);transition: all 0.5s;";
+    // }
+    // function imgoout(hoverli){
+    //     var img=hoverli.getElementsByTagName('img');
+    //     img.style.cssText="filter: "";transition: all 0.5s;";
+    // }
 
 
     function getvideolist(tab){
@@ -955,6 +1753,40 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
         });
     }
     getvideolist("");
+    function getmorean(con){
+        if(con==="detail"){
+            $.ajax({
+                url : "getmore.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                data : {
+                    mode:detail
+                }, //参数Json格式
+
+                dataType : "html", //请求的返回类型
+                type : "post",  //提交方式
+                cache : false,  //是否异步提交true
+                success : function(v){
+                    $("#detail_list").html(v);
+                }
+            });
+        }else{
+            $.ajax({
+                url : "getmore.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                data : {
+                    mode:more
+                }, //参数Json格式
+
+                dataType : "html", //请求的返回类型
+                type : "post",  //提交方式
+                cache : false,  //是否异步提交true
+                success : function(v){
+                    $("#more_list").html(v);
+                }
+            });
+
+        }
+
+    }
+
 
 </script>
 

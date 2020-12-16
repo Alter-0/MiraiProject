@@ -20,7 +20,7 @@ $listhtml="";
 
 while ($videoinfo=mysqli_fetch_array($videoresult)){
     $listhtml.= '<a href="video.php?video_id='.$videoinfo["video_id"].'">';
-    $listhtml.= '<li title="第'.$videoinfo["no"].'话" class="misl_ep_item">';
+    $listhtml.= '<li  title="第'.$videoinfo["no"].'话" class="misl_ep_item">';
     $listhtml.= '<div class="misl_ep_img">';
     $listhtml.= '<div class="common_lazy_img">';
     $listhtml.= '<img alt="'.$videoinfo["no"].'" src="'.$videoinfo["cover"].'" >';
