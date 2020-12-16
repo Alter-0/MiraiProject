@@ -14,6 +14,7 @@ $result=mysqli_query($conn,$infosql) or die("失败".$infosql);
 $animateinfo=mysqli_fetch_array($result);
 $animatecover=$animateinfo["cover"];
 
+$animatescore=(float)$animateinfo["score"];
 $tagssql="select * from tags where animate_id='$animate_id'";
 $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
 
@@ -23,6 +24,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
 ?>
 <head>
     <script src="../js/jquery.js"></script>
+
     <meta charset="UTF-8" name="referrer" content="never">
     <title><?php
         echo $animateinfo["name"];
@@ -51,9 +53,12 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
         .circle_process .wrapper{
             width: 100px;
             height: 200px;
-            /*position: absolute;*/
+            position: absolute;
 
             overflow: hidden;
+        }
+        .circle_process .wrapper.left{
+            width: 100px;
         }
         .circle_process .right{
             right:0;
@@ -69,6 +74,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             position: absolute;
             top:0;
             transform : rotate(-135deg);
+            overflow: hidden;
         }
         .circle_process .rightcircle{
             border-top:20px solid #ffa726;
@@ -79,6 +85,7 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             -webkit-animation-timing-function: linear;
             -webkit-animation-iteration-count: 1;
             animation-fill-mode: forwards;
+            overflow: hidden;
         }
         .circle_process .leftcircle{
             border-bottom:20px solid #ffa726;
@@ -89,13 +96,20 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             -webkit-animation-timing-function: linear;
             -webkit-animation-iteration-count: 1;
             animation-fill-mode: forwards;
+            overflow: hidden;
         }
         @-webkit-keyframes circle_right{
             0%{
             -webkit-transform: rotate(-135deg);
             }
             50%,100%{
-                -webkit-transform: rotate(45deg);
+                -webkit-transform: rotate(<?php
+                if ($animatescore<5){
+                    echo (-135+(36*$animatescore));
+                }elseif ($animatescore>=5){
+                    echo 45;
+                }
+                 ?>deg);
             }
         }
         @-webkit-keyframes circle_left{
@@ -103,7 +117,13 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                 -webkit-transform: rotate(-135deg);
             }
             100%{
-                -webkit-transform: rotate(45deg);
+                -webkit-transform: rotate(<?php
+                if ($animatescore<5){
+                    echo -135;
+                }elseif ($animatescore>=5){
+                    echo (-135+(36*($animatescore-5)));
+                }
+                 ?>deg);
             }
         }
         * {
@@ -763,7 +783,8 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
             <div class="tab_nav">
                 <ul  class="clearfix" >
                     <li onclick="changeTab(this)" class="on">番剧详情</li>
-                    <li onclick="changeTab(this)" >相关视频</li>
+                    <li onclick="changeTab(this)" >更多推荐</li>
+
                 </ul>
 
             </div>
@@ -778,20 +799,21 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                                 <div class="slide_wrapper">
                                     <div class="slide_content" >
                                         <ul class="sl_nav_list" >
+
                                             <?php
                                             $num=$animateinfo["index_show"];
                                             preg_match_all('/\d+/', $num, $res);
                                             $num = join('', $res[0]);
                                             if($num<=12){
-                                                echo '<li class="sl_nav_list_item on" id="on">第1话-第'.$num.'话</li>';
+                                                echo '<li onclick="getvideolist(this)" class="sl_nav_list_item on" id="on">第1话-第'.$num.'话</li>';
                                             }else{
-                                                echo '<li class="sl_nav_list_item on" id="on">第1话-第12话</li>';
+                                                echo '<li onclick="getvideolist(this)" class="sl_nav_list_item on" id="on">第1话-第12话</li>';
                                                 $j=24;
                                                 while ($num>$j){
-                                                    echo '<li class="sl_nav_list_item" >第'.($j-11).'话-第'.$j.'话</li>';
+                                                    echo '<li  onclick="getvideolist(this)" class="sl_nav_list_item" >第'.($j-11).'话-第'.$j.'话</li>';
                                                     $j+=12;
                                                 }
-                                                echo '<li class="sl_nav_list_item" >第'.($j-11).'话-第'.$num.'话</li>';
+                                                echo '<li onclick="getvideolist(this)" class="sl_nav_list_item" >第'.($j-11).'话-第'.$num.'话</li>';
                                             }
 
                                             ?>
@@ -804,70 +826,8 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
                                 </ul>
                             </div>
                             <div class="sl_list">
-                                <ul>
-                                    <script>
-                                        var start_no_end=$("#on").text();
-                                        function getnowSNE(){
-                                            var start_no_end=$("#on").text();
+                                <ul id="video_li">
 
-                                        }
-                                        var SNE=start_no_end.match(/\d+(.\d+)?/g);
-                                        var startno=SNE[0];
-                                        var endno=SNE[1];
-                                    </script>
-                                    <?php
-                                    $startno ='<script>document.writeln(startno);</script>';
-
-
-                                    $intstrartno=intval($startno);
-//                                    $intstrartno=$intstrartno-1;
-
-
-
-                                    $endno='<script>document.writeln(endno);</script>';
-                                    $aaa=$endno;
-//                                    $endno=trim($endno);
-//                                    preg_match_all('/\d+/', $endno, $aaaa);
-//                                    $intendno = join('', $aaaa[0]);
-                                    $intendno=intval($endno);
-
-
-                                    var_dump($intendno);
-                                    echo $intendno;
-
-                                    var_dump($aaa);
-                                    echo $aaa;
-                                    echo "aaaaaaaaa".$intendno;
-                                    $videosql="select * from video where animate_id='".$animate_id."' and no!=0 order by no limit ".$intstrartno.",".$intendno;
-                                    $videoresult=mysqli_query($conn,$videosql) or die("失败".$videosql);
-
-                                    while ($videoinfo=mysqli_fetch_array($videoresult)){
-                                        echo '<li title="第'.$videoinfo["no"].'话" class="misl_ep_item">';
-                                        echo '<div class="misl_ep_img">';
-                                        echo '<div class="common_lazy_img">';
-                                        echo '<img alt="'.$videoinfo["no"].'" src="'.$videoinfo["cover"].'" >';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '<div class="misl_ep_text">';
-                                        echo '<div class="misl_ep_index">第'.$videoinfo["no"].'话</div>';
-                                        echo '<div class="misl_ep_title">'.$videoinfo["name"].'</div>';
-                                        echo '</li>';
-                                    }
-
-
-
-                                    ?>
-                                    <li title="1111" class="misl_ep_item">
-                                        <div class="misl_ep_img">
-                                            <div class="common_lazy_img">
-                                                <img alt="1" src="http://i0.hdslb.com/bfs/archive/1a6484ca5def2e358fa1f6349a9119019eb69f54.jpg@192w_120h_1c.webp" >
-                                            </div>
-                                        </div>
-                                        <div class="misl_ep_text">
-                                            <div class="misl_ep_index">第一话</div>
-                                            <div class="misl_ep_title">残酷</div>
-                                        </div>
-                                    </li>
                                 </ul>
 
                             </div>
@@ -947,9 +907,55 @@ $tagsresult=mysqli_query($conn,$tagssql) or die("失败".$tagssql);
         }
     }
 
-    function changeli(tab){
 
+    function getvideolist(tab){
+        // var dang_Id = $(this).attr("data-id");//获取信息id
+        // var Z_zong = $(this).attr("data-num");//获取数据
+        if(tab!==""){
+            var tabs = document.getElementsByClassName('sl_nav_list')[0].getElementsByTagName('li');
+
+            for(var i = 0, len = tabs.length; i < len; i++) {
+                if(tabs[i] === tab) {
+                    tabs[i].className = 'sl_nav_list_item on';
+                    tabs[i].id = 'on';
+
+                } else {
+                    tabs[i].id = '';
+                    tabs[i].className = 'sl_nav_list_item';
+
+                }
+            }
+        }
+
+
+        var start_no_end=$("#on").text();
+        var SNE=start_no_end.match(/\d+(.\d+)?/g);
+        var startno=SNE[0]-1;
+        var endno=12
+
+        console.log('偏移');
+        console.log(startno);
+        console.log('个数');
+        console.log(endno);
+
+
+        $.ajax({
+            url : "video_detail_list.php?animate_id="+<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+            data : {
+                sn:startno,
+                en:endno
+            }, //参数Json格式
+
+            dataType : "html", //请求的返回类型
+            type : "post",  //提交方式
+            cache : false,  //是否异步提交true
+            success : function(v){
+                $("#video_li").html(v);
+            }
+        });
     }
+    getvideolist("");
+
 </script>
 
 <iframe src="../footer.html" class="footer" scrolling="no"></iframe>
