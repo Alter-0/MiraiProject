@@ -206,7 +206,7 @@ a{
 .new .nl .title span:nth-child(1){
 	font-size: 24px;
 	float: left;
-	margin-left: 13px;
+	margin-left: 23px;
 	
 }
 .new .nl .title span:nth-child(2){
@@ -432,7 +432,7 @@ a{
 	overflow: hidden;
 }
 .label1:nth-child(1){
-	margin-left: 20px;		
+	margin-left: 23px;		
 }
 .label1:nth-child(3){
 	margin-right: 0;
@@ -492,7 +492,7 @@ a{
 	overflow: hidden;
 }
 .bfzg_t{
-	width: 96%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
@@ -577,7 +577,7 @@ a{
 	overflow: hidden;
 }
 .pfzg_t{
-	width: 96%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
@@ -661,7 +661,7 @@ a{
 	margin-bottom: 80px;
 }
 .tj_t{
-	width: 96%;
+	width: 97%;
 	height: 32px;
 	margin: 5px auto 0 auto;
 }
