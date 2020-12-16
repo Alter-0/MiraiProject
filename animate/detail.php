@@ -29,7 +29,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
     <script src="../js/jquery.js"></script>
 
     <!-- 引用部分@blueberry -->
-    <script src="http://localhost/MiraiProject/js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!-- 引用部分@blueberry -->
 
     <meta charset="UTF-8" name="referrer" content="never">
