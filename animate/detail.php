@@ -19,8 +19,9 @@ $animatescore = (float)$animateinfo["score"];
 $tagssql = "select * from tags where animate_id='$animate_id'";
 $tagsresult = mysqli_query($conn, $tagssql) or die("失败" . $tagssql);
 
-
-$user_id = "100001";
+session_start();
+//$user_id =$_SESSION['user_id'];
+$user_id = "100002";
 $usersql = "select * from likes where user_id='" . $user_id . "' and animate_id='$animate_id'";
 $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
 
