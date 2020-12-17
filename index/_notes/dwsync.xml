@@ -3,10 +3,13 @@
 <file name="index.html" server="C:/wamp/www" local="132523969917927416" remote="132523969910000000" Dst="0" />
 <file name="index.html" server="C:/wamp64" local="132524187728964148" remote="132524187720000000" Dst="0" />
 <file name="index.html" server="C:/wamp64/" local="132524187728964148" remote="132524187720000000" Dst="0" />
-<<<<<<< HEAD
+<file name="index.html" server="C:/wamp64/www/work3/" local="132525751431694940" remote="132525751430000000" Dst="0" />
+<file name="index.css" server="C:/wamp64/www/work3/" local="132526046017163458" remote="132526046010000000" Dst="0" />
+<file name="try.php" server="C:/wamp64/www/work3/" local="132526020078351444" remote="132526020070000000" Dst="0" />
 <file name="index.css" server="C:/wamp64/www" local="132525948126636055" remote="132525948120000000" Dst="0" />
 <file name="index.html" server="C:/wamp64/www" local="132525154356051126" remote="132525154350000000" Dst="0" />
-=======
 <file name="index.html" server="C:/wamp64/www/m/" local="132524187728964148" remote="132524187720000000" Dst="0" />
->>>>>>> c086bfd (回到顶部和Dw缓存)
+<file name="index.html" server="C:/wamp64/www/work/" local="132525751431694940" remote="132525751430000000" Dst="0" />
+<file name="index.css" server="C:/wamp64/www/work/" local="132526481074023027" remote="132526481070000000" Dst="0" />
+<file name="try.php" server="C:/wamp64/www/work/" local="132526818051772358" remote="132526818050000000" Dst="0" />
 </dwsync>

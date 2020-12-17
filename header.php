@@ -120,7 +120,7 @@ if (empty($_SESSION["user"])) {
     $url = "image/akari.jpg";
 } else {
     $is_login = true;
-    $user_id = $_SESSION["user"];
+    $user_id = $_SESSION["user_id"];
     $sql = "select avatar from user where user_id='$user_id'";
     $result = mysqli_query($conn, $sql) or die("数据查询失败");
     $row = mysqli_fetch_assoc($result);
@@ -182,9 +182,9 @@ if (empty($_SESSION["user"])) {
         </section>
 
         <section class="middle">
-            <form action="index/index.html" target="_top">
+            <form action="index/index.html" target="_top" method="get">
                 <label>
-                    <input type="text" value="" placeholder="请输入要搜索的番剧">
+                    <input type="text" value="" name="key" placeholder="请输入要搜索的番剧">
                 </label>
             </form>
         </section>
