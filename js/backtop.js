@@ -8,7 +8,7 @@ window.onload = function(){
 		div.setAttribute("class", "btn_totop");
 		div.setAttribute("id", "btn_totop");
 		// div.innerHTML = "回到顶部";
-
+		
 		document.body.appendChild(div);
         var oBtn=document.getElementById('btn_totop');
         //用处：避免当按钮触发页面回到顶部时页面滚动这个过程未结束，用户此时人为滚动时页面不会准确响应用户
@@ -37,4 +37,15 @@ window.onload = function(){
                 document.documentElement.scrollTop=document.body.scrollTop=scrollTop+iSpeed;
             }, 30);
         }
+		oBtn.style.width=0; oBtn.style.height=0;
+		
+		window.onscroll = function(){
+			var ggg=$(window).scrollTop();
+            if(ggg<480){
+                  oBtn.style.width=0; oBtn.style.height=0;
+			/*	oBtn.style.width='150px'; oBtn.style.height='173px';*/
+            }else{
+               oBtn.style.width='150px'; oBtn.style.height='173px';
+               
+            }}
     }
