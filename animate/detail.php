@@ -5,8 +5,9 @@
 include "../conn.php";
 mysqli_query($conn, 'set names utf8');
 if (empty($_GET["animate_id"])) {
-    die("出错！！！！！！");
+    die("出错！");
 }
+
 $animate_id = $_GET["animate_id"];
 //$animate_id="100001";
 $infosql = "select * from animate where animate_id='$animate_id'";
