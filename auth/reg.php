@@ -152,7 +152,7 @@
 		}else if($user_pass==$user_repass){
 		$sql="insert into user(account,password,email)values('$user_name','$user_pass','$user_email');";
 		$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
-		header("location:http://localhost/main/login.php");
+		header("location:http://localhost/MiraiProject/auth/login.php");
 		}else{
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('两次密码输入不一致');";
