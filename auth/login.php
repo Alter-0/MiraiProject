@@ -9,7 +9,11 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
 </head>
 <style>
-	
+	*{
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
 	#top{
 		width: 100%;
 		height: 60px;
@@ -17,8 +21,10 @@ session_start();
 	}
 	#mid{
 		height: 560px;
-		width: 100%;
+		width: auto;
+		margin: 0 10%;
 		position: relative;
+		white-space: nowrap;
 	}
 	#bottom{
 		height: 150px;
@@ -27,29 +33,37 @@ session_start();
 	}
 	.left{
 		height: 100%;
-		width: 860px;
-		margin-top: 0px;
-		margin-left: 170px;
+		width: 60%;
 		float: left;
+		background-image: url("../image/user_background.jpg");
+		background-size: cover;
+	}
+	#img1{
+		height: 100%;
+		width: 100%; 
 	}
 	#right{
 		height: 100%;
-		width: 380px;
-		float: left;
+		width: 40%;
 		background-color: #ffffff;
+		float: left;
+		overflow: hidden;
 	}
 	#table{
-		width: 380px;
-		padding: 20px 40px;
-		margin-top: 60px;
+		width: 80%;
+		height: 80%;
+		padding:10% 10%;
 	}
 	#logo{
-		margin-left: 130px;
-		font-size: 5em;
-		margin-bottom: 60px;
+		width: 100%;
+		height: 20%;
+		margin-bottom: 10%;
+		margin-left: 32%;
+		margin-top: 10%;
 	}
 	.img{
 		height: 40px;
+		margin: auto auto;
 	}
 	#name{
 		border: 1px solid #d9d9d9;
@@ -60,9 +74,12 @@ session_start();
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
+		
 	}
 	#pass{
 		border: 1px solid #d9d9d9;
@@ -72,10 +89,12 @@ session_start();
 		line-height: 2;
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
-		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
+		padding-left: 30px;
 	}
 	#submit{
 		border: 1px solid #d9d9d9;
@@ -83,11 +102,12 @@ session_start();
 		border-radius: 4px;
 		transition: all .3s;
 		line-height: 2;
-		padding-left: 30px;
-		width: 300px;
-		height: 40px;
-		margin-bottom: 24px;
+		margin-bottom: 105px;
 		background-color: #1890ff;
+		width: 75%;
+		height: 40px;
+		display: block;
+		margin-left: 10%;
 	}
 	#btm{
 		width: 300px;
@@ -114,27 +134,20 @@ session_start();
 	<iframe src="../header.php" class="header" scrolling="no"></iframe>
 	<div id="top" align="center"></div>
 		<div id="mid">
-			<img alt=""  class="left" src="../image/background.jpg" id="">
+			<img alt=""  class="left" id="">
 			<div id="right">
 				<div id="table">
-				<div id="logo">
-					<img  class="img" src="../image/003.jpg" alt="">
+				<div id="logo"  >
+					<img class="img" alt="" src="../image/logo.png">
 					</div>
 				<div id="form">
 				<form id="login-form" method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-					<span >
 					<input type="text" id="name" name="user_name"  value="" placeholder="用户名" >
-					</span><br>
-					<span class="password">
-					<span></span>
 					<input type="password" id="pass" value=""  name="user_pass" placeholder="密码">
-					</span>
 					<input type="submit" id="submit" value="登录">
-					</form>
 				</div>
 				<div id="btm">
 				<a href="reg.php">注册</a>
-				<a href="reg.php">重置密码</a>
 				</div>
 			</div>
 			</div>		

@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>reg</title>
-	<link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="shortcut icon" href="../image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/loading.js"></script>
+    <script src="../js/sakura.js"></script>
+    <script src="../js/mouse_click.js"></script>
 </head>
 <style>
+	*{
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
 	#top{
 		width: 100%;
 		height: 60px;
@@ -13,8 +25,10 @@
 	}
 	#mid{
 		height: 560px;
-		width: 100%;
+		width: auto;
+		margin: 0 10%;
 		position: relative;
+		white-space: nowrap;
 	}
 	#bottom{
 		height: 150px;
@@ -23,29 +37,37 @@
 	}
 	.left{
 		height: 100%;
-		width: 860px;
-		margin-top: 0px;
-		margin-left: 170px;
+		width: 60%;
 		float: left;
+		background-image: url("../image/user_background.jpg");
+		background-size: cover
+	}
+	#img1{
+		height: 100%;
+		width: 100%; 
 	}
 	#right{
 		height: 100%;
-		width: 380px;
-		float: left;
+		width: 40%;
 		background-color: #ffffff;
+		float: left;
+		overflow: hidden;
 	}
 	#table{
-		width: 100%;
-		padding: 20px 40px;
-		margin-top: 20px;
+		width: 80%;
+		height: 80%;
+		padding:10% 10%;
 	}
 	#logo{
-		margin-left: 130px;
-		font-size: 5em;
-		margin-bottom: 60px;
+		width: 100%;
+		height: 20%;
+		margin-bottom: 3%;
+		margin-left: 32%;
+		margin-top: 2%;
 	}
 	.img{
 		height: 40px;
+		margin: auto auto;
 	}
 	#name{
 		border: 1px solid #d9d9d9;
@@ -56,9 +78,11 @@
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
 	}
 	#pass{
 		border: 1px solid #d9d9d9;
@@ -69,9 +93,11 @@
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
 	}
 	#repass{
 		border: 1px solid #d9d9d9;
@@ -82,9 +108,11 @@
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
 	}
 	#email{
 		border: 1px solid #d9d9d9;
@@ -95,9 +123,11 @@
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
 		margin-bottom: 24px;
+		display: block;
+		margin-left: 10%;
 	}
 	#submit{
 		border: 1px solid #d9d9d9;
@@ -105,11 +135,14 @@
 		border-radius: 4px;
 		transition: all .3s;
 		line-height: 2;
-		padding-left: 30px;
-		width: 300px;
+		width: 75%;
 		height: 40px;
-		margin-bottom: 24px;
+		margin-bottom: 10%;
 		background-color: #1890ff;
+		margin-left: 10%;
+	}
+	#submit:hover{
+		
 	}
 	#btm{
 		width: 300px;
@@ -161,30 +194,24 @@
 	}
 
 ?>
-<div id="main" >
-	<iframe src="../header.php" class="header" scrolling="no"></iframe>
-	<div id="top" align="center"></div>
+<iframe src="../header.php" class="header" scrolling="no"></iframe>
+<div class="main" >
+	
+	<div id="top" align="center" class="main"></div>
 		<div id="mid">
-			<img alt=""  class="left" src="../image/background.jpg" id="">
+			<div class="left">
+			</div>
 			<div id="right">
 				<div id="table">
 				<div id="logo">
-					<img class="img" alt="" src="../image/003.jpg">
+					<img class="img" alt="" src="../image/logo.png">
 					</div>
 				<div id="form">
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-					<span class="name">
 					<input type="text" id="name" value="" name="user_name" placeholder="用户名">
-					</span>
-					<span class="password">
 					<input type="password" id="pass" value="" name="user_pass"placeholder="密码">
-					</span><br>
-					<span class="password">
 					<input type="password" id="repass" value="" name="user_repass" placeholder="再输入一次密码">
-					</span><br>
-					<span class="password">
 					<input type="email" id="email" value=""  name="user_email" placeholder="邮箱">
-					</span>
 					<input type="submit" id="submit" value="注册">
 					</form>
 				</div>
@@ -198,4 +225,25 @@
 	<div id="bottom"></div>	
 </div>
 </body>
+<script>
+    const bg_card = document.getElementsByClassName('main')[0];
+
+    var normalWidth = window.innerWidth;
+    var normalHeight = window.innerHeight;
+
+    $(window).on('load', function () {
+        bg_card.style.height = normalHeight - 50 + "px";
+    });
+
+    window.onresize = function () {
+        if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+        if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+    }
+
+
+</script>
 </html>
