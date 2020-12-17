@@ -438,9 +438,9 @@
         container: document.getElementById('dplayer'),
         screenshot: true,
         theme: 'white',
-
+        preload:'60s',
         video: {
-            url: 'demo.mp4',
+            url: '<?php echo $row_video['url'] ?>',
             pic: '<?php echo $row_video['cover'] ?>',
             thumbnails: 'thumbnails.jpg',
         },

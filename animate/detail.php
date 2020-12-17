@@ -464,9 +464,10 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             /*visibility: hidden;*/
             /*display: none;*/
             position: relative;
-            top: -40px;
+            top: -120px;
             width: auto;
-            height: 2000px;
+            height: auto;
+
             margin: 15px 10% 100px 10%;
 
         }
@@ -531,7 +532,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             position: relative;
             top: -40px;
             width: auto;
-            height: 2000px;
+            height: auto;
             margin: 15px 10% 200px 10%;
         }
         .morecard{
@@ -810,12 +811,6 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             display: inline-block;
             vertical-align: top;
 
-
-
-
-
-
-
         }
         .more_more{
             /*margin: 50px auto;*/
@@ -1059,16 +1054,57 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
 
 <script>
     // detail_card height 自适应
-    const detail_card = document.getElementsByClassName('content')[0];
+
+    function addCSS(cssText){
+        var style = document.createElement('style'),  //创建一个style元素
+            head = document.head || document.getElementsByTagName('head')[0]; //获取head元素
+        style.type = 'text/css'; //这里必须显示设置style元素的type属性为text/css，否则在ie中不起作用
+        if(style.styleSheet){ //IE
+            var func = function(){
+                try{ //防止IE中stylesheet数量超过限制而发生错误
+                    style.styleSheet.cssText = cssText;
+                }catch(e){
+
+                }
+            }
+            //如果当前styleSheet还不能用，则放到异步中则行
+            if(style.styleSheet.disabled){
+                setTimeout(func,10);
+            }else{
+                func();
+            }
+        }else{ //w3c
+            //w3c浏览器中只要创建文本节点插入到style元素中就行了
+            var textNode = document.createTextNode(cssText);
+            style.appendChild(textNode);
+        }
+        head.appendChild(style); //把创建的style元素插入到head中
+    }
+
+
+
+
+
+    const detail_card = document.getElementsByClassName('detail_card')[0];
     const actors_card = document.getElementsByClassName('actors_card')[0];
     const staff_card = document.getElementsByClassName('staff_card')[0];
 
-    detail_card.style.height=actors_card.clientHeight +staff_card.clientHeight +15+"px";
+
+    // detail_card.style.minHeight=actors_card.clientHeight +staff_card.clientHeight +15+"px";
+
+    const trueheight = actors_card.clientHeight +staff_card.clientHeight +15+"px";
+
+    addCSS('.detail_card{ min-height: '+trueheight+';}');
+    addCSS('.morecard{ min-height: '+trueheight+';}');
 
 
+    window.onresize = function() {
+        const trueheight = actors_card.clientHeight +staff_card.clientHeight +15+"px";
 
-    const trueheight = detail_card.style.height;
+        addCSS('.detail_card{ min-height: '+trueheight+';}');
+        addCSS('.morecard{ min-height: '+trueheight+';}');
 
+    }
     // tab 切换
 
     var tabs = document.getElementsByClassName('tab_nav')[0].getElementsByTagName('li');
@@ -1080,7 +1116,7 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             if(tabs[i] === tab) {
                 tabs[i].className = 'on';
                 contents[i].style.display = 'block';
-                contents[i].style.height=trueheight;
+
             } else {
                 tabs[i].className = '';
                 contents[i].style.display = 'none';
@@ -1195,8 +1231,6 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
             }
         });
     }
-
-
 
 </script>
 

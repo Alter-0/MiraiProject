@@ -1,5 +1,7 @@
 //导入网站通用文件@blueberry
 
+//设置站点图标
+document.write('<link rel="shortcut icon" href="../image/favicon.ico">');
 //通用样式
 document.write('<link rel="stylesheet" type="text/css" href="../css/default.css">');
 document.write('<link rel="stylesheet" type="text/css" href="../css/loading.css">');
