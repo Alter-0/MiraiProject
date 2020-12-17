@@ -19,21 +19,20 @@
 		border: 0;
 	}
 	#mid{
-		height: 100%;
+		height: 80%;
 		width: auto;
 		margin: 0 10%;
 		position: relative;
 		white-space: nowrap;
 		margin-top: 5%;
-		margin-bottom: 25%;
+		margin-bottom: 5%;
 		box-sizing: border-box;
-		border-radius: 15px;
 	}
 	.left{
 		height: 100%;
 		width: 60%;
 		float: left;
-		background-image: url("../image/user_background.jpg");
+		background: url("../image/user_background.jpg") center center;
 		background-size: cover;
 		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 		border-radius: 15px;
@@ -69,7 +68,7 @@
 		margin-top: 2%;
 	}
 	.img{
-		height: 40%;
+		height: 40px;
 		margin: auto auto;
 	}
 	.name{
@@ -81,8 +80,8 @@
 		background: url("../image/search.png") 3px 3px no-repeat;
 		padding-left: 7%;
 		width: 75%;
-		height: 50%;
-		margin-bottom: 7%;
+		height: 40px;
+		margin-bottom: 24px;
 		display: block;
 		margin-left: 10%;
 	}
@@ -146,7 +145,7 @@
 		margin-left: 10%;
 	}
 	#submit:hover{
-		
+		background-color: rgba(0,0,0,0.2);
 	}
 	#btm{
 		width: 300px;
@@ -161,6 +160,9 @@
 		text-decoration: none;
 		background-color: transparent;
 	}
+	#btm a:hover{
+		color: darkred;
+	}
 	.tishi{
 		color: #CC1F22;
 	}
@@ -173,11 +175,11 @@
 	</style>
 <body>
 <?php 
+if($_SERVER["REQUEST_METHOD"]=="POST"){
 $nameErr='';
 $passErr='';
 $emailErr='';
 $repassErr='';
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$user_name=$_POST["user_name"];
 	$user_pass=$_POST["user_pass"];
 	$user_email=$_POST["user_email"];
@@ -229,7 +231,6 @@ $repassErr='';
 				<div id="form">
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 					<input type="text" class="name" id="name" value="" name="user_name" placeholder="用户名">
-					<?php ?>
 					<input type="password" id="pass" class="name" value="" name="user_pass"placeholder="密码">
 					<input type="password" id="repass" class="name" value="" name="user_repass" placeholder="再输入一次密码">
 					<input type="email"  class="name" id="email" value=""  name="user_email" placeholder="邮箱">
@@ -238,7 +239,6 @@ $repassErr='';
 				</div>
 				<div id="btm">
 				<a href="login.php">登录</a>
-				
 				</div>
 				</div>
 			</div>
@@ -257,10 +257,10 @@ $repassErr='';
 
     window.onresize = function () {
         if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
         if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
     }
 
