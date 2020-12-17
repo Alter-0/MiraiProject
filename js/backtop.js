@@ -2,13 +2,12 @@
 window.onload = function(){
 		var new_element=document.createElement('link');
 		new_element.setAttribute('rel', 'stylesheet');
-		new_element.setAttribute('href', '../main/totop.css');
 		document.head.appendChild(new_element);
 		
 		var div = document.createElement("div");
 		div.setAttribute("class", "btn_totop");
 		div.setAttribute("id", "btn_totop");
-		div.innerHTML = "回到顶部";
+		// div.innerHTML = "回到顶部";
 
 		document.body.appendChild(div);
         var oBtn=document.getElementById('btn_totop');

@@ -22,3 +22,6 @@ document.write('<script src="../live2d/assets/jquery.min.js?v=3.3.1"></script>')
 document.write('<script src="../live2d/assets/jquery-ui.min.js?v=1.12.1"></script>');
 //使用 aotuload.js 引入看板娘
 document.write('<script src="../live2d/assets/autoload.js?v=1.4.2"></script>');
+
+//返回顶部
+document.write('<script src="../js/backtop.js"></script>');

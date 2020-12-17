@@ -1,0 +1,39 @@
+@charset "utf-8";
+/* CSS Document */
+
+.btn_totop {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 150px;
+    height: 174px;
+    cursor: pointer;
+    /*border: 1px solid #F4A6D7;*/
+    text-align: center;
+    z-index: 999;
+    background-image: url("http://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_top.bcc748c3.png");
+    background-repeat: no-repeat;
+}
+
+ .btn_totop:hover{
+     background-image: url("http://s2.hdslb.com/bfs/static/blive/blfe-dynamic-web/static/img/rocket_frame.f7563b84.png");
+     animation: rocket-data steps(1, start) 0.5s infinite;
+}
+
+@-webkit-keyframes rocket-data {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: -150px 0;
+    }
+    50% {
+        background-position: -300px 0;
+    }
+    75% {
+        background-position: -450px 0;
+    }
+    100% {
+        background-position: -600px 0;
+    }
+}
