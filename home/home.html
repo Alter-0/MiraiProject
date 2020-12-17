@@ -120,10 +120,10 @@
 
     window.onresize = function () {
         if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
         if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
     }
 

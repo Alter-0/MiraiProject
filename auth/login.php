@@ -27,13 +27,13 @@ session_start();
 		position: relative;
 	}
 	#mid{
-		height: 560px;
+		height: 80%;
 		width: auto;
 		margin: 0 10%;
 		position: relative;
 		white-space: nowrap;
 		margin-top: 5%;
-		margin-bottom: 25%;
+		margin-bottom: 5%;
 		box-sizing: border-box;
 	}
 	#bottom{
@@ -204,10 +204,10 @@ session_start();
 
     window.onresize = function () {
         if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
         if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
-            bg_card.style.height = normalHeight - 50 + "px";
+            bg_card.style.height = window.innerHeight - 50 + "px";
         }
     }
 
