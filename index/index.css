@@ -45,61 +45,51 @@ body{
 	height: 1320px;
 	margin-left: 10%;
 	margin-right: 10%;
+	
+	margin-bottom: 30px;
+	margin-top: 30px;
+	border-radius: 10px;
 }
-.left{
+.index .left{
 	position: relative;
     padding-top: 20px;
-    width: 900px;
-    float: left;
+    width:70%;
+	display:inline-block;
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 10px;
+	box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+	
+	
 }
 .banner{
 	height: 44px;
     font-size: 20px;
     line-height: 1;
     position: relative;
+	
 }
-.list1{
+.index .left .list1{
 	width: 120px;
-	float: left;
+	display: inline-block;
     padding-top: 20px;
     cursor: pointer;
-	margin-right: 20px;
+	margin-left: 50px;
 }
 
-.up,.down{
-	display: block;
-    position: absolute;
-    left: 80px;
-    margin: 0 2px;
-    width: 0;
-    height: 0;
-}
-
-.up{
-    border: 5px dashed rgba(0,0,0,0);
-    border-top: none;
-    border-bottom: 5px solid #ddd;
-}
-.down{
-	bottom: 0;
-    border: 5px dashed rgba(0,0,0,0);
-    border-top: 5px solid #ddd;
-    border-bottom: none;
-}
-
-.video{
+.index .left .video{
 	position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-.list2{
+.index .left .video .list2{
 	width: 160px;
     height: 304px;
-    margin-right: 20px;
+	margin-left: 30px;
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
+	margin-top: 30px;
 }
 .V1{
 	position: relative;
@@ -138,12 +128,12 @@ body{
 
 
 
-.page{
-	display: block;
+.index .left .page{
     height: 40px;
     white-space: nowrap;
-    padding-right: 20px;
 	position: absolute;
+	margin-left: 30px;
+	margin-top: 50px;
 }
 .page .first{
 	float: left;
@@ -216,24 +206,33 @@ a {
 }
 
 
-.right{
-	float: right;
-    width: 260px;
+.index .right{
+	background: rgba(255, 255, 255, 0.8);
+    width: 25%;
     padding-top: 20px;
+	display: inline-block;
+	margin-left: 1%;
+	float: right;
+	border-radius: 10px;
+	box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 }
-.filter_title{
+.index .right .filter_title{  
 	height: 44px;
     line-height: 1;
     font-size: 18px;
     color: #222;
+	margin-top: 30px;
+	margin-left: 30px;;
 }
-.filter_list{
-	
-}
-.filter_block{
+
+
+.index .right .filter_block{
 	position: relative;
     overflow: hidden;
 	padding-top: 8px;
+	margin-top: 15px;
+	margin-left: 30px;
+	
 }
 .filter_type{
 	display: block;
@@ -246,7 +245,6 @@ a {
 }
 .filter_content{
 	width: 208px;
-    float: right;
     overflow: hidden;
     transition: all .3s linear;
     min-height: 30px;
