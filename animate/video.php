@@ -450,6 +450,7 @@
         danmaku: {
             id: 'demo',
             api: 'https://api.prprpr.me/dplayer/',
+            addition: ['https://danmu.u2sb.top/api/danmu/dplayer/v3/bilibili?aid=62996239'],
         },
     });
 
