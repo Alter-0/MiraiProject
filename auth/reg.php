@@ -143,8 +143,8 @@
 	$user_repass=$_POST["user_repass"];
 	//连接数据库
 	include "../conn.php";
-	$sql="select * from user where account=$user_name";
-	$result=mysqli_query($conn,$sql) or die("查询失败，请检查SQL语法");
+	$sql="select * from user where account='$user_name'";
+	$result=mysqli_query($conn,$sql) or die("查询失败，请检查SQL语法147");
 		if(mysqli_num_rows($result)>0){	
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户已经注册，请设置其他用户名');";

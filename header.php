@@ -150,7 +150,13 @@ if (empty($_SESSION["user"])) {
 
         <section class="right">
             <!--头像-->
-            <a href="auth/user.html" target="_top">
+            <a href="<?php
+            if ($is_login == true) {
+                echo "auth/user.php";
+            } else {
+                echo "auth/login.php";
+            }
+            ?>" target="_top">
                 <img src="
                     <?php
                 echo "$url";
