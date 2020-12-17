@@ -3,88 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-	<!-- 引用部分@blueberry -->
-	<script src="../js/main.js"></script>
-	<!-- 引用部分@blueberry -->
+
+    <link rel="shortcut icon" href="../image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/loading.js"></script>
+    <script src="../js/sakura.js"></script>
+    <script src="../js/mouse_click.js"></script>
+
 </head>
 <style>
-	*{
-		margin: 0;
-		padding: 0;
-		border: 0;
-	}
-	/*.content{*/
-	/*	width: 100%;*/
-	/*	height: 100vh;*/
-	/*	background-image: url("https://api.btstu.cn/sjbz/?lx=dongman");*/
-	/*	background-size: cover;*/
-	/*	!*background-image: url("https://api.btstu.cn/sjbz/?lx=dongman")*!*/
-	/*}*/
-	body {
-		background-size: cover;
-		display: flex;
-		flex-direction: column;
-		/*color: rgba(255,255,255,0.8);*/
-		justify-content: center;
-		align-items: center;
-		background: url("https://api.btstu.cn/sjbz/?lx=dongman") no-repeat fixed center center;
-		/*filter: brightness(80%);*/
-	}
-	.bg{
-		/*height: 100%;*/
-		height: 100vh;
-		width: 100%;
-		/*background-color: rgba(0,0,0,0.3);*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		/*overflow: hidden;*/
-		/*color: rgba(255,255,255,0.8);*/
-	}
-	#logo{
-		font-size: 56px;
-		margin-bottom: 10px;
-		margin-left: 40px;
-	}
-	#slogan{
-		height: 21px;
-		width: 240px;
-		margin-left: 20px;
-	}
-	.more{
-		margin-top: 30px;
-		border: solid 1px rgba(255,255,255,0.8);
-		border-radius: 4px;
-		padding: 10px 30px;
-		cursor: pointer;
-		display: inline-block;
-	}
-	.more:hover{
-		background-color: rgba(0,0,0,0.2);
-	}
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
+    /*.content{*/
+    /*	width: 100%;*/
+    /*	height: 100vh;*/
+    /*	background-image: url("https://api.btstu.cn/sjbz/?lx=dongman");*/
+    /*	background-size: cover;*/
+    /*	!*background-image: url("https://api.btstu.cn/sjbz/?lx=dongman")*!*/
+    /*}*/
+
+
+    body {
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        /*color: rgba(255,255,255,0.8);*/
+        justify-content: center;
+        align-items: center;
+        background: url("https://api.btstu.cn/sjbz/?lx=dongman") no-repeat fixed center center;
+        /*filter: brightness(70%);*/
+    }
+
+    .bg {
+        /*height: 100%;*/
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*overflow: hidden;*/
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    #logo {
+        font-size: 56px;
+        margin-bottom: 10px;
+        margin-left: 40px;
+    }
+
+    #slogan {
+        height: 21px;
+        width: 240px;
+        margin-left: 20px;
+    }
+
+    .more {
+        margin-top: 30px;
+        border: solid 1px rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+        padding: 10px 30px;
+        cursor: pointer;
+        display: inline-block;
+		color: white;
+		transition: all .3s;
+    }
+
+    .more:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+		color: #0BC5F7;
+		transition: all .3s;
+    }
+
     .header {
-            width: 100%;
-            height: 50px;
-            position: relative;
-            z-index: 1000;
-        }
-	</style>
+        width: 100%;
+        height: 50px;
+        position: relative;
+        z-index: 1000;
+    }
+
+</style>
 <body>
 <iframe src="../header.php" class="header" scrolling="no"></iframe>
-<!--<div class="content" id="content">-->
+
 <div class="bg">
-	<div>
-		<div id="logo">MIRAI</div>
-		<div id="slogan">二次元即使幻想，依旧很美好.</div>
-	</div>
-	<div>
-		<div class="more"  onClick="windows.location.href="main.php"">进入网站</div>
-	</div>
-<!--</div>-->
-<!--</div>-->
+    <div>
+        <div id="logo">MIRAI</div>
+        <div id="slogan">二次元即使幻想，依旧很美好.</div>
+    </div>
+    <div>
+        <a href="../main/main.php">
+            <div class="more">进入网站</div>
+        </a>
+    </div>
+
+</div>
 </body>
 
+<script>
+    const bg_card = document.getElementsByClassName('bg')[0];
 
+    var normalWidth = window.innerWidth;
+    var normalHeight = window.innerHeight;
+
+    $(window).on('load', function () {
+        bg_card.style.height = normalHeight - 50 + "px";
+    });
+
+    window.onresize = function () {
+        if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+        if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+    }
+
+    $('.header').css("background-color","rgba(0,0,0,0.3)");
+
+</script>
 
 </html>

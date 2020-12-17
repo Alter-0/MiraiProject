@@ -155,9 +155,9 @@ if (empty($_SESSION["user"])) {
             <a href="
                 <?php
             if ($is_login == true) {
-                echo "auth/login.php";
-            } else {
                 echo "auth/user.php";
+            } else {
+                echo "auth/login.php";
             }
             ?>" target="_top" class="text">
                 <?php
