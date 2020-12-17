@@ -1196,8 +1196,6 @@ $userresult=mysqli_query($conn,$usersql) or die("失败".$usersql);
         });
     }
 
-
-
 </script>
 
 <iframe src="../footer.html" class="footer" scrolling="no"></iframe>
