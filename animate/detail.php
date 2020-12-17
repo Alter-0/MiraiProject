@@ -19,8 +19,9 @@ $animatescore = (float)$animateinfo["score"];
 $tagssql = "select * from tags where animate_id='$animate_id'";
 $tagsresult = mysqli_query($conn, $tagssql) or die("失败" . $tagssql);
 
-session_start();
+//session_start();
 //$user_id =$_SESSION['user_id'];
+
 $user_id = "100002";
 $usersql = "select * from likes where user_id='" . $user_id . "' and animate_id='$animate_id'";
 $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
@@ -229,8 +230,9 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
             text-align: left;
             min-width: 1000px;
             float: left;
-            position: relative;
+            position: absolute;
             top: 25px;
+            left: 280px;
             display: inline;
             width: border-box;
             overflow: hidden;
