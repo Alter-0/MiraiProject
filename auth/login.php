@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+session_start();
+?>
 <html>
 <head>
 <meta charset="utf-8">
@@ -138,18 +141,21 @@
 	</div>
 	<div id="bottom"></div>
 </div>
-<?php 
+<?php
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$user_name=$_POST["user_name"];
 	$user_pass=$_POST["user_pass"];
 	include "../conn.php";
 	$sql="Select * from user where account='$user_name' and password='$user_pass'";
 	$result=mysqli_query($conn,$sql)or die("查询失败，请检查sql语句");
 	if(mysqli_num_rows($result)>0){
+			$_SESSION["user"]=$user_name;
 			header("location:http://localhost/main/main.php");
 	}else{
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户名或密码错误');";
 			echo "</script>";
+	}
 	}
 	?>
 </body>

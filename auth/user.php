@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+session_start();
+?>
 <html>
 <head>
 	<script src="../js/jquery.js"></script>
@@ -306,6 +309,7 @@
 	$user_name=$_POST["account"];
 	$user_email=$_POST["email"];
 	$user_jianjie=$_POST["jianjie"];
+	$user=$_SESSION["user"];
 	//连接数据库
 	include "../conn.php";
 	$sql="select * from user where account=$user_name";
@@ -314,9 +318,8 @@
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户已经注册，请设置其他用户名');";
 			echo "</script>";
-		}else
-		if($user_pass==$user_repass){
-		$sql="insert into user(account,email,introduction)values('$user_name','$user_email','$user_jianjie');";
+		}else{
+		$sql="update user set account='$user_name',email='$user_email',introduction='$user_jianjie' where account='$user'";
 		$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
 		}
 	}
@@ -328,7 +331,10 @@
 			<div id="main_xinxi">
 				<div id="touxiang" ></div>
 				<div id="name">
-					<span id="username">godlala
+					<span id="username">
+						<?php 
+						echo $_SESSION["user"];
+						?>
 						<span id="dengji">lv1</span>
 						<span id="dengchu">登出</span>
 					</span>
