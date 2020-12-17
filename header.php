@@ -124,7 +124,12 @@ if (empty($_SESSION["user"])) {
     $sql = "select avatar from user where user_id='$user_id'";
     $result = mysqli_query($conn, $sql) or die("数据查询失败");
     $row = mysqli_fetch_assoc($result);
-    $url = $row[0];
+    if(empty($row[0])){
+        $url = "image/akari.jpg";
+    }else{
+        $url = $row[0];
+    }
+
 }
 
 ?>

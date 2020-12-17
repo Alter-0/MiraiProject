@@ -150,7 +150,7 @@ session_start();
 	$result=mysqli_query($conn,$sql)or die("查询失败，请检查sql语句");
 	if(mysqli_num_rows($result)>0){
 			$_SESSION["user"]=$user_name;
-			header("location:http://localhost/main/main.php");
+			header("location:http://localhost/MiraiProject/header.php");
 	}else{
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户名或密码错误');";
