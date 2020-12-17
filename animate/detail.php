@@ -18,12 +18,18 @@ $animatecover = $animateinfo["cover"];
 $animatescore = (float)$animateinfo["score"];
 $tagssql = "select * from tags where animate_id='$animate_id'";
 $tagsresult = mysqli_query($conn, $tagssql) or die("失败" . $tagssql);
+session_start();
 
+//虚拟用户
+$user_id = "100002";
 
-$user_id = "100001";
-$usersql = "select * from likes where user_id='" . $user_id . "' and animate_id='$animate_id'";
-$userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
-
+$islogin = 0;
+if (!empty($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $islogin = 1;
+    $usersql = "select * from likes where user_id='" . $user_id . "' and animate_id='$animate_id'";
+    $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
+}
 
 ?>
 <head>
@@ -228,8 +234,9 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
             text-align: left;
             min-width: 1000px;
             float: left;
-            position: relative;
+            position: absolute;
             top: 25px;
+            left: 280px;
             display: inline;
             width: border-box;
             overflow: hidden;
@@ -986,18 +993,27 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
 
                 <div onclick="changelike()" id="like_btn" class="btns">
                     <?php
-                    if (mysqli_fetch_array($userresult)) {
-                        $islike = 1;
-                        echo '<div class="btn_like btn_liked">';
-                        echo '<i></i>';
-                        echo '已追番';
 
-                    } else {
-                        $islike = 0;
+
+                    if ($islogin == 0) {
                         echo '<div class="btn_like">';
                         echo '<i></i>';
                         echo '追番';
+                    } else {
+                        if (mysqli_fetch_array($userresult)) {
+                            $islike = 1;
+                            echo '<div class="btn_like btn_liked">';
+                            echo '<i></i>';
+                            echo '已追番';
+
+                        } else {
+                            $islike = 0;
+                            echo '<div class="btn_like">';
+                            echo '<i></i>';
+                            echo '追番';
+                        }
                     }
+
 
                     ?>
 
@@ -1182,10 +1198,8 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
 
             window.onresize = function () {
                 const trueheight = actors_card.clientHeight + staff_card.clientHeight + 15 + "px";
-
                 addCSS('.detail_card{ min-height: ' + trueheight + ';}');
                 addCSS('.morecard{ min-height: ' + trueheight + ';}');
-
             }
             // tab 切换
 
@@ -1241,19 +1255,19 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
                 var start_no_end = $("#on").text();
                 var SNE = start_no_end.match(/\d+(.\d+)?/g);
                 var startno = SNE[0] - 1;
-                var endno = 12
+                var endno = 12;
 
 
                 $.ajax({
-                    url: "video_detail_list.php?animate_id=" +<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                    url: "video_detail_list.php?animate_id=" +<?php echo $animate_id?>,
                     data: {
                         sn: startno,
                         en: endno
-                    }, //参数Json格式
+                    },
 
-                    dataType: "html", //请求的返回类型
-                    type: "post",  //提交方式
-                    cache: false,  //是否异步提交true
+                    dataType: "html",
+                    type: "post",
+                    cache: false,
                     success: function (v) {
                         $("#video_li").html(v);
                     }
@@ -1266,28 +1280,28 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
 
                 if (con === "detail") {
                     $.ajax({
-                        url: "getmore.php?animate_id=" +<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                        url: "getmore.php?animate_id=" +<?php echo $animate_id?>,
                         data: {
                             mode: 'detail'
-                        }, //参数Json格式
+                        },
 
-                        dataType: "html", //请求的返回类型
-                        type: "post",  //提交方式
-                        cache: false,  //是否异步提交true
+                        dataType: "html",
+                        type: "post",
+                        cache: false,
                         success: function (v) {
                             $("#detail_list").html(v);
                         }
                     });
                 } else {
                     $.ajax({
-                        url: "getmore.php?animate_id=" +<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
+                        url: "getmore.php?animate_id=" +<?php echo $animate_id?>,
                         data: {
                             mode: 'more'
-                        }, //参数Json格式
+                        },
 
-                        dataType: "html", //请求的返回类型
-                        type: "post",  //提交方式
-                        cache: false,  //是否异步提交true
+                        dataType: "html",
+                        type: "post",
+                        cache: false,
                         success: function (v) {
                             $("#more_list").html(v);
                         }
@@ -1302,19 +1316,27 @@ $userresult = mysqli_query($conn, $usersql) or die("失败" . $usersql);
 
 
             function changelike() {
-                $.ajax({
-                    url: "userlike.php?animate_id=" +<?php echo $animate_id?>,//提交给ajax_index.php页面，后面跟随当前信息ID
-                    data: {
-                        user_id:<?php echo $user_id ?>,
-                    }, //参数Json格式
+                var islogin="0";
 
-                    dataType: "html", //请求的返回类型
-                    type: "post",  //提交方式
-                    cache: false,  //是否异步提交true
-                    success: function (v) {
-                        $("#like_btn").html(v);
-                    }
-                });
+                if(islogin==="0")
+                {
+                    alert("请登录！")
+                    window.location.href = "../auth/login.php";
+                }else {
+                    $.ajax({
+                        url: "userlike.php?animate_id=" +<?php echo $animate_id?>,
+                        data: {
+                            user_id:<?php echo $user_id ?>,
+                        },
+
+                        dataType: "html",
+                        type: "post",
+                        cache: false,
+                        success: function (v) {
+                            $("#like_btn").html(v);
+                        }
+                    });
+                }
             }
 
         </script>

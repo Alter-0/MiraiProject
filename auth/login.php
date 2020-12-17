@@ -21,11 +21,6 @@ session_start();
 		padding: 0;
 		border: 0;
 	}
-	#top{
-		width: 100%;
-		height: 60px;
-		position: relative;
-	}
 	#mid{
 		height: 80%;
 		width: auto;
@@ -36,16 +31,11 @@ session_start();
 		margin-bottom: 5%;
 		box-sizing: border-box;
 	}
-	#bottom{
-		height: 150px;
-		width: 100%;
-		position: relative;
-	}
 	.left{
 		height: 100%;
 		width: 60%;
 		float: left;
-		background-image: url("../image/user_background.jpg");
+		background: url("../image/user_background.jpg") center center;
 		background-size: cover;
 		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 		border-radius: 15px;
@@ -128,6 +118,9 @@ session_start();
 		display: block;
 		margin-left: 10%;
 	}
+	#submit:hover{
+		background-color: rgba(0,0,0,0.2);
+	}
 	#btm{
 		width: 300px;
 		display: flex;
@@ -142,7 +135,7 @@ session_start();
 		background-color: transparent;
 	}
 	#btm a:hover{
-		background-color:rgba(255,255,255,0.8);
+		color: darkred;
 	}
     .header {
             width: 100%;
@@ -181,8 +174,9 @@ session_start();
 	include "../conn.php";
 	$sql="Select * from user where account='$user_name' and password='$user_pass'";
 	$result=mysqli_query($conn,$sql)or die("查询失败，请检查sql语句");
+	$row=mysqli_fetch_assoc($result);
 	if(mysqli_num_rows($result)>0){
-			$_SESSION["user"]=$user_name;
+			$_SESSION["user_id"]=$row['user_id'];
 			header("location:http://localhost/MiraiProject/main/main.php");
 	}else{
 			echo "<script language='javascript' type='text/javascript'>";

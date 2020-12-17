@@ -11,33 +11,53 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
 </head>
 <style>
-	#top1{
-		width:auto;
-		height: 20px;
-		margin: 0 10%;
-	}
 	#top2{
 		width: auto;
 		margin: 0 10%;
 		height: 250px;
+		margin-top:30px;
 	}
 	#main{
 		width: auto;
 		margin: 0 10%;
 		height: 250px;
-		background-image: url("../image/new_banner1.png");
+/*		background: url("../image/new_banner1.png")*/
+		background: url(<?php 
+				include "../conn.php";
+			$user_id=$_SESSION['user_id'];
+			$sql="select background from user where user_id='$user_id'";
+			$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
+			$row=mysqli_fetch_assoc($result);
+			if(empty($row['backgroud'])){
+				echo "../image/new_banner1.png";
+			}else{
+			echo $row;
+			}
+			?>) center center;
 		background-size: cover;
 		border-radius: 10px;
 	}
 	#main_xinxi{
-		width: 249px;
+		width: auto;
 		height: 64px;
 		padding-top: 170px;
 		margin-left: 30px;
 		position: relative;
 	}
 	#touxiang{
-		background-image: url("../image/001.jpg");
+/*		background-image: url("../image/001.jpg");*/
+		background-image: url(<?php 
+			include "../conn.php";
+			$user_id=$_SESSION['user_id'];
+			$sql="select avatar from user where user_id='$user_id'";
+			$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
+			$row=mysqli_fetch_assoc($result);
+			if(empty($row['avatar'])){
+				echo "../image/001.jpg";
+			}else{
+				echo $row;
+			}
+			?>);
 		height: 64px;
 		width: 64px;
 		border-radius: 50%;
@@ -54,7 +74,7 @@ session_start();
 		float: left;
 	}
 	#username{
-		font-weight: 700;
+		font-weight: 700px;
 		line-height: 18px;
 		font-size: 18px;
 		vertical-align: middle;
@@ -74,6 +94,9 @@ session_start();
 		padding: 0 7px;
 		border: 1px solid #d9d9d9;
 		border-radius: 4px;
+	}
+	#dengchu:hover{
+		background-color: burlywood;
 	}
 	#mid{
 		height: 47px;
@@ -117,8 +140,10 @@ session_start();
 	}
 	#mid_main ul li.on ,#mid_main ul li:hover{
 		color:#0835EB;
+/*
 		border-bottom: 2px solid;
 		border-bottom-color: #0835EB;
+*/
 	}
 	#shezhi{
 		width:100%;
@@ -309,7 +334,7 @@ session_start();
 	$user_name=$_POST["account"];
 	$user_email=$_POST["email"];
 	$user_jianjie=$_POST["jianjie"];
-	$user=$_SESSION["user"];
+	$user_id=$_SESSION["user_id"];
 	//连接数据库
 	include "../conn.php";
 	$sql="select * from user where account=$user_name";
@@ -319,10 +344,20 @@ session_start();
 			echo "alert('用户已经注册，请设置其他用户名');";
 			echo "</script>";
 		}else{
-		$sql="update user set account='$user_name',email='$user_email',introduction='$user_jianjie' where account='$user'";
+		$sql="update user set username='$user_name',email='$user_email',introduction='$user_jianjie' where user_id='$user_id'";
 		$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
 		}
 	}
+
+	$sql="select animate_id from likes where user_id='$user_id'";
+	$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
+	$row=mysqli_fetch_assoc($result);
+	$animate_id=$row['animate_id'];
+	$sql="select * from animate where animate_id='$animate_id'";
+	$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
+	$row1=mysqli_fetch_assoc($result);
+	$cover=$row1['cover'];
+	$name=$row1['name'];
 	?>
 <div id="all">
 	<iframe src="../header.php" class="header" scrolling="no"></iframe>
@@ -332,11 +367,21 @@ session_start();
 				<div id="touxiang" ></div>
 				<div id="name">
 					<span id="username">
-						<?php 
-						echo $_SESSION["user"];
+						<?php
+//						echo $_SESSION["user"];
+						include "../conn.php";
+						$user_id=$_SESSION['user_id'];
+						$sql="select * from user where user_id='$user_id'";
+						$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
+						$row=mysqli_fetch_assoc($result);
+						if(empty($row['username'])){
+							echo $row['account'];
+						}else{
+							echo $row['username'];
+						}
 						?>
 						<span id="dengji">lv1</span>
-						<span id="dengchu">登出</span>
+						<a  href="../main/main.php" id="dengchu" style="color: #fff">登出</a>
 					</span>
 				</div>
 				</div>
@@ -373,17 +418,17 @@ session_start();
 			</div>
 	</div>
 		<div id="bottom1">
-		<div id="shezhi2">
-		<div id="l">
-			<ul>
-				<li>视频</li>
-				<li>漫画</li>
-				<li>文章</li>
-			</ul>
-		</div>
-		<div id="r">
-			<div id="shuju">暂无数据</div>
-		</div>
+			<div id="shuju">
+				<div>
+					<div class="animate">
+                        <a href='../animate/detail.php<?php echo "?animate_id=$animate_id"; ?>'>
+                            <img src=<?php echo $cover; ?> >
+                        </a>
+                        <div class='animate_name'>
+                            <a href='detail.php<?php echo "?animate_id=$animate_id"; ?>'><?php echo $name;?></a>
+                        </div>
+					</div>
+				</div>
 		</div>
 		</div>
 		<div id="bottom2">

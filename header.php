@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>header</title>
     <style>
+
         body {
             font-family: "微软雅黑", Arial, Helvetica, sans-serif;
             font-size: 18px;
@@ -120,7 +121,7 @@ if (empty($_SESSION["user"])) {
     $url = "image/akari.jpg";
 } else {
     $is_login = true;
-    $user_id = $_SESSION["user"];
+    $user_id = $_SESSION["user_id"];
     $sql = "select avatar from user where user_id='$user_id'";
     $result = mysqli_query($conn, $sql) or die("数据查询失败");
     $row = mysqli_fetch_assoc($result);
