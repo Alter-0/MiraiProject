@@ -182,9 +182,9 @@ if (empty($_SESSION["user"])) {
         </section>
 
         <section class="middle">
-            <form action="index/index.html" target="_top">
+            <form action="index/index.html" target="_top" method="get">
                 <label>
-                    <input type="text" value="" placeholder="请输入要搜索的番剧">
+                    <input type="text" value="" name="key" placeholder="请输入要搜索的番剧">
                 </label>
             </form>
         </section>
