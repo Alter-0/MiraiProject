@@ -6,7 +6,14 @@ session_start();
 <head>
 <meta charset="utf-8">
     <title>login</title>
+	  <link rel="shortcut icon" href="../image/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
+    <link rel="stylesheet" type="text/css" href="../css/loading.css">
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/loading.js"></script>
+    <script src="../js/sakura.js"></script>
+    <script src="../js/mouse_click.js"></script>
 </head>
 <style>
 	*{
@@ -25,6 +32,9 @@ session_start();
 		margin: 0 10%;
 		position: relative;
 		white-space: nowrap;
+		margin-top: 5%;
+		margin-bottom: 25%;
+		box-sizing: border-box;
 	}
 	#bottom{
 		height: 150px;
@@ -37,6 +47,10 @@ session_start();
 		float: left;
 		background-image: url("../image/user_background.jpg");
 		background-size: cover;
+		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+		border-radius: 15px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 	#img1{
 		height: 100%;
@@ -48,6 +62,11 @@ session_start();
 		background-color: #ffffff;
 		float: left;
 		overflow: hidden;
+		background-color:rgba(255,255,255,0.8);
+		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+		border-radius: 15px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 	#table{
 		width: 80%;
@@ -122,6 +141,9 @@ session_start();
 		text-decoration: none;
 		background-color: transparent;
 	}
+	#btm a:hover{
+		background-color:rgba(255,255,255,0.8);
+	}
     .header {
             width: 100%;
             height: 50px;
@@ -130,10 +152,9 @@ session_start();
         }
 	</style>
 <body>
-<div id="main" >
-	<iframe src="../header.php" class="header" scrolling="no"></iframe>
-	<div id="top" align="center"></div>
-		<div id="mid">
+<iframe src="../header.php" class="header" scrolling="no"></iframe>
+<div class="main" >
+		<div id="mid" class="main">
 			<img alt=""  class="left" id="">
 			<div id="right">
 				<div id="table">
@@ -152,7 +173,6 @@ session_start();
 			</div>
 			</div>		
 	</div>
-	<div id="bottom"></div>
 </div>
 <?php
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -172,4 +192,25 @@ session_start();
 	}
 	?>
 </body>
+<script>
+    const bg_card = document.getElementsByClassName('main')[0];
+
+    var normalWidth = window.innerWidth;
+    var normalHeight = window.innerHeight;
+
+    $(window).on('load', function () {
+        bg_card.style.height = normalHeight - 50 + "px";
+    });
+
+    window.onresize = function () {
+        if (normalWidth > window.innerWidth || normalHeight < normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+        if (normalWidth < window.innerWidth || normalHeight > normalHeight.innerHeight) {
+            bg_card.style.height = normalHeight - 50 + "px";
+        }
+    }
+
+
+</script>
 </html>

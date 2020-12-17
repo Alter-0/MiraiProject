@@ -18,29 +18,27 @@
 		padding: 0;
 		border: 0;
 	}
-	#top{
-		width: 100%;
-		height: 60px;
-		position: relative;
-	}
 	#mid{
-		height: 560px;
+		height: 100%;
 		width: auto;
 		margin: 0 10%;
 		position: relative;
 		white-space: nowrap;
-	}
-	#bottom{
-		height: 150px;
-		width: 100%;
-		position: relative;
+		margin-top: 5%;
+		margin-bottom: 25%;
+		box-sizing: border-box;
+		border-radius: 15px;
 	}
 	.left{
 		height: 100%;
 		width: 60%;
 		float: left;
 		background-image: url("../image/user_background.jpg");
-		background-size: cover
+		background-size: cover;
+		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+		border-radius: 15px;
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
 	}
 	#img1{
 		height: 100%;
@@ -52,6 +50,11 @@
 		background-color: #ffffff;
 		float: left;
 		overflow: hidden;
+		background-color:rgba(255,255,255,0.8);
+		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+		border-radius: 15px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 	#table{
 		width: 80%;
@@ -66,24 +69,24 @@
 		margin-top: 2%;
 	}
 	.img{
-		height: 40px;
+		height: 40%;
 		margin: auto auto;
 	}
-	#name{
+	.name{
 		border: 1px solid #d9d9d9;
 		box-sizing: border-box;
 		border-radius: 4px;
 		transition: all .3s;
 		line-height: 2;
-		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
-		padding-left: 30px;
+		padding-left: 7%;
 		width: 75%;
-		height: 40px;
-		margin-bottom: 24px;
+		height: 50%;
+		margin-bottom: 7%;
 		display: block;
 		margin-left: 10%;
 	}
+/*
 	#pass{
 		border: 1px solid #d9d9d9;
 		box-sizing: border-box;
@@ -92,10 +95,10 @@
 		line-height: 2;
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
-		padding-left: 30px;
+		padding-left: 7%;
 		width: 75%;
-		height: 40px;
-		margin-bottom: 24px;
+		height: 50%;
+		margin-bottom: 7%;
 		display: block;
 		margin-left: 10%;
 	}
@@ -107,10 +110,10 @@
 		line-height: 2;
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
-		padding-left: 30px;
+		padding-left: 7%;
 		width: 75%;
-		height: 40px;
-		margin-bottom: 24px;
+		height: 50%;
+		margin-bottom: 7%;
 		display: block;
 		margin-left: 10%;
 	}
@@ -119,16 +122,17 @@
 		box-sizing: border-box;
 		border-radius: 4px;
 		transition: all .3s;
-		line-height: 2;
 		color: (0,0,0,.65);
 		background: url("../image/search.png") 3px 3px no-repeat;
-		padding-left: 30px;
+		padding-left: 7%;
 		width: 75%;
-		height: 40px;
-		margin-bottom: 24px;
+		height: 100%;
+		line-height: 100px;
+		margin-bottom: 7%;
 		display: block;
 		margin-left: 10%;
 	}
+*/
 	#submit{
 		border: 1px solid #d9d9d9;
 		box-sizing: border-box;
@@ -169,11 +173,28 @@
 	</style>
 <body>
 <?php 
+$nameErr='';
+$passErr='';
+$emailErr='';
+$repassErr='';
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$user_name=$_POST["user_name"];
 	$user_pass=$_POST["user_pass"];
 	$user_email=$_POST["user_email"];
 	$user_repass=$_POST["user_repass"];
+	if($user_name=''){
+		$nameErr="用户名为空";
+	}
+	if($user_pass=''){
+		$passErr="密码为空";
+	}
+	if($user_repass=''){
+		$repassErr="密码为空";
+	}
+	if($user_email=''){
+		$emailErr="邮箱为空";
+	}
+	if($nameErr='' and $passErr='' and $repassErr='' and $emailErr=''){
 	//连接数据库
 	include "../conn.php";
 	$sql="select * from user where account='$user_name'";
@@ -192,12 +213,11 @@
 			echo "</script>";
 		}
 	}
+	}
 
 ?>
 <iframe src="../header.php" class="header" scrolling="no"></iframe>
 <div class="main" >
-	
-	<div id="top" align="center" class="main"></div>
 		<div id="mid">
 			<div class="left">
 			</div>
@@ -208,10 +228,11 @@
 					</div>
 				<div id="form">
 				<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-					<input type="text" id="name" value="" name="user_name" placeholder="用户名">
-					<input type="password" id="pass" value="" name="user_pass"placeholder="密码">
-					<input type="password" id="repass" value="" name="user_repass" placeholder="再输入一次密码">
-					<input type="email" id="email" value=""  name="user_email" placeholder="邮箱">
+					<input type="text" class="name" id="name" value="" name="user_name" placeholder="用户名">
+					<?php ?>
+					<input type="password" id="pass" class="name" value="" name="user_pass"placeholder="密码">
+					<input type="password" id="repass" class="name" value="" name="user_repass" placeholder="再输入一次密码">
+					<input type="email"  class="name" id="email" value=""  name="user_email" placeholder="邮箱">
 					<input type="submit" id="submit" value="注册">
 					</form>
 				</div>
@@ -222,7 +243,6 @@
 				</div>
 			</div>
 	</div>
-	<div id="bottom"></div>	
 </div>
 </body>
 <script>
