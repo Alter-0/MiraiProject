@@ -25,7 +25,6 @@
 
         $sql = "select * from video where animate_id=$animate_id";
         $result_video_list = mysqli_query($conn, $sql) or die("数据查询失败");
-        //$row_video_list=mysqli_fetch_assoc($result_video_list);
     } else {
         $video_id = 100001;
     }
@@ -37,7 +36,7 @@
         ?></title>
 
     <!--引入dplayer-->
-    <link rel="stylesheet" href="../res/DPlayer.min.css" />
+    <link rel="stylesheet" href="../res/DPlayer.min.css"/>
     <script src="../res/md5.js"></script>
     <script src="../res/flv.js"></script>
     <script src="../res/hls.js@latest.js"></script>
@@ -51,7 +50,6 @@
         .all {
             min-height: 100%;
             flex: 1;
-            /*position: relative;*/
             margin-bottom: -165px;
         }
 
@@ -61,7 +59,6 @@
             margin: 30px 10% 30px 10%;
             background: url(../image/new_banner1.png) center;
             background-size: cover;
-            /*background: #fff;*/
             text-align: center;
             box-sizing: border-box;
             border-radius: 15px;
@@ -115,7 +112,6 @@
             margin-left: 2%;
             margin-right: 2%;
             font-size: 20px;
-            /*list-style-type: disc;*/
         }
 
         li:after {
@@ -183,9 +179,6 @@
             border-radius: 15px;
             padding: 10px;
             box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
-            /*min-height: 480px;*/
-            /*max-height: 600px;*/
-            /*overflow: auto;*/
         }
 
         .episode::-webkit-scrollbar {
@@ -209,7 +202,6 @@
         }
 
         #dplayer {
-            /*min-height: 720px;*/
             margin: 2px;
         }
 
@@ -237,11 +229,7 @@
             display: grid;
             gap: 10px;
             height: auto;
-            /*min-height: 480px;*/
-            /*max-height: 600px;*/
             overflow: auto;
-            /*grid-template-columns: 1fr 1fr 1fr;*/
-            /*grid-template-rows: 1fr 1fr 1fr 1fr;*/
         }
 
         .list {
@@ -254,7 +242,6 @@
             border-radius: 4px;
             box-sizing: border-box;
             margin: 5px;
-            /*box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.3);*/
             transition: all .3s;
         }
 
@@ -355,15 +342,6 @@
                         ";
                     }
                     ?>
-
-                    <!--                    <div class="list">-->
-                    <!--                        <a href="#">-->
-                    <!--                            <img src="../image/noface.jpg" alt="">-->
-                    <!--                            <div class="text">-->
-                    <!--                                <span>01-啊啊啊啊啊啊啊</span>-->
-                    <!--                            </div>-->
-                    <!--                        </a>-->
-                    <!--                    </div>-->
                 </div>
             </div>
 
@@ -380,8 +358,11 @@
                         echo $row_video['views'];
                         ?>
                     </span>
-                    <!--                    <span>追番数：</span>-->
-                    <!--                    <span>弹幕数：</span>-->
+                    <span>  追番数：
+                        <?php
+                        echo $row_animate['likes'];
+                        ?>
+                    </span>
                 </p>
             </div>
 
@@ -432,13 +413,12 @@
 </body>
 
 <!--js部分-->
-<!--<script src="../../node_modules/dplayer/dist/DPlayer.min.js"></script>-->
 <script type="text/javascript">
     const dp = new DPlayer({
         container: document.getElementById('dplayer'),
         screenshot: true,
         theme: 'white',
-        preload:'60s',
+        preload: '60s',
         video: {
             url: '<?php echo $row_video['url'] ?>',
             pic: '<?php echo $row_video['cover'] ?>',
@@ -461,7 +441,7 @@
     var normalWidth = window.innerWidth;
     var normalHeight = window.innerHeight;
 
-    $(window).on('load',function(){
+    $(window).on('load', function () {
         episode_card.style.height = video_card.clientHeight - 46 + "px";
     });
 
@@ -473,8 +453,6 @@
             episode_card.style.height = video_card.clientHeight - 46 + "px";
         }
     }
-
-
 
 </script>
 </html>
