@@ -443,7 +443,9 @@ session_start();
 						}
 						?>
 						<span id="dengji">lv1</span>
-						<a  href="../main/main.php" id="dengchu" style="color: #fff">登出</a>
+						<a  href="../main/main.php" id="dengchu" style="color: #fff"<?php
+							unset($_SESSION["user_id"]);
+							?>>登出</a>
 					</span>
 				</div>
 				</div>
