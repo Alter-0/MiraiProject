@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>reg</title>
+    <title>Mirai-注册</title>
     <link rel="shortcut icon" href="../image/favicon.ico">
     <link rel="stylesheet" type="text/css" href="../css/default.css">
     <link rel="stylesheet" type="text/css" href="../css/loading.css">

@@ -5,7 +5,7 @@ session_start();
 <html>
 <head>
 <meta charset="utf-8">
-    <title>login</title>
+    <title>Mirai-登录</title>
 	  <link rel="shortcut icon" href="../image/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
     <link rel="stylesheet" type="text/css" href="../css/loading.css">

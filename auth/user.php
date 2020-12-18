@@ -6,7 +6,7 @@ session_start();
 <head>
 	<script src="../js/jquery.js"></script>
     <meta charset="UTF-8">
-    <title>user</title>
+    <title>Mirai-个人中心</title>
 	<script src="../js/main.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/default.css">
 </head>
