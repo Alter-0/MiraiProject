@@ -22,7 +22,7 @@
 
 ## 示例
 
-成品地址：[Mirai](http://blueberry.top/MiraiProject/home/home.html)  
+成品地址：[Mirai](http://blueberryqaq.top/MiraiProject/home/home.html)  
 感谢团队每一位成员为本项目做出的贡献
 
 ## 许可证
