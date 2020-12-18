@@ -1233,8 +1233,7 @@ if (!empty($_SESSION['user_id'])) {
 
 
             function getvideolist(tab) {
-                // var dang_Id = $(this).attr("data-id");//获取信息id
-                // var Z_zong = $(this).attr("data-num");//获取数据
+
                 if (tab !== "") {
                     var tabs = document.getElementsByClassName('sl_nav_list')[0].getElementsByTagName('li');
 
