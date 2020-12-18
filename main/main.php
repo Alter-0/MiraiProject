@@ -11,7 +11,8 @@
 
 <body>
 	<?php 
-	include "../conn.php"
+	include "../conn.php";
+	session_start();
 	?>
 	<!-- top begin-->
 	<div class="top">
@@ -24,9 +25,9 @@
           <div class="fenlei">
               <ul>
                <li><a>全部</a></li>
-               <li><a >连载动画</a></li>
-               <li><a >完结动画</a></li>
-               <li><a href="../index/index.html" target="_blank">番剧索引</a></li>
+               <li><a href="../index/index.php?is_finish=0" target="_blank">连载动画</a></li>
+               <li><a href="../index/index.php?is_finish=1" target="_blank">完结动画</a></li>
+               <li><a href="../index/index.php" target="_blank">番剧索引</a></li>
               </ul>		
               <div class="logo1"><img src="#" alt=""/></div>	
           </div>
@@ -242,16 +243,28 @@
 		<div class="nr">
 			<div class="nr-t">
 				<span>我的追番</span>
-				<span><a>更多</a></span>				
+				<?php
+				if(!empty($_SESSION["user_id"])){	
+					echo "<span><a href='../auth/user.php'>更多</a></span>";
+				}
+				else{
+					echo "<span><a href='../auth/login.php'>更多</a></span>";
+				}										
+				?>
 			</div>	
 			<div class="myfan">
 				<table>
-			<?php
-/*				$_SESSION['username']*/
-/*                $sql="select * from animate,likes,user where likes.animate_id=animate.animate_id and likes.user_id=".$username." limit 4;";*/
-				$sql="select * from animate order by start_date DESC limit 4;";
-				$result=mysqli_query($conn,$sql) or die("数据库查询失败");
+			<?php		
+				if(!empty($_SESSION["user_id"])){	
+					$username=$_SESSION["user_id"];}
+				else{
+					$username='999999';
+				}
+
+                $sql="select * from animate,likes where likes.animate_id=animate.animate_id and likes.user_id=".$username.";";
+				$result=mysqli_query($conn,$sql) or die("数据库查询失败");				
 				if(mysqli_num_rows($result)){
+					$i=1;
 					while($row=mysqli_fetch_assoc($result)){
 						echo "<tr>";
 						echo "<td><div class='myfan-left'>";
@@ -260,8 +273,18 @@
 						echo "<div class='myfan-right'>";
 						echo "<div><p><a href='../animate/detail.php?animate_id=".$row['animate_id']."' target='_blank'><span>".$row['name']."</span></a></p></div>";
 						echo "<p>".$row['index_show']."</p>";
-                        echo "</div></td></tr>";							
-					}}
+                        echo "</div></td></tr>";
+						$i++;
+						if($i>4){
+							break;
+						}
+				}}else{
+						echo "<tr>";
+						echo "<td><div class='qdl'>";
+						echo "<span><a href='../auth/login.php'>请登录</a></span>";
+						echo "</div></td>";
+						echo "</tr>";
+				}
 			?>						
 <!--		     <tr>
 					 <td>
@@ -328,9 +351,9 @@
 				<a href="" target="_blank">全部</a>
 			</div>
 			<div class="label3">
-				<a href="" target="_blank">追番人数</a>
-				<a href="" target="_blank">最高评分</a>
-				<a href="" target="_blank">播放数量</a>
+				<a href="../index/index.php" target="_blank">追番人数</a>
+				<a href="../index/index.php" target="_blank">最高评分</a>
+				<a href="../index/index.php" target="_blank">播放数量</a>
 			</div>
 		</div>
 		<div class="label1">
@@ -339,14 +362,14 @@
 				<a href="" target="_blank">全部</a>
 			</div>
 			<div class="label3">
-				<a href="" target="_blank">2021</a>
-				<a href="" target="_blank">2020</a>
-				<a href="" target="_blank">2019</a>
-				<a href="" target="_blank">2018</a>
-				<a href="" target="_blank">2017</a>
-				<a href="" target="_blank">2016</a>
-				<a href="" target="_blank">2015</a>
-				<a href="" target="_blank">2014-2010</a>
+				<a href="../index/index.php?start_date=0" target="_blank">2021</a>
+				<a href="../index/index.php?start_date=1" target="_blank">2020</a>
+				<a href="../index/index.php?start_date=2" target="_blank">2019</a>
+				<a href="../index/index.php?start_date=3" target="_blank">2018</a>
+				<a href="../index/index.php?start_date=4" target="_blank">2017</a>
+				<a href="../index/index.php?start_date=5" target="_blank">2016</a>
+				<a href="../index/index.php?start_date=6" target="_blank">2015</a>
+				<a href="../index/index.php?start_date=7" target="_blank">2014-2010</a>
 			</div>		
 		</div>
 		<div class="label1">
@@ -355,14 +378,15 @@
 				<a href="" target="_blank">全部</a>
 			</div>
 			<div class="label3">
-				<a href="" target="_blank">原创</a>
-				<a href="" target="_blank">漫画改</a>
-				<a href="" target="_blank">小说改</a>
-				<a href="" target="_blank">游戏改</a>
-				<a href="" target="_blank">布袋改</a>
-				<a href="" target="_blank">热血</a>
-				<a href="" target="_blank">穿越</a>
-				<a href="" target="_blank">奇幻</a>
+				<a href="../index/index.php?tags=0" target="_blank">奇幻</a>
+				<a href="../index/index.php?tags=1" target="_blank">战斗</a>
+				<a href="../index/index.php?tags=2" target="_blank">搞笑</a>
+				<a href="../index/index.php?tags=3" target="_blank">萌系</a>
+				<a href="../index/index.php?tags=4" target="_blank">声控</a>
+				<a href="../index/index.php?tags=5" target="_blank">校园</a>
+				<a href="../index/index.php?tags=6" target="_blank">恋爱</a>
+				<a href="../index/index.php?tags=7" target="_blank">小说改</a>
+				<a href="../index/index.php?tags=8" target="_blank">漫画改</a>
 			</div>			
 		</div>
 	</div>
@@ -384,7 +408,7 @@
 	<div class="bfzg">
 		<div class="bfzg_t">
 			<span>播放最高</span>
-			<a href="" target="_blank">查看更多</a>
+			<a href="../index/index.php" target="_blank">查看更多</a>
 		</div>	
 		<div class="bfzg_v">
 			<ul>
@@ -458,7 +482,7 @@
 	<div class="pfzg">
 		<div class="pfzg_t">
 			<span>评分最高</span>
-			<a href="" target="_blank">查看更多</a>
+			<a href="../index/index.php" target="_blank">查看更多</a>
 		</div>	
 		<div class="pfzg_v">
 			<ul>
@@ -531,7 +555,7 @@
 	<div class="tj">
 		<div class="tj_t">
 			<span>好番推荐</span>
-			<a href="" target="_blank">查看更多</a>
+			<a href="../index/index.php" target="_blank">查看更多</a>
 		</div>	
 		<div class="tj_v">
 			<ul>

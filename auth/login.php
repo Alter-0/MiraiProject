@@ -177,7 +177,7 @@ session_start();
 	$row=mysqli_fetch_assoc($result);
 	if(mysqli_num_rows($result)>0){
 			$_SESSION["user_id"]=$row['user_id'];
-			header("location:http://localhost/MiraiProject/main/main.php");
+			header("location:../main/main.php");
 	}else{
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户名或密码错误');";
