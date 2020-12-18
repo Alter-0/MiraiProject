@@ -21,7 +21,7 @@ $tagsresult = mysqli_query($conn, $tagssql) or die("失败" . $tagssql);
 session_start();
 
 //虚拟用户
-$user_id = "100002";
+// $user_id = "100002";
 
 $islogin = 0;
 if (!empty($_SESSION['user_id'])) {
@@ -1316,19 +1316,21 @@ if (!empty($_SESSION['user_id'])) {
 
 
             function changelike() {
-                var islogin="0";
+                var islogin=<?php echo $islogin; ?>;
+                var user_idd=<?php if($islogin==1) echo $user_id; else echo '100001';?>;
 
-                if(islogin==="0")
+
+                if(islogin===0)
                 {
                     alert("请登录！")
                     window.location.href = "../auth/login.php";
-                }else {
+                }
+                else {
                     $.ajax({
                         url: "userlike.php?animate_id=" +<?php echo $animate_id?>,
                         data: {
-                            user_id:<?php echo $user_id ?>,
+                            user_id:user_idd
                         },
-
                         dataType: "html",
                         type: "post",
                         cache: false,
