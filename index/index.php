@@ -10,14 +10,13 @@
 <body>
 <?php
 include "../conn.php";
-$tagss=array("奇幻","战斗","搞笑","萌系","声控","校园","小说改","漫画改","恋爱");
+$tagss=array("奇幻","战斗","搞笑","萌系","声控","校园","恋爱","小说改","漫画改");
 $sql = "select count(animate_id) from animate";
 $iswhere = 0;
 if ( !empty( $_GET[ "key" ] ) ) {
   $key = $_GET[ "key" ];
   $sql .= " where name like '%$key%'";
   $iswhere = 1;
-
 }
 if ( !empty( $_GET[ "start_date" ] ) ) {
   $start_date = $_GET[ "start_date" ];
@@ -25,9 +24,8 @@ if ( !empty( $_GET[ "start_date" ] ) ) {
     $sql .= " where start_date like '%$start_date%'";
     $iswhere = 1;
   } else {
-    $sql .= " and start_date like '%$start_date$'";
+    $sql .= " and start_date like '%$start_date%'";
   }
-
 }
 if ( !empty( $_GET[ "is_finish" ] ) ) {
   $is_finish = $_GET[ "is_finish" ];
@@ -37,17 +35,7 @@ if ( !empty( $_GET[ "is_finish" ] ) ) {
   } else {
     $sql .= " and is_finish=$is_finish";
   }
-
 }
-//if ( !empty( $_GET[ "animate_id" ] ) ) {
-//  $animate_id = $_GET[ "animate_id" ];
-//  if ( $iswhere == 0 ) {
-//    $sql .= " where animate_id=$animate_id ";
-//    $iswhere = 1;
-//  } else {
-//    $sql .= " and animate_id=$animate_id";
-//  }
-//}
 	
 if( !empty( $_GET["tags"])){
 	$tag=$tagss[$_GET["tags"]];
@@ -57,7 +45,6 @@ if( !empty( $_GET["tags"])){
 }
 
 $result = mysqli_query( $conn, $sql );
-
 $pageSize = 12;
 $allNum = mysqli_fetch_array($result);
 $endPage = ceil( $allNum[0] / $pageSize );
@@ -126,9 +113,10 @@ $resultend = mysqli_query( $conn, $sql );
           <li class="one"><a href="?tags=3">萌系</a></li>
           <li class="one"><a href="?tags=4">声控</a></li>
           <li class="one"><a href="?tags=5">校园</a></li>
-          <li class="one"><a href="?tags=6">小说改</a></li>
-          <li class="one"><a href="?tags=7">漫画改</a></li>
-          <li class="one"><a href="?tags=8">恋爱</a></li>
+		  <li class="one"><a href="?tags=6">恋爱</a></li>
+          <li class="one"><a href="?tags=7">小说改</a></li>
+          <li class="one"><a href="?tags=8">漫画改</a></li>
+          
         </ul>
       </div>
     </div>
@@ -138,4 +126,5 @@ $resultend = mysqli_query( $conn, $sql );
   <iframe  scrolling="no" class="bottom" src="../footer.html"></iframe>
 </div>
 </body>
+</html>
 </html>
