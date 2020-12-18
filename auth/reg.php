@@ -176,27 +176,27 @@
 <body>
 <?php 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-$nameErr='';
-$passErr='';
-$emailErr='';
-$repassErr='';
+//$nameErr='';
+//$passErr='';
+//$emailErr='';
+//$repassErr='';
 	$user_name=$_POST["user_name"];
 	$user_pass=$_POST["user_pass"];
 	$user_email=$_POST["user_email"];
 	$user_repass=$_POST["user_repass"];
-	if($user_name=''){
-		$nameErr="用户名为空";
-	}
-	if($user_pass=''){
-		$passErr="密码为空";
-	}
-	if($user_repass=''){
-		$repassErr="密码为空";
-	}
-	if($user_email=''){
-		$emailErr="邮箱为空";
-	}
-	if($nameErr='' and $passErr='' and $repassErr='' and $emailErr=''){
+//	if($user_name=''){
+//		$nameErr="用户名为空";
+//	}
+//	if($user_pass=''){
+//		$passErr="密码为空";
+//	}
+//	if($user_repass=''){
+//		$repassErr="密码为空";
+//	}
+//	if($user_email=''){
+//		$emailErr="邮箱为空";
+//	}
+//	if($nameErr='' and $passErr='' and $repassErr='' and $emailErr=''){
 	//连接数据库
 	include "../conn.php";
 	$sql="select * from user where account='$user_name'";
@@ -215,7 +215,7 @@ $repassErr='';
 			echo "</script>";
 		}
 	}
-	}
+//	}
 
 ?>
 <iframe src="../header.php" class="header" scrolling="no"></iframe>
