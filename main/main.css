@@ -395,6 +395,9 @@ a{
 .new .nr .myfan table .qdl span:hover{
 	box-shadow:0 0 0 20px #F4A6D7 inset; 
 }
+.new .nr .myfan table .qdl span:hover a{
+	color:fff;
+}
 .new .nr .myfan table .qdl span a{
 	color: #F4A6D7;
 }
