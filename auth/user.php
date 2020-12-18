@@ -18,8 +18,7 @@ session_start();
 		margin-top:30px;
 	}
 	#main{
-		width: auto;
-		margin: 0 10%;
+		width:100%;
 		height: 250px;
 /*		background: url("../image/new_banner1.png")*/
 		background: url(<?php
@@ -36,6 +35,8 @@ session_start();
 			?>) center center;
 		background-size: cover;
 		border-radius: 10px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
 	}
 	#main_xinxi{
 		width: auto;
@@ -102,25 +103,36 @@ session_start();
 		height: 47px;
 		width: auto;
 		margin: 0 10%;
+		margin-bottom: 30px;
 	}
 	#mid_main{
-		width: auto;
+		width: 100%;
 		height: 100%;
-		margin: 0 10%;
 		border-radius: 10px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
 		background-color: #fff;
-		margin-bottom: 10px;
+		margin-bottom: 30px;
 		background-color:rgba(255,255,255,0.8);
 		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
 	}
-	#bottom{
-		width: auto;
+	.tab_de{
 		height: 500px;
+		width: 100%;
+	}
+	.bottom{
+		height: 500px;
+		width: auto;
 		margin: 0 10%;
+	}
+	#bottom{
+		width: 100%;
+		height: 500px;;
 		background-color: #fff;
 		border-radius: 10px;
 		background-color:rgba(255,255,255,0.8);
 		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+/*		margin-bottom: 30px;*/
 	}
 	#mid_main ul{
 		margin-left: 40px;
@@ -215,19 +227,32 @@ session_start();
 		text-align: right;
 	}
 	#bottom1{
-		width: auto;
+		width: 100%;
 		height: 500px;
-		margin: 0 10%;
 		background-color: #fff;
 		border-radius: 5px;
 		display: none;
 		background-color:rgba(255,255,255,0.8);
 		box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.3);
+/*		margin-bottom: 30px;*/
 	}
 	#shezhi2{
-		width:100%;
-		height: auto;
+		width:auto;
+		height: 400px;;
+		margin: 0 3%;
 	}
+	.animate_over{
+		width: 100%;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.animate_over ul li {
+		padding-top: 10px;
+		margin: 0 2%;
+		width: auto;
+		
+	}
+	
 	#l{
 		width:100px;
 		float: left;
@@ -257,17 +282,9 @@ session_start();
 		color:#0835EB;
 		border-right-color:  #0835EB ;
 	}
-	#shuju{
-		margin-left: 300px;
-		margin-top: 30px;
-		width: auto;
-		height: auto;
-		text-align:left;
-	}
 	#bottom2{
-		width: auto;
+		width: 100%;
 		height: 500px;
-		margin: 0 10%;
 		background-color: #fff;
 		border-radius: 10px;
 		display: none;
@@ -328,8 +345,8 @@ session_start();
 		margin-bottom: 370px;
 	}
   	.animate_cover{
-     width: 100%;
-     height: 100%;
+     width: 50%;
+     height: 50%;
      max-width: 150px;
      max-height: 200px;
      box-sizing: border-box;
@@ -339,18 +356,49 @@ session_start();
      object-fit: cover;
      transition: all 0.5s;
      }
-
-	 img:hover {
-         filter: brightness(80%);
-         transition: all 0.5s;
+	.right{
+		height: 280px;
+		width: 100%;
+		float: left;
+	}
+	.animate{
+		height: 230px;
+		width: 15%;
+		padding-top: 10px;
+		float: left;
+		margin-left: 1%;
+		margin-right: 1%;
+	}
+	.animate_cover{
+		width: 100%;
+		height: 200px;
+	}
+    .animate_name{
+      	padding-top: 10px;
+      	text-align: center;
+      	font-size: 16px;
      }
-
-     .text {
-            padding-top: 10px;
-            text-align: center;
-            font-size: 16px;
+	.animate_name a {
+       color: black;
+       text-decoration: none;
+       transition: all 0.3s;
+       display: block;
+       z-index: 10;
      }
-
+	.animate_over a img{
+		width: 100%;
+		height: 100%;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.3);
+	}
+     .animate_name  a:hover {
+            color: #37afff;
+    }
+	.animate_over a img:hover{
+            filter: brightness(80%);
+            transition: all 0.5s;
+	}
 	</style>
 <body>
 <?php
@@ -409,6 +457,8 @@ session_start();
 			<li onClick="changeTab(this)">账号</li>
 			</ul>
 		</div>
+	</div>
+	<div class="bottom">
 		<div class="tab_de">
 		<div id="bottom">
 			<div id="shezhi">
@@ -432,11 +482,13 @@ session_start();
 			</div>
 	</div>
 		<div id="bottom1">
-			<div id="shuju">
 				<div id="shezhi2">
-				<div>
-					<div class="animate">
-               			<?php
+				<div class="animate_over">
+					<ul>
+						<li>
+						<div class="right">
+						
+						<?php
                         $user_id=$_SESSION["user_id"];
                         $sql="select * from likes,animate where user_id='$user_id' and likes.animate_id=animate.animate_id";
                         $result=mysqli_query($conn,$sql)or die("请检查sql语句");
@@ -445,19 +497,25 @@ session_start();
                             $cover=$row['cover'];
                             $name=$row['name'];
                             $animate_id=$row['animate_id'];
-                            echo"<div>
-		    <a href='../animate/detail.php?animate_id=$animate_id' class='animate_cover'>
-                            <img src='$cover' alt=''>
-                        </a>
-                        <div class='animate_name'>
-                            <a href='../animate/detail.php?animate_id=$animate_id'>$name</a>
-                        </div>
-			</div>";
-                        }
-                        ?>
-					</div>
+                            echo"
+							<div class='animate'>
+								<div class='animate_cover'>
+									<a href='../animate/detail.php?animate_id=$animate_id'>
+									<img src='$cover' alt=''>
+									</a>
+								</div>
+								<div class='animate_name'>
+									<a href='../animate/detail.php?animate_id=$animate_id'>$name</a>
+								</div>
+								</div>
+							";
+                       
+						}
+						?>
+						</div>
+						</li>
+					</ul>
 				</div>
-		</div>
 		</div>
 		</div>
 		<div id="bottom2">
@@ -477,6 +535,7 @@ session_start();
 		</div>
 	</div>
 </div>
+<iframe src="../footer.html" class="footer" scrolling="no"></iframe>
 <script>
 	var tabs = document.getElementById('mid_main').getElementsByTagName('li');
     var contents=document.querySelectorAll(".tab_de>div");
@@ -495,6 +554,5 @@ session_start();
         }
     }
 </script>
-<iframe src="../footer.html" class="footer" scrolling="no"></iframe>
 </body>
 </html>
