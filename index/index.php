@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta charset="UTF-8" name="referrer" content="never">
-<title>index</title>
+<title>Mirai-番剧索引</title>
 <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="../js/main.js"></script>
 </head>
 
 <body>
 <?php
 include "../conn.php";
 $tagss=array("奇幻","战斗","搞笑","萌系","声控","校园","恋爱","小说改","漫画改");
+	
 $sql = "select count(animate_id) from animate";
 $iswhere = 0;
 if ( !empty( $_GET[ "key" ] ) ) {
@@ -18,8 +20,19 @@ if ( !empty( $_GET[ "key" ] ) ) {
   $sql .= " where name like '%$key%'";
   $iswhere = 1;
 }
+	
 if ( !empty( $_GET[ "start_date" ] ) ) {
   $start_date = $_GET[ "start_date" ];
+	if($start_date==10000){
+		if ( $iswhere == 0 ) {
+    $sql .= " where start_date<'2010-01-01' and start_date>'2000-01-01'";
+    $iswhere = 1;
+  } else {
+    $sql .= " and start_date<'2010-01-01' and start_date>'2000-01-01'";
+  }
+			
+}
+	else{
   if ( $iswhere == 0 ) {
     $sql .= " where start_date like '%$start_date%'";
     $iswhere = 1;
@@ -27,6 +40,8 @@ if ( !empty( $_GET[ "start_date" ] ) ) {
     $sql .= " and start_date like '%$start_date%'";
   }
 }
+}
+	
 if ( !empty( $_GET[ "is_finish" ] ) ) {
   $is_finish = $_GET[ "is_finish" ];
   if ( $iswhere == 0 ) {
@@ -43,7 +58,7 @@ if( !empty( $_GET["tags"])){
 		$sql.=" where animate_id in (select animate_id from tags where tag='$tag') ";	
 	}
 }
-
+	
 $result = mysqli_query( $conn, $sql );
 $pageSize = 12;
 $allNum = mysqli_fetch_array($result);
@@ -53,6 +68,7 @@ $sql=str_replace("count(animate_id)","*",$sql);
 $sql .= " limit " . ( $pageNum - 1 ) * $pageSize . "," . $pageSize;
 $resultend = mysqli_query( $conn, $sql );
 ?>
+
 <div class="top">
   <iframe src="../header.php" class="header" scrolling="no"></iframe>
   <div class="img"><img src="../main/image/banner.png"></div>
@@ -60,9 +76,8 @@ $resultend = mysqli_query( $conn, $sql );
 <div class="index">
   <div class="left">
     <ul class="banner">
-      <li class="list1"> <i class="up"></i> <span>最高评分</span> <i class="down"></i> </li>
-      <li class="list1"> <i class="up"></i> <span>播放数量</span> <i class="down"></i> </li>
-      <li class="list1"> <i class="up"></i> <span>开播时间</span> <i class="down"></i> </li>
+      <li class="list1"> <i class="up"></i> <span><a href="?score=1">最高评分</a></span> <i class="down"></i> </li>
+      <li class="list1"> <i class="up"></i> <span><a href="?start=2020">开播时间</a></span> <i class="down"></i> </li>
     </ul>
     <ul class="video">
       <?php

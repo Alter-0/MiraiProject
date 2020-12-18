@@ -6,7 +6,6 @@
 	list-style: none;
 }
 body{
-	
 	background-size: cover;
 	background-attachment:fixed;
     display: flex;
@@ -42,10 +41,9 @@ body{
 
 .index{
 	width:auto;
-	height: 1320px;
+	height:1320px;
 	margin-left: 10%;
 	margin-right: 10%;
-	
 	margin-bottom: 30px;
 	margin-top: 30px;
 	border-radius: 10px;
@@ -193,6 +191,7 @@ body{
     transition: all .2s ease;
 	margin-right: 5px;
 }
+
 a {
     text-decoration: none;
     outline-width: 0;
@@ -284,6 +283,7 @@ a {
 }
 
 .bottom{
+	margin-top: 20px;
 	width: 100%;
 	
 }
