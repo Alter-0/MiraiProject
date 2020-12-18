@@ -22,7 +22,7 @@ session_start();
 		margin: 0 10%;
 		height: 250px;
 /*		background: url("../image/new_banner1.png")*/
-		background: url(<?php 
+		background: url(<?php
 				include "../conn.php";
 			$user_id=$_SESSION['user_id'];
 			$sql="select background from user where user_id='$user_id'";
@@ -46,7 +46,7 @@ session_start();
 	}
 	#touxiang{
 /*		background-image: url("../image/001.jpg");*/
-		background-image: url(<?php 
+		background-image: url(<?php
 			include "../conn.php";
 			$user_id=$_SESSION['user_id'];
 			$sql="select avatar from user where user_id='$user_id'";
@@ -74,7 +74,7 @@ session_start();
 		float: left;
 	}
 	#username{
-		font-weight: 700px;
+		font-weight: 700;
 		line-height: 18px;
 		font-size: 18px;
 		vertical-align: middle;
@@ -255,7 +255,7 @@ session_start();
 	}
 	#l ul li:hover, #l ul li.on{
 		color:#0835EB;
-		border-right-color:  #0835EB thick;
+		border-right-color:  #0835EB ;
 	}
 	#shuju{
 		margin-left: 300px;
@@ -353,7 +353,7 @@ session_start();
 
 	</style>
 <body>
-<?php 
+<?php
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 	$user_name=$_POST["account"];
 	$user_email=$_POST["email"];
@@ -363,7 +363,7 @@ session_start();
 	include "../conn.php";
 	$sql="select * from user where account=$user_name";
 	$result=mysqli_query($conn,$sql) or die("查询失败，请检查SQL语法");
-		if(mysqli_num_rows($result)>0){	
+		if(mysqli_num_rows($result)>0){
 			echo "<script language='javascript' type='text/javascript'>";
 			echo "alert('用户已经注册，请设置其他用户名');";
 			echo "</script>";
@@ -372,27 +372,6 @@ session_start();
 		$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
 		}
 	}
-function animate(){
-	$sql="select animate_id from likes where user_id='$user_id'";
-	$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
-	$row=mysqli_fetch_assoc($result);
-	$animate_id=$row['animate_id'];
-	$sql="select * from animate where animate_id='$animate_id'";
-	$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
-	$row1=mysqli_fetch_assoc($result);
-	$cover=$row1['cover'];
-	$name=$row1['name'];
-	while($row1){
-		echo"<div>
-		    <a href='../animate/detail.php?animate_id='$animate_id'' class='animate_cover'>
-                            <img src='$cover' alt=''>
-                        </a>
-                        <div class='animate_name'>
-                            <a href='../animate/detail.php?animate_id='$animate_id''>$name;</a>
-                        </div>
-			</div>";
-	}
-}
 	?>
 <div id="all">
 	<iframe src="../header.php" class="header" scrolling="no"></iframe>
@@ -446,7 +425,7 @@ function animate(){
 							<textarea id="jianjie" name="jianjie"></textarea><br>
 							<input type="submit" name="submit" id="submit" value="提交">
 						</form>
-						
+
 					</div>
 				</div>
 				<div class="bottom_touxiang"></div>
@@ -457,7 +436,25 @@ function animate(){
 				<div id="shezhi2">
 				<div>
 					<div class="animate">
-               			<?php animate(); ?>
+               			<?php
+                        $user_id=$_SESSION["user_id"];
+                        $sql="select * from likes,animate where user_id='$user_id' and likes.animate_id=animate.animate_id";
+                        $result=mysqli_query($conn,$sql)or die("请检查sql语句");
+
+                        while($row=mysqli_fetch_assoc($result)){
+                            $cover=$row['cover'];
+                            $name=$row['name'];
+                            $animate_id=$row['animate_id'];
+                            echo"<div>
+		    <a href='../animate/detail.php?animate_id=$animate_id' class='animate_cover'>
+                            <img src='$cover' alt=''>
+                        </a>
+                        <div class='animate_name'>
+                            <a href='../animate/detail.php?animate_id=$animate_id'>$name</a>
+                        </div>
+			</div>";
+                        }
+                        ?>
 					</div>
 				</div>
 		</div>

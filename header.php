@@ -116,7 +116,7 @@
 <?php
 include "conn.php";
 session_start();
-if (empty($_SESSION["user"])) {
+if (empty($_SESSION["user_id"])) {
     $is_login = false;
     $url = "image/akari.jpg";
 } else {
@@ -183,7 +183,7 @@ if (empty($_SESSION["user"])) {
         </section>
 
         <section class="middle">
-            <form action="index/index.html" target="_top" method="get">
+            <form action="index/index.php" target="_top" method="get">
                 <label>
                     <input type="text" value="" name="key" placeholder="请输入要搜索的番剧">
                 </label>
