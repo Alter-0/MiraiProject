@@ -358,7 +358,7 @@
                         echo $row_video['views'];
                         ?>
                     </span>
-                    <span>  追番数：
+                    <span><br><br>追番数：
                         <?php
                         echo $row_animate['likes'];
                         ?>
