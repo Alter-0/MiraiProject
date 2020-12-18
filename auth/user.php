@@ -327,6 +327,30 @@ session_start();
 	#all{
 		margin-bottom: 370px;
 	}
+  	.animate_cover{
+     width: 100%;
+     height: 100%;
+     max-width: 150px;
+     max-height: 200px;
+     box-sizing: border-box;
+     border-radius: 10px;
+     box-shadow: 3px 3px 20px 3px rgba(0, 0, 0, 0.3);
+     display: block;
+     object-fit: cover;
+     transition: all 0.5s;
+     }
+
+	 img:hover {
+         filter: brightness(80%);
+         transition: all 0.5s;
+     }
+
+     .text {
+            padding-top: 10px;
+            text-align: center;
+            font-size: 16px;
+     }
+
 	</style>
 <body>
 <?php 
@@ -348,7 +372,7 @@ session_start();
 		$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
 		}
 	}
-
+function animate(){
 	$sql="select animate_id from likes where user_id='$user_id'";
 	$result=mysqli_query($conn,$sql)or die("注册失败，请检查sql语句");
 	$row=mysqli_fetch_assoc($result);
@@ -358,6 +382,17 @@ session_start();
 	$row1=mysqli_fetch_assoc($result);
 	$cover=$row1['cover'];
 	$name=$row1['name'];
+	while($row1){
+		echo"<div>
+		    <a href='../animate/detail.php?animate_id='$animate_id'' class='animate_cover'>
+                            <img src='$cover' alt=''>
+                        </a>
+                        <div class='animate_name'>
+                            <a href='../animate/detail.php?animate_id='$animate_id''>$name;</a>
+                        </div>
+			</div>";
+	}
+}
 	?>
 <div id="all">
 	<iframe src="../header.php" class="header" scrolling="no"></iframe>
@@ -419,16 +454,13 @@ session_start();
 	</div>
 		<div id="bottom1">
 			<div id="shuju">
+				<div id="shezhi2">
 				<div>
 					<div class="animate">
-                        <a href='../animate/detail.php<?php echo "?animate_id=$animate_id"; ?>'>
-                            <img src=<?php echo $cover; ?> >
-                        </a>
-                        <div class='animate_name'>
-                            <a href='detail.php<?php echo "?animate_id=$animate_id"; ?>'><?php echo $name;?></a>
-                        </div>
+               			<?php animate(); ?>
 					</div>
 				</div>
+		</div>
 		</div>
 		</div>
 		<div id="bottom2">
