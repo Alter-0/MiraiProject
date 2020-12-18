@@ -22,10 +22,10 @@
 
 ## 示例
 
-成品地址：`[Mirai](http://blueberry.top/MiraiProject/home/home.html)`  
+成品地址：[Mirai](http://blueberry.top/MiraiProject/home/home.html)  
 感谢团队每一位成员为本项目做出的贡献
 
 ## 许可证
 
-我们使用`[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)`
+我们使用[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 作为本项目的开源许可证
